@@ -1,9 +1,9 @@
-#include<Servo.h>
+#include <Servo.h>
 
 Servo myservo;
 
 void setup() {
-  myservo.attach();
+  myservo.attach(9);
 
 }
 
