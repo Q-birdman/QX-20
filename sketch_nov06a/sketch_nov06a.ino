@@ -10,13 +10,14 @@ void loop() {
   // put your main code here, to run repeatedly:
 val = analogRead(sensor);
 //Serial.println(val);
-if(val <= 100){
-  Serial.println("暗いわ");
-}
-else if(val <= 200){
-  Serial.println("あー、まあまあです。");
-}
-else{
-  Serial.println("明るすぎん?");
-}
+//if(val <= 100){
+//  Serial.println("val");
+//}
+//else if(val <= 200){
+//  Serial.println("あー、まあまあです。");
+//}
+//else{
+//  Serial.println("明るすぎん?");
+//}
+Serial.println(val)
 }
