@@ -13,6 +13,7 @@ void setup() {
 
 void loop() {
   deg = analogRead(R);
+  deg /= 5.689;
   Serial.println(deg);
   myservo.write(deg);
 }
