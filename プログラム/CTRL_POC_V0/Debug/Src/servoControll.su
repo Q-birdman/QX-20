@@ -1,0 +1,5 @@
+stm32f3xx_ll_gpio.h:895:22:LL_GPIO_SetOutputPin	16	static
+servoControll.c:6:6:rudderControll	4	static
+servoControll.c:24:6:gearControll	4	static
+servoControll.c:39:6:closeLeg	8	static
+servoControll.c:42:6:forceCloseLeg	8	static

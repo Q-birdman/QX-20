@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name QX20CTRL)(type Legacy)(uri ${KIPRJMOD}/QX20CTRL.lib)(options "")(descr ""))
+)
