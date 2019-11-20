@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/QX20CTRLPOCV0.elf",
+            "name": "Debug MCU",
+            "device": "STM32F303",
+            "runToMain": true,
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "board/st_nucleo_f3.cfg"
+            ],
+            "svdFile": "STM32F303.svd"
+        },
+    ]
+}

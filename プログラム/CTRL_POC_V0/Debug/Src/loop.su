@@ -1,3 +1,0 @@
-stm32f3xx_ll_usart.h:2597:26:LL_USART_IsActiveFlag_TXE	16	static
-stm32f3xx_ll_usart.h:3535:22:LL_USART_TransmitData9	16	static
-loop.c:5:6:qx_msLoop	8	static

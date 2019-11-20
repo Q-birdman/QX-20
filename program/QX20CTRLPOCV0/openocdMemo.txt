@@ -1,0 +1,11 @@
+openocd -s C:/dev/ARM/openocd/tcl -f board/st_nucleo_f3.cfg
+
+openocd -s C:/dev/ARM/openocd/tcl -f openocd.cfg -c "flash_elf build/GPIOtest.elf"
+
+C:\Users\GYOKUTECH\Desktop\test1\GPIO_Toggle\build
+---------------------------------------------------------------------------------
+C:\dev\ARM\openocd\openocd -s C:\dev\ARM\openocd\tcl -f board/st_nucleo_f3.cfg
+
+
+C:\dev\ARM\openocd\openocd -s C:/dev/ARM/openocd/tcl -f board/st_nucleo_f3.cfg -f openocd.cfg -c "flash_elf build/QX20CTRLPOCV0.elf"
+
