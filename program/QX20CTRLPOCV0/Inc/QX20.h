@@ -29,7 +29,7 @@ srv: savox SC-1256TG
 #define ELV_N 26000
 #define ELV_U 16900
 #define ELV_D 34700
-
+/*
 typedef struct {
 	int L;
 	int N;
@@ -38,9 +38,10 @@ typedef struct {
 
 typedef struct {
 	int L;
-	int N;
-	int R;
+	int U;
+	int D;
 } elvDegState;
 
 rudDegState rudder;
 elvDegState elevator;
+*/

@@ -29,10 +29,10 @@ static void MX_TIM3_Init(void);
 static void MX_USART1_UART_Init(void);
 
 int tick = 1;
-
+/*
 rudDegState rudder;
 elvDegState elevator;
-
+*/
 void tickPlus(){
   tick++;
 }
@@ -48,9 +48,28 @@ int main(void)
   MX_TIM3_Init();
   MX_USART1_UART_Init();
 
-  rudder.N = RUD_N;
-  elevator.N = ELV_N;
+  TIM3->CCR2 = ELV_N;
+  TIM3->CCR3 = RUD_N;
   while (1) {
+    if(tick % 10 ==  0){
+      if (!(GPIOA->IDR & 0x0001)) {//0000 0001 up
+        TIM3->CCR2 = ELV_U;
+      } else if (!(GPIOA->IDR & 0x0002)) {//0000 0010 down
+        TIM3->CCR2 = ELV_D;
+      } else {
+        TIM3->CCR2 = ELV_N;
+      }
+
+      if (!(GPIOA->IDR & 0x0004)) {//0000 0100 left
+        TIM3->CCR3 = RUD_L;
+      } else if (!(GPIOA->IDR & 0x0008)) {//0000 1000 right
+        TIM3->CCR3 = RUD_R;
+      }else{
+        TIM3->CCR3 = RUD_N;
+      }
+    }
+    /*
+    //角度出し用
     if(tick%500 == 0){
       
       if (!(GPIOA->IDR & 0x0001)) {//0000 0001 up
@@ -67,7 +86,7 @@ int main(void)
       }
       TIM3->CCR2 = elevator.N;
       TIM3->CCR3 = rudder.N;
-      
+
       LL_USART_TransmitData9(USART1, (char)((elevator.N/10000)+'0'));
       while (!LL_USART_IsActiveFlag_TXE(USART1));
       LL_USART_TransmitData9(USART1, (char)((elevator.N%10000/1000)+'0'));
@@ -81,6 +100,7 @@ int main(void)
       LL_USART_TransmitData9(USART1, '\n');
       while (!LL_USART_IsActiveFlag_TXE(USART1));
 	  }
+    */
   }
   /* USER CODE END 3 */
 }
