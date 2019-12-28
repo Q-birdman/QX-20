@@ -1,6 +1,7 @@
 # coding: UTF-8
 
 import cv2
+import time
 import matplotlib.pyplot as plt
 
 shiki_xr = 5
@@ -19,6 +20,8 @@ shiki_min = int(shiki_ymin)
 
 #カメラの情報を得る
 cap=cv2.VideoCapture(0)
+time.sleep(1)
+cap.set(cv2.CAP_PROP_FPS,10)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH,720)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT,480)
 
