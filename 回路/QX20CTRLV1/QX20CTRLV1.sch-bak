@@ -51,14 +51,12 @@ Wire Wire Line
 	1200 2800 1500 2800
 Wire Wire Line
 	1500 3350 1200 3350
-Text GLabel 5300 2600 2    50   Input ~ 0
+Text GLabel 5300 2950 2    50   Input ~ 0
 3.3V
 Wire Wire Line
 	4750 3050 5000 3050
 Wire Wire Line
 	5000 2700 5000 2600
-Wire Wire Line
-	4650 3050 4650 2950
 Wire Wire Line
 	4650 2700 4650 2600
 Connection ~ 4650 2600
@@ -66,8 +64,6 @@ Wire Wire Line
 	4650 2600 5000 2600
 Wire Wire Line
 	4550 3050 4300 3050
-Wire Wire Line
-	4300 3050 4300 2950
 Wire Wire Line
 	4300 2700 4300 2600
 Wire Wire Line
@@ -97,29 +93,12 @@ Text GLabel 5300 4350 2    50   Input ~ 0
 CAN_RX
 Text GLabel 5300 4450 2    50   Output ~ 0
 CAN_TX
-Connection ~ 4650 2950
-Wire Wire Line
-	4650 2950 4650 2900
-Connection ~ 4300 2950
-Wire Wire Line
-	4300 2950 4650 2950
-Wire Wire Line
-	4300 2950 4300 2900
 Wire Wire Line
 	5300 2600 5000 2600
 Wire Wire Line
 	1200 3450 1550 3450
 Wire Wire Line
 	1200 2900 1550 2900
-Wire Wire Line
-	5000 2950 5000 2900
-Wire Wire Line
-	5000 3050 5000 2950
-Connection ~ 5000 2950
-Wire Wire Line
-	4650 2950 5000 2950
-Wire Wire Line
-	5300 2950 5000 2950
 Connection ~ 5000 2600
 Wire Wire Line
 	4050 3450 3950 3450
@@ -141,8 +120,6 @@ Text GLabel 7650 2800 0    50   Input ~ 0
 VIN
 Text GLabel 10250 2800 2    50   Output ~ 0
 3.3V
-Wire Wire Line
-	10250 2800 10100 2800
 Wire Wire Line
 	8900 3250 8900 3100
 $Comp
@@ -170,12 +147,12 @@ $EndComp
 $Comp
 L power:GND #PWR08
 U 1 1 5DFD2DF1
-P 5300 2950
-F 0 "#PWR08" H 5300 2700 50  0001 C CNN
-F 1 "GND" H 5305 2777 50  0000 C CNN
-F 2 "" H 5300 2950 50  0001 C CNN
-F 3 "" H 5300 2950 50  0001 C CNN
-	1    5300 2950
+P 5300 2600
+F 0 "#PWR08" H 5300 2350 50  0001 C CNN
+F 1 "GND" H 5305 2427 50  0000 C CNN
+F 2 "" H 5300 2600 50  0001 C CNN
+F 3 "" H 5300 2600 50  0001 C CNN
+	1    5300 2600
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -464,9 +441,6 @@ Text GLabel 1800 5150 2    50   Input ~ 0
 Wire Wire Line
 	5400 4750 5400 4800
 Connection ~ 9400 3100
-Connection ~ 10100 2800
-Wire Wire Line
-	10100 2800 9400 2800
 Wire Wire Line
 	5400 5000 5400 5050
 $Comp
@@ -474,9 +448,9 @@ L Device:R_Small R4
 U 1 1 5E096C0F
 P 1500 5350
 F 0 "R4" V 1600 5200 50  0000 C CNN
-F 1 "1k" V 1600 5050 50  0000 C CNN
-F 2 "" H 1500 5350 50  0001 C CNN
-F 3 "~" H 1500 5350 50  0001 C CNN
+F 1 "120" V 1600 5050 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1500 5350 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/9013724/" H 1500 5350 50  0001 C CNN
 	1    1500 5350
 	0    -1   -1   0   
 $EndComp
@@ -486,65 +460,10 @@ U 1 1 5E087F68
 P 1000 5350
 F 0 "J6" H 918 4925 50  0000 C CNN
 F 1 "I2C" H 918 5016 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 1000 5350 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 1000 5350 50  0001 C CNN
 F 3 "~" H 1000 5350 50  0001 C CNN
 	1    1000 5350
 	-1   0    0    1   
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x01 J12
-U 1 1 5E071447
-P 5400 3550
-F 0 "J12" H 6000 3550 50  0000 C CNN
-F 1 "PA3" H 5700 3550 50  0000 C CNN
-F 2 "Connector_Pin:Pin_D1.3mm_L11.0mm" H 5400 3550 50  0001 C CNN
-F 3 "~" H 5400 3550 50  0001 C CNN
-	1    5400 3550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x01 J13
-U 1 1 5E071441
-P 5400 3650
-F 0 "J13" H 6000 3650 50  0000 C CNN
-F 1 "PA4" H 5700 3650 50  0000 C CNN
-F 2 "Connector_Pin:Pin_D1.3mm_L11.0mm" H 5400 3650 50  0001 C CNN
-F 3 "~" H 5400 3650 50  0001 C CNN
-	1    5400 3650
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x01 J9
-U 1 1 5E0284FD
-P 5400 3250
-F 0 "J9" H 6000 3250 50  0000 C CNN
-F 1 "PA0" H 5700 3250 50  0000 C CNN
-F 2 "Connector_Pin:Pin_D1.3mm_L11.0mm" H 5400 3250 50  0001 C CNN
-F 3 "~" H 5400 3250 50  0001 C CNN
-	1    5400 3250
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x01 J10
-U 1 1 5E02A50B
-P 5400 3350
-F 0 "J10" H 6000 3350 50  0000 C CNN
-F 1 "PA1" H 5700 3350 50  0000 C CNN
-F 2 "Connector_Pin:Pin_D1.3mm_L11.0mm" H 5400 3350 50  0001 C CNN
-F 3 "~" H 5400 3350 50  0001 C CNN
-	1    5400 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x01 J11
-U 1 1 5E02C52E
-P 5400 3450
-F 0 "J11" H 6000 3450 50  0000 C CNN
-F 1 "PA2" H 5700 3450 50  0000 C CNN
-F 2 "Connector_Pin:Pin_D1.3mm_L11.0mm" H 5400 3450 50  0001 C CNN
-F 3 "~" H 5400 3450 50  0001 C CNN
-	1    5400 3450
-	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_Small R9
@@ -552,8 +471,8 @@ U 1 1 5E031B65
 P 5400 4900
 F 0 "R9" V 5500 4900 50  0000 C CNN
 F 1 "1k" V 5600 4900 50  0000 C CNN
-F 2 "" H 5400 4900 50  0001 C CNN
-F 3 "~" H 5400 4900 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5400 4900 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/9013724/" H 5400 4900 50  0001 C CNN
 	1    5400 4900
 	1    0    0    -1  
 $EndComp
@@ -574,8 +493,8 @@ U 1 1 5E01A234
 P 1400 4350
 F 0 "R2" V 1300 4200 50  0000 C CNN
 F 1 "1k" V 1300 4050 50  0000 C CNN
-F 2 "" H 1400 4350 50  0001 C CNN
-F 3 "~" H 1400 4350 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1400 4350 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/9013724/" H 1400 4350 50  0001 C CNN
 	1    1400 4350
 	0    -1   -1   0   
 $EndComp
@@ -585,8 +504,8 @@ U 1 1 5E017B57
 P 1400 4250
 F 0 "R1" V 1500 4100 50  0000 C CNN
 F 1 "1k" V 1500 3950 50  0000 C CNN
-F 2 "" H 1400 4250 50  0001 C CNN
-F 3 "~" H 1400 4250 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1400 4250 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/9013724/" H 1400 4250 50  0001 C CNN
 	1    1400 4250
 	0    -1   -1   0   
 $EndComp
@@ -596,7 +515,7 @@ U 1 1 5E012346
 P 1000 4350
 F 0 "J5" H 918 4025 50  0000 C CNN
 F 1 "USART" H 918 4116 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1000 4350 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 1000 4350 50  0001 C CNN
 F 3 "~" H 1000 4350 50  0001 C CNN
 	1    1000 4350
 	-1   0    0    1   
@@ -606,9 +525,9 @@ L Device:R_Small R7
 U 1 1 5E00CE14
 P 1800 3250
 F 0 "R7" V 1900 3250 50  0000 C CNN
-F 1 "1k" V 2000 3250 50  0000 C CNN
-F 2 "" H 1800 3250 50  0001 C CNN
-F 3 "~" H 1800 3250 50  0001 C CNN
+F 1 "120" V 2000 3250 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1800 3250 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/9013724/" H 1800 3250 50  0001 C CNN
 	1    1800 3250
 	0    -1   -1   0   
 $EndComp
@@ -617,9 +536,9 @@ L Device:R_Small R6
 U 1 1 5E008202
 P 1800 2700
 F 0 "R6" V 1900 2700 50  0000 C CNN
-F 1 "1k" V 2000 2700 50  0000 C CNN
-F 2 "" H 1800 2700 50  0001 C CNN
-F 3 "~" H 1800 2700 50  0001 C CNN
+F 1 "120" V 2000 2700 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1800 2700 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/9013724/" H 1800 2700 50  0001 C CNN
 	1    1800 2700
 	0    -1   -1   0   
 $EndComp
@@ -640,7 +559,7 @@ U 1 1 5E0A4B6B
 P 3850 3250
 F 0 "J7" H 4450 3250 50  0000 C CNN
 F 1 "NRST" H 4150 3250 50  0000 C CNN
-F 2 "Connector_Pin:Pin_D1.3mm_L11.0mm" H 3850 3250 50  0001 C CNN
+F 2 "Connector_Wire:SolderWirePad_1x01_Drill1mm" H 3850 3250 50  0001 C CNN
 F 3 "~" H 3850 3250 50  0001 C CNN
 	1    3850 3250
 	-1   0    0    1   
@@ -651,7 +570,7 @@ U 1 1 5E038B3F
 P 5400 4650
 F 0 "J15" H 6000 4650 50  0000 C CNN
 F 1 "SWDCLK" H 5700 4650 50  0000 C CNN
-F 2 "Connector_Pin:Pin_D1.3mm_L11.0mm" H 5400 4650 50  0001 C CNN
+F 2 "Connector_Wire:SolderWirePad_1x01_Drill1mm" H 5400 4650 50  0001 C CNN
 F 3 "~" H 5400 4650 50  0001 C CNN
 	1    5400 4650
 	1    0    0    -1  
@@ -662,7 +581,7 @@ U 1 1 5E036C02
 P 5400 4550
 F 0 "J14" H 6000 4550 50  0000 C CNN
 F 1 "SWDIO" H 5700 4550 50  0000 C CNN
-F 2 "Connector_Pin:Pin_D1.3mm_L11.0mm" H 5400 4550 50  0001 C CNN
+F 2 "Connector_Wire:SolderWirePad_1x01_Drill1mm" H 5400 4550 50  0001 C CNN
 F 3 "~" H 5400 4550 50  0001 C CNN
 	1    5400 4550
 	1    0    0    -1  
@@ -673,20 +592,9 @@ U 1 1 5E0305C4
 P 9400 3300
 F 0 "J8" V 9350 3450 50  0000 C CNN
 F 1 "GND" V 9450 3450 50  0000 C CNN
-F 2 "Connector_Pin:Pin_D1.3mm_L11.0mm" H 9400 3300 50  0001 C CNN
+F 2 "Connector_Wire:SolderWirePad_1x01_Drill1mm" H 9400 3300 50  0001 C CNN
 F 3 "~" H 9400 3300 50  0001 C CNN
 	1    9400 3300
-	0    1    1    0   
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x01 J16
-U 1 1 5E02E567
-P 10100 3000
-F 0 "J16" V 10100 3150 50  0000 C CNN
-F 1 "3.3V" V 10200 3150 50  0000 C CNN
-F 2 "Connector_Pin:Pin_D1.3mm_L11.0mm" H 10100 3000 50  0001 C CNN
-F 3 "~" H 10100 3000 50  0001 C CNN
-	1    10100 3000
 	0    1    1    0   
 $EndComp
 $Comp
@@ -695,8 +603,8 @@ U 1 1 5E00B45E
 P 9450 4700
 F 0 "R12" V 9550 4700 50  0000 C CNN
 F 1 "120" V 9650 4700 50  0000 C CNN
-F 2 "" H 9450 4700 50  0001 C CNN
-F 3 "~" H 9450 4700 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 9450 4700 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/8071114/" H 9450 4700 50  0001 C CNN
 	1    9450 4700
 	1    0    0    -1  
 $EndComp
@@ -717,8 +625,8 @@ U 1 1 5E02D432
 P 8100 4650
 F 0 "R11" V 8200 4650 50  0000 C CNN
 F 1 "1k" V 8300 4650 50  0000 C CNN
-F 2 "" H 8100 4650 50  0001 C CNN
-F 3 "~" H 8100 4650 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 8100 4650 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/9013724/" H 8100 4650 50  0001 C CNN
 	1    8100 4650
 	0    1    1    0   
 $EndComp
@@ -728,8 +636,8 @@ U 1 1 5E02D42C
 P 8100 4550
 F 0 "R10" V 7900 4550 50  0000 C CNN
 F 1 "1k" V 8000 4550 50  0000 C CNN
-F 2 "" H 8100 4550 50  0001 C CNN
-F 3 "~" H 8100 4550 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 8100 4550 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/9013724/" H 8100 4550 50  0001 C CNN
 	1    8100 4550
 	0    1    1    0   
 $EndComp
@@ -739,8 +647,8 @@ U 1 1 5E0256C4
 P 9150 4200
 F 0 "C5" H 8950 4200 50  0000 L CNN
 F 1 "0.1uF" H 8900 4100 50  0000 L CNN
-F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9150 4200 50  0001 C CNN
-F 3 "http://akizukidenshi.com/catalog/g/gP-13372/" H 9150 4200 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 9150 4200 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/7407613/" H 9150 4200 50  0001 C CNN
 	1    9150 4200
 	1    0    0    -1  
 $EndComp
@@ -761,8 +669,8 @@ U 1 1 5DFC48A7
 P 9400 2950
 F 0 "C6" H 9492 2996 50  0000 L CNN
 F 1 "10uF" H 9492 2905 50  0000 L CNN
-F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9400 2950 50  0001 C CNN
-F 3 "http://akizukidenshi.com/catalog/g/gP-13388/" H 9400 2950 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 9400 2950 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/7883051/" H 9400 2950 50  0001 C CNN
 	1    9400 2950
 	1    0    0    -1  
 $EndComp
@@ -772,8 +680,8 @@ U 1 1 5DFC48A1
 P 8300 2950
 F 0 "C4" H 8392 2996 50  0000 L CNN
 F 1 "10uF" H 8392 2905 50  0000 L CNN
-F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 8300 2950 50  0001 C CNN
-F 3 "http://akizukidenshi.com/catalog/g/gP-13388/" H 8300 2950 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 8300 2950 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/7883051/" H 8300 2950 50  0001 C CNN
 	1    8300 2950
 	1    0    0    -1  
 $EndComp
@@ -783,8 +691,8 @@ U 1 1 5DF85A30
 P 3850 3450
 F 0 "R8" V 4050 3450 50  0000 C CNN
 F 1 "10k" V 3950 3450 50  0000 C CNN
-F 2 "" H 3850 3450 50  0001 C CNN
-F 3 "~" H 3850 3450 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3850 3450 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/8071108/" H 3850 3450 50  0001 C CNN
 	1    3850 3450
 	0    1    1    0   
 $EndComp
@@ -805,8 +713,8 @@ U 1 1 5DF5EB29
 P 4300 2800
 F 0 "C1" H 4392 2846 50  0000 L CNN
 F 1 "0.1uF" H 4392 2755 50  0000 L CNN
-F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4300 2800 50  0001 C CNN
-F 3 "http://akizukidenshi.com/catalog/g/gP-13372/" H 4300 2800 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4300 2800 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/7407613/" H 4300 2800 50  0001 C CNN
 	1    4300 2800
 	1    0    0    -1  
 $EndComp
@@ -816,8 +724,8 @@ U 1 1 5DF5E394
 P 4650 2800
 F 0 "C2" H 4742 2846 50  0000 L CNN
 F 1 "0.1uF" H 4742 2755 50  0000 L CNN
-F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4650 2800 50  0001 C CNN
-F 3 "http://akizukidenshi.com/catalog/g/gP-13372/" H 4650 2800 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4650 2800 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/7407613/" H 4650 2800 50  0001 C CNN
 	1    4650 2800
 	1    0    0    -1  
 $EndComp
@@ -827,8 +735,8 @@ U 1 1 5DF5DC1B
 P 5000 2800
 F 0 "C3" H 5092 2846 50  0000 L CNN
 F 1 "0.1uF" H 5092 2755 50  0000 L CNN
-F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5000 2800 50  0001 C CNN
-F 3 "http://akizukidenshi.com/catalog/g/gP-13372/" H 5000 2800 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5000 2800 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/7407613/" H 5000 2800 50  0001 C CNN
 	1    5000 2800
 	1    0    0    -1  
 $EndComp
@@ -839,7 +747,7 @@ P 1000 3350
 F 0 "J4" H 1108 3631 50  0000 C CNN
 F 1 "VH_SRV2" H 1108 3540 50  0000 C CNN
 F 2 "Connector_JST:JST_VH_B3PS-VH_1x03_P3.96mm_Horizontal" H 1000 3350 50  0001 C CNN
-F 3 "~" H 1000 3350 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/pcb-headers/8201141/" H 1000 3350 50  0001 C CNN
 	1    1000 3350
 	1    0    0    -1  
 $EndComp
@@ -850,7 +758,7 @@ P 1000 2800
 F 0 "J3" H 1108 3081 50  0000 C CNN
 F 1 "VH_SRV1" H 1108 2990 50  0000 C CNN
 F 2 "Connector_JST:JST_VH_B3PS-VH_1x03_P3.96mm_Horizontal" H 1000 2800 50  0001 C CNN
-F 3 "~" H 1000 2800 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/pcb-headers/8201141/" H 1000 2800 50  0001 C CNN
 	1    1000 2800
 	1    0    0    -1  
 $EndComp
@@ -861,7 +769,7 @@ P 1000 1200
 F 0 "J1" H 1108 1481 50  0000 C CNN
 F 1 "VH_CAN" H 1108 1390 50  0000 C CNN
 F 2 "Connector_JST:JST_VH_B4PS-VH_1x04_P3.96mm_Horizontal" H 1000 1200 50  0001 C CNN
-F 3 "~" H 1000 1200 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/pcb-headers/8201153/" H 1000 1200 50  0001 C CNN
 	1    1000 1200
 	1    0    0    -1  
 $EndComp
@@ -872,7 +780,7 @@ P 1000 1800
 F 0 "J2" H 1108 2081 50  0000 C CNN
 F 1 "VH_CAN" H 1108 1990 50  0000 C CNN
 F 2 "Connector_JST:JST_VH_B4PS-VH_1x04_P3.96mm_Horizontal" H 1000 1800 50  0001 C CNN
-F 3 "~" H 1000 1800 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/pcb-headers/8201153/" H 1000 1800 50  0001 C CNN
 	1    1000 1800
 	1    0    0    -1  
 $EndComp
@@ -882,8 +790,8 @@ U 1 1 5E096C15
 P 1500 5450
 F 0 "R5" V 1400 5300 50  0000 C CNN
 F 1 "120" V 1400 5150 50  0000 C CNN
-F 2 "" H 1500 5450 50  0001 C CNN
-F 3 "~" H 1500 5450 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1500 5450 50  0001 C CNN
+F 3 "https://jp.rs-online.com/web/p/products/8071114/" H 1500 5450 50  0001 C CNN
 	1    1500 5450
 	0    -1   -1   0   
 $EndComp
@@ -891,4 +799,30 @@ Wire Wire Line
 	7650 2800 8300 2800
 Wire Wire Line
 	1200 5150 1800 5150
+Wire Wire Line
+	4300 2900 4300 3050
+Wire Wire Line
+	4650 2900 4650 3050
+Wire Wire Line
+	5000 2900 5000 3050
+Wire Wire Line
+	4300 2900 4650 2900
+Connection ~ 4300 2900
+Connection ~ 5000 2900
+Connection ~ 4650 2900
+Wire Wire Line
+	4650 2900 5000 2900
+Wire Wire Line
+	5000 2900 5050 2900
+Wire Wire Line
+	5050 2900 5050 2950
+Wire Wire Line
+	5050 2950 5300 2950
+NoConn ~ 5200 3250
+NoConn ~ 5200 3350
+NoConn ~ 5200 3450
+NoConn ~ 5200 3550
+NoConn ~ 5200 3650
+Wire Wire Line
+	9400 2800 10250 2800
 $EndSCHEMATC
