@@ -294,7 +294,7 @@ U 1 1 5E087F68
 P 1000 5350
 F 0 "J6" H 918 4925 50  0000 C CNN
 F 1 "I2C" H 918 5016 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 1000 5350 50  0001 C CNN
+F 2 "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical" H 1000 5350 50  0001 C CNN
 F 3 "~" H 1000 5350 50  0001 C CNN
 	1    1000 5350
 	-1   0    0    1   
@@ -316,7 +316,7 @@ U 1 1 5E012346
 P 1000 4350
 F 0 "J5" H 918 4025 50  0000 C CNN
 F 1 "USART" H 918 4116 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1000 4350 50  0001 C CNN
+F 2 "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical" H 1000 4350 50  0001 C CNN
 F 3 "~" H 1000 4350 50  0001 C CNN
 	1    1000 4350
 	-1   0    0    1   
@@ -497,10 +497,6 @@ Wire Wire Line
 NoConn ~ 5850 3850
 NoConn ~ 5850 3750
 Wire Wire Line
-	1200 2700 2050 2700
-Wire Wire Line
-	1200 3250 2050 3250
-Wire Wire Line
 	1200 4250 1650 4250
 Wire Wire Line
 	1200 4350 1650 4350
@@ -577,7 +573,7 @@ U 1 1 5E5FC620
 P 7250 2950
 F 0 "J7" H 7330 2992 50  0000 L CNN
 F 1 "Conn_01x05" H 7330 2901 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 7250 2950 50  0001 C CNN
+F 2 "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical" H 7250 2950 50  0001 C CNN
 F 3 "~" H 7250 2950 50  0001 C CNN
 	1    7250 2950
 	1    0    0    -1  
@@ -679,10 +675,6 @@ Connection ~ 1600 1400
 Wire Wire Line
 	1600 1400 1850 1400
 Wire Wire Line
-	9250 5400 9850 5400
-Wire Wire Line
-	9250 5200 10050 5200
-Wire Wire Line
 	9950 5900 8850 5900
 $Comp
 L Power_Protection:NUP2105L D3
@@ -695,14 +687,48 @@ F 3 "http://www.onsemi.com/pub_link/Collateral/NUP2105L-D.PDF" H 10075 5825 50  
 	1    9950 5700
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:R_Small R4
+U 1 1 5E6FB923
+P 1850 3250
+F 0 "R4" V 1950 3250 50  0000 C CNN
+F 1 "0" V 2050 3250 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1850 3250 50  0001 C CNN
+F 3 "" H 1850 3250 50  0001 C CNN
+	1    1850 3250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R3
+U 1 1 5E6FF84D
+P 1850 2700
+F 0 "R3" V 1950 2700 50  0000 C CNN
+F 1 "0" V 2050 2700 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1850 2700 50  0001 C CNN
+F 3 "" H 1850 2700 50  0001 C CNN
+	1    1850 2700
+	0    -1   -1   0   
+$EndComp
 Wire Wire Line
-	9850 5500 9850 5400
-Connection ~ 9850 5400
+	2050 2700 1950 2700
 Wire Wire Line
-	9850 5400 10150 5400
+	1750 2700 1200 2700
 Wire Wire Line
-	10050 5500 10050 5200
-Connection ~ 10050 5200
+	1200 3250 1750 3250
 Wire Wire Line
-	10050 5200 10150 5200
+	1950 3250 2050 3250
+Wire Wire Line
+	9250 5400 10050 5400
+Wire Wire Line
+	9250 5200 9850 5200
+Wire Wire Line
+	10050 5400 10050 5500
+Connection ~ 10050 5400
+Wire Wire Line
+	10050 5400 10150 5400
+Wire Wire Line
+	9850 5500 9850 5200
+Connection ~ 9850 5200
+Wire Wire Line
+	9850 5200 10150 5200
 $EndSCHEMATC
