@@ -19,7 +19,8 @@
                 "kind": "build",
                 "isDefault": true
             }
-        },{
+        },
+        {
             "label": "clean",
             "command": "make",
             "args": [
@@ -32,6 +33,13 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "type": "shell",
+            "label": "flash ocd",
+            "command": "openocd -f ./openocd.cfg -c \"flash_elf build/QX20CTRLPOCV0.elf\"",
+            "problemMatcher": [],
+            "group": "none",
         }
     ]
 }
