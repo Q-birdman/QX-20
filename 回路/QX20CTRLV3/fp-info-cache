@@ -1,4 +1,4 @@
-16301030725221717
+16302615233963514
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -63818,6 +63818,13 @@ Potentiometer vertical Vishay T73YP
 0
 3
 3
+QX20CVT6B8V1
+TSSOP-14_5.3x6.2mm_P0.65mm
+SSOP14: plastic shrink small outline package; 14 leads; body width 5.3 mm; (see NXP SSOP-TSSOP-VSO-REFLOW.pdf and sot337-1_po.pdf)
+SSOP 0.65
+0
+15
+15
 RF
 Skyworks_SKY65404-31
 http://www.skyworksinc.com/uploads/documents/SKY65404_31_201512K.pdf

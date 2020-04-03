@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP L6726A
+D Single Phase PWM Controller, SOIC-8
+K SMPS controller
+F https://www.st.com/resource/en/datasheet/l6726a.pdf
+$ENDCMP
+#
+$CMP Q_HP8K22
+D 30V Nch+Nch MOSFET
+K transistor NMOS N-MOS N-MOSFET Nch+Nch
+F https://www.rohm.co.jp/products/mosfets/small-signal/dual/hp8k22-product
+$ENDCMP
+#
+#End Doc Library
