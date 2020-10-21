@@ -1,0 +1,1499 @@
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_can.c"
+  14              		.text
+  15              		.section	.text.HAL_CAN_MspInit,"ax",%progbits
+  16              		.align	1
+  17              		.weak	HAL_CAN_MspInit
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	HAL_CAN_MspInit:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27              		@ link register save eliminated.
+  28 0000 7047     		bx	lr
+  30              		.section	.text.HAL_CAN_Init,"ax",%progbits
+  31              		.align	1
+  32              		.global	HAL_CAN_Init
+  33              		.syntax unified
+  34              		.thumb
+  35              		.thumb_func
+  36              		.fpu fpv4-sp-d16
+  38              	HAL_CAN_Init:
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 0, uses_anonymous_args = 0
+  41 0000 38B5     		push	{r3, r4, r5, lr}
+  42 0002 0446     		mov	r4, r0
+  43 0004 0028     		cmp	r0, #0
+  44 0006 6ED0     		beq	.L21
+  45 0008 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+  46 000c 0BB9     		cbnz	r3, .L4
+  47 000e FFF7FEFF 		bl	HAL_CAN_MspInit
+  48              	.L4:
+  49 0012 2268     		ldr	r2, [r4]
+  50 0014 1368     		ldr	r3, [r2]
+  51 0016 23F00203 		bic	r3, r3, #2
+  52 001a 1360     		str	r3, [r2]
+  53 001c FFF7FEFF 		bl	HAL_GetTick
+  54 0020 0546     		mov	r5, r0
+  55              	.L5:
+  56 0022 2368     		ldr	r3, [r4]
+  57 0024 5A68     		ldr	r2, [r3, #4]
+  58 0026 9107     		lsls	r1, r2, #30
+  59 0028 51D4     		bmi	.L6
+  60 002a 1A68     		ldr	r2, [r3]
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 2
+
+
+  61 002c 42F00102 		orr	r2, r2, #1
+  62 0030 1A60     		str	r2, [r3]
+  63 0032 FFF7FEFF 		bl	HAL_GetTick
+  64 0036 0546     		mov	r5, r0
+  65              	.L7:
+  66 0038 2368     		ldr	r3, [r4]
+  67 003a 5A68     		ldr	r2, [r3, #4]
+  68 003c D207     		lsls	r2, r2, #31
+  69 003e 54D5     		bpl	.L8
+  70 0040 227E     		ldrb	r2, [r4, #24]	@ zero_extendqisi2
+  71 0042 012A     		cmp	r2, #1
+  72 0044 1A68     		ldr	r2, [r3]
+  73 0046 0CBF     		ite	eq
+  74 0048 42F08002 		orreq	r2, r2, #128
+  75 004c 22F08002 		bicne	r2, r2, #128
+  76 0050 1A60     		str	r2, [r3]
+  77 0052 627E     		ldrb	r2, [r4, #25]	@ zero_extendqisi2
+  78 0054 012A     		cmp	r2, #1
+  79 0056 1A68     		ldr	r2, [r3]
+  80 0058 0CBF     		ite	eq
+  81 005a 42F04002 		orreq	r2, r2, #64
+  82 005e 22F04002 		bicne	r2, r2, #64
+  83 0062 1A60     		str	r2, [r3]
+  84 0064 A27E     		ldrb	r2, [r4, #26]	@ zero_extendqisi2
+  85 0066 012A     		cmp	r2, #1
+  86 0068 1A68     		ldr	r2, [r3]
+  87 006a 0CBF     		ite	eq
+  88 006c 42F02002 		orreq	r2, r2, #32
+  89 0070 22F02002 		bicne	r2, r2, #32
+  90 0074 1A60     		str	r2, [r3]
+  91 0076 E27E     		ldrb	r2, [r4, #27]	@ zero_extendqisi2
+  92 0078 012A     		cmp	r2, #1
+  93 007a 1A68     		ldr	r2, [r3]
+  94 007c 0CBF     		ite	eq
+  95 007e 22F01002 		biceq	r2, r2, #16
+  96 0082 42F01002 		orrne	r2, r2, #16
+  97 0086 1A60     		str	r2, [r3]
+  98 0088 227F     		ldrb	r2, [r4, #28]	@ zero_extendqisi2
+  99 008a 012A     		cmp	r2, #1
+ 100 008c 1A68     		ldr	r2, [r3]
+ 101 008e 0CBF     		ite	eq
+ 102 0090 42F00802 		orreq	r2, r2, #8
+ 103 0094 22F00802 		bicne	r2, r2, #8
+ 104 0098 1A60     		str	r2, [r3]
+ 105 009a 627F     		ldrb	r2, [r4, #29]	@ zero_extendqisi2
+ 106 009c 012A     		cmp	r2, #1
+ 107 009e 1A68     		ldr	r2, [r3]
+ 108 00a0 0CBF     		ite	eq
+ 109 00a2 42F00402 		orreq	r2, r2, #4
+ 110 00a6 22F00402 		bicne	r2, r2, #4
+ 111 00aa 1A60     		str	r2, [r3]
+ 112 00ac D4E90221 		ldrd	r2, r1, [r4, #8]
+ 113 00b0 0A43     		orrs	r2, r2, r1
+ 114 00b2 2169     		ldr	r1, [r4, #16]
+ 115 00b4 0A43     		orrs	r2, r2, r1
+ 116 00b6 6169     		ldr	r1, [r4, #20]
+ 117 00b8 0A43     		orrs	r2, r2, r1
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 3
+
+
+ 118 00ba 6168     		ldr	r1, [r4, #4]
+ 119 00bc 0139     		subs	r1, r1, #1
+ 120 00be 0A43     		orrs	r2, r2, r1
+ 121 00c0 DA61     		str	r2, [r3, #28]
+ 122 00c2 0020     		movs	r0, #0
+ 123 00c4 0123     		movs	r3, #1
+ 124 00c6 6062     		str	r0, [r4, #36]
+ 125 00c8 84F82030 		strb	r3, [r4, #32]
+ 126              	.L3:
+ 127 00cc 38BD     		pop	{r3, r4, r5, pc}
+ 128              	.L6:
+ 129 00ce FFF7FEFF 		bl	HAL_GetTick
+ 130 00d2 401B     		subs	r0, r0, r5
+ 131 00d4 0A28     		cmp	r0, #10
+ 132 00d6 A4D9     		bls	.L5
+ 133              	.L30:
+ 134 00d8 636A     		ldr	r3, [r4, #36]
+ 135 00da 43F40033 		orr	r3, r3, #131072
+ 136 00de 6362     		str	r3, [r4, #36]
+ 137 00e0 0523     		movs	r3, #5
+ 138 00e2 84F82030 		strb	r3, [r4, #32]
+ 139              	.L21:
+ 140 00e6 0120     		movs	r0, #1
+ 141 00e8 F0E7     		b	.L3
+ 142              	.L8:
+ 143 00ea FFF7FEFF 		bl	HAL_GetTick
+ 144 00ee 401B     		subs	r0, r0, r5
+ 145 00f0 0A28     		cmp	r0, #10
+ 146 00f2 A1D9     		bls	.L7
+ 147 00f4 F0E7     		b	.L30
+ 149              		.section	.text.HAL_CAN_MspDeInit,"ax",%progbits
+ 150              		.align	1
+ 151              		.weak	HAL_CAN_MspDeInit
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 155              		.fpu fpv4-sp-d16
+ 157              	HAL_CAN_MspDeInit:
+ 158              		@ args = 0, pretend = 0, frame = 0
+ 159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160              		@ link register save eliminated.
+ 161 0000 7047     		bx	lr
+ 163              		.section	.text.HAL_CAN_ConfigFilter,"ax",%progbits
+ 164              		.align	1
+ 165              		.global	HAL_CAN_ConfigFilter
+ 166              		.syntax unified
+ 167              		.thumb
+ 168              		.thumb_func
+ 169              		.fpu fpv4-sp-d16
+ 171              	HAL_CAN_ConfigFilter:
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 175 0004 013B     		subs	r3, r3, #1
+ 176 0006 012B     		cmp	r3, #1
+ 177 0008 70B5     		push	{r4, r5, r6, lr}
+ 178 000a 5FD8     		bhi	.L33
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 4
+
+
+ 179 000c 0368     		ldr	r3, [r0]
+ 180 000e D3F80022 		ldr	r2, [r3, #512]
+ 181 0012 42F00102 		orr	r2, r2, #1
+ 182 0016 C3F80022 		str	r2, [r3, #512]
+ 183 001a 4A69     		ldr	r2, [r1, #20]
+ 184 001c D3F81C52 		ldr	r5, [r3, #540]
+ 185 0020 0124     		movs	r4, #1
+ 186 0022 02F01F00 		and	r0, r2, #31
+ 187 0026 04FA00F0 		lsl	r0, r4, r0
+ 188 002a C443     		mvns	r4, r0
+ 189 002c 2540     		ands	r5, r5, r4
+ 190 002e C3F81C52 		str	r5, [r3, #540]
+ 191 0032 CD69     		ldr	r5, [r1, #28]
+ 192 0034 85BB     		cbnz	r5, .L34
+ 193 0036 D3F80C52 		ldr	r5, [r3, #524]
+ 194 003a CE68     		ldr	r6, [r1, #12]
+ 195 003c 2540     		ands	r5, r5, r4
+ 196 003e C3F80C52 		str	r5, [r3, #524]
+ 197 0042 8D88     		ldrh	r5, [r1, #4]
+ 198 0044 03EBC202 		add	r2, r3, r2, lsl #3
+ 199 0048 45EA0645 		orr	r5, r5, r6, lsl #16
+ 200 004c C2F84052 		str	r5, [r2, #576]
+ 201 0050 8E68     		ldr	r6, [r1, #8]
+ 202 0052 0D88     		ldrh	r5, [r1]
+ 203              	.L42:
+ 204 0054 45EA0645 		orr	r5, r5, r6, lsl #16
+ 205 0058 C2F84452 		str	r5, [r2, #580]
+ 206              	.L35:
+ 207 005c 8A69     		ldr	r2, [r1, #24]
+ 208 005e 6ABB     		cbnz	r2, .L36
+ 209 0060 D3F80422 		ldr	r2, [r3, #516]
+ 210 0064 2240     		ands	r2, r2, r4
+ 211              	.L43:
+ 212 0066 C3F80422 		str	r2, [r3, #516]
+ 213 006a 0A69     		ldr	r2, [r1, #16]
+ 214 006c 52BB     		cbnz	r2, .L38
+ 215 006e D3F81422 		ldr	r2, [r3, #532]
+ 216 0072 2240     		ands	r2, r2, r4
+ 217              	.L44:
+ 218 0074 C3F81422 		str	r2, [r3, #532]
+ 219 0078 0A6A     		ldr	r2, [r1, #32]
+ 220 007a 012A     		cmp	r2, #1
+ 221 007c 02BF     		ittt	eq
+ 222 007e D3F81C22 		ldreq	r2, [r3, #540]
+ 223 0082 1043     		orreq	r0, r0, r2
+ 224 0084 C3F81C02 		streq	r0, [r3, #540]
+ 225 0088 D3F80022 		ldr	r2, [r3, #512]
+ 226 008c 22F00102 		bic	r2, r2, #1
+ 227 0090 C3F80022 		str	r2, [r3, #512]
+ 228 0094 0020     		movs	r0, #0
+ 229              	.L41:
+ 230 0096 70BD     		pop	{r4, r5, r6, pc}
+ 231              	.L34:
+ 232 0098 012D     		cmp	r5, #1
+ 233 009a DFD1     		bne	.L35
+ 234 009c D3F80C52 		ldr	r5, [r3, #524]
+ 235 00a0 0E68     		ldr	r6, [r1]
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 5
+
+
+ 236 00a2 0543     		orrs	r5, r5, r0
+ 237 00a4 C3F80C52 		str	r5, [r3, #524]
+ 238 00a8 8D88     		ldrh	r5, [r1, #4]
+ 239 00aa 03EBC202 		add	r2, r3, r2, lsl #3
+ 240 00ae 45EA0645 		orr	r5, r5, r6, lsl #16
+ 241 00b2 C2F84052 		str	r5, [r2, #576]
+ 242 00b6 8E68     		ldr	r6, [r1, #8]
+ 243 00b8 8D89     		ldrh	r5, [r1, #12]
+ 244 00ba CBE7     		b	.L42
+ 245              	.L36:
+ 246 00bc D3F80422 		ldr	r2, [r3, #516]
+ 247 00c0 0243     		orrs	r2, r2, r0
+ 248 00c2 D0E7     		b	.L43
+ 249              	.L38:
+ 250 00c4 D3F81422 		ldr	r2, [r3, #532]
+ 251 00c8 0243     		orrs	r2, r2, r0
+ 252 00ca D3E7     		b	.L44
+ 253              	.L33:
+ 254 00cc 436A     		ldr	r3, [r0, #36]
+ 255 00ce 43F48023 		orr	r3, r3, #262144
+ 256 00d2 4362     		str	r3, [r0, #36]
+ 257 00d4 0120     		movs	r0, #1
+ 258 00d6 DEE7     		b	.L41
+ 260              		.section	.text.HAL_CAN_Start,"ax",%progbits
+ 261              		.align	1
+ 262              		.global	HAL_CAN_Start
+ 263              		.syntax unified
+ 264              		.thumb
+ 265              		.thumb_func
+ 266              		.fpu fpv4-sp-d16
+ 268              	HAL_CAN_Start:
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271 0000 38B5     		push	{r3, r4, r5, lr}
+ 272 0002 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 273 0006 012B     		cmp	r3, #1
+ 274 0008 0446     		mov	r4, r0
+ 275 000a 1FD1     		bne	.L46
+ 276 000c 0268     		ldr	r2, [r0]
+ 277 000e 0223     		movs	r3, #2
+ 278 0010 80F82030 		strb	r3, [r0, #32]
+ 279 0014 1368     		ldr	r3, [r2]
+ 280 0016 23F00103 		bic	r3, r3, #1
+ 281 001a 1360     		str	r3, [r2]
+ 282 001c FFF7FEFF 		bl	HAL_GetTick
+ 283 0020 0546     		mov	r5, r0
+ 284              	.L47:
+ 285 0022 2368     		ldr	r3, [r4]
+ 286 0024 5868     		ldr	r0, [r3, #4]
+ 287 0026 10F00100 		ands	r0, r0, #1
+ 288 002a 01D1     		bne	.L49
+ 289 002c 6062     		str	r0, [r4, #36]
+ 290              	.L48:
+ 291 002e 38BD     		pop	{r3, r4, r5, pc}
+ 292              	.L49:
+ 293 0030 FFF7FEFF 		bl	HAL_GetTick
+ 294 0034 401B     		subs	r0, r0, r5
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 6
+
+
+ 295 0036 0A28     		cmp	r0, #10
+ 296 0038 F3D9     		bls	.L47
+ 297 003a 636A     		ldr	r3, [r4, #36]
+ 298 003c 43F40033 		orr	r3, r3, #131072
+ 299 0040 6362     		str	r3, [r4, #36]
+ 300 0042 0523     		movs	r3, #5
+ 301 0044 84F82030 		strb	r3, [r4, #32]
+ 302              	.L51:
+ 303 0048 0120     		movs	r0, #1
+ 304 004a F0E7     		b	.L48
+ 305              	.L46:
+ 306 004c 436A     		ldr	r3, [r0, #36]
+ 307 004e 43F40023 		orr	r3, r3, #524288
+ 308 0052 4362     		str	r3, [r0, #36]
+ 309 0054 F8E7     		b	.L51
+ 311              		.section	.text.HAL_CAN_Stop,"ax",%progbits
+ 312              		.align	1
+ 313              		.global	HAL_CAN_Stop
+ 314              		.syntax unified
+ 315              		.thumb
+ 316              		.thumb_func
+ 317              		.fpu fpv4-sp-d16
+ 319              	HAL_CAN_Stop:
+ 320              		@ args = 0, pretend = 0, frame = 0
+ 321              		@ frame_needed = 0, uses_anonymous_args = 0
+ 322 0000 38B5     		push	{r3, r4, r5, lr}
+ 323 0002 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 324 0006 022B     		cmp	r3, #2
+ 325 0008 0446     		mov	r4, r0
+ 326 000a 22D1     		bne	.L53
+ 327 000c 0268     		ldr	r2, [r0]
+ 328 000e 1368     		ldr	r3, [r2]
+ 329 0010 43F00103 		orr	r3, r3, #1
+ 330 0014 1360     		str	r3, [r2]
+ 331 0016 FFF7FEFF 		bl	HAL_GetTick
+ 332 001a 0546     		mov	r5, r0
+ 333              	.L54:
+ 334 001c 2368     		ldr	r3, [r4]
+ 335 001e 5A68     		ldr	r2, [r3, #4]
+ 336 0020 D207     		lsls	r2, r2, #31
+ 337 0022 08D5     		bpl	.L56
+ 338 0024 1A68     		ldr	r2, [r3]
+ 339 0026 22F00202 		bic	r2, r2, #2
+ 340 002a 1A60     		str	r2, [r3]
+ 341 002c 0123     		movs	r3, #1
+ 342 002e 84F82030 		strb	r3, [r4, #32]
+ 343 0032 0020     		movs	r0, #0
+ 344              	.L55:
+ 345 0034 38BD     		pop	{r3, r4, r5, pc}
+ 346              	.L56:
+ 347 0036 FFF7FEFF 		bl	HAL_GetTick
+ 348 003a 401B     		subs	r0, r0, r5
+ 349 003c 0A28     		cmp	r0, #10
+ 350 003e EDD9     		bls	.L54
+ 351 0040 636A     		ldr	r3, [r4, #36]
+ 352 0042 43F40033 		orr	r3, r3, #131072
+ 353 0046 6362     		str	r3, [r4, #36]
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 7
+
+
+ 354 0048 0523     		movs	r3, #5
+ 355 004a 84F82030 		strb	r3, [r4, #32]
+ 356              	.L58:
+ 357 004e 0120     		movs	r0, #1
+ 358 0050 F0E7     		b	.L55
+ 359              	.L53:
+ 360 0052 436A     		ldr	r3, [r0, #36]
+ 361 0054 43F48013 		orr	r3, r3, #1048576
+ 362 0058 4362     		str	r3, [r0, #36]
+ 363 005a F8E7     		b	.L58
+ 365              		.section	.text.HAL_CAN_DeInit,"ax",%progbits
+ 366              		.align	1
+ 367              		.global	HAL_CAN_DeInit
+ 368              		.syntax unified
+ 369              		.thumb
+ 370              		.thumb_func
+ 371              		.fpu fpv4-sp-d16
+ 373              	HAL_CAN_DeInit:
+ 374              		@ args = 0, pretend = 0, frame = 0
+ 375              		@ frame_needed = 0, uses_anonymous_args = 0
+ 376 0000 10B5     		push	{r4, lr}
+ 377 0002 0446     		mov	r4, r0
+ 378 0004 70B1     		cbz	r0, .L61
+ 379 0006 FFF7FEFF 		bl	HAL_CAN_Stop
+ 380 000a 2046     		mov	r0, r4
+ 381 000c FFF7FEFF 		bl	HAL_CAN_MspDeInit
+ 382 0010 2268     		ldr	r2, [r4]
+ 383 0012 1368     		ldr	r3, [r2]
+ 384 0014 0020     		movs	r0, #0
+ 385 0016 43F40043 		orr	r3, r3, #32768
+ 386 001a 1360     		str	r3, [r2]
+ 387 001c 6062     		str	r0, [r4, #36]
+ 388 001e 84F82000 		strb	r0, [r4, #32]
+ 389              	.L60:
+ 390 0022 10BD     		pop	{r4, pc}
+ 391              	.L61:
+ 392 0024 0120     		movs	r0, #1
+ 393 0026 FCE7     		b	.L60
+ 395              		.section	.text.HAL_CAN_RequestSleep,"ax",%progbits
+ 396              		.align	1
+ 397              		.global	HAL_CAN_RequestSleep
+ 398              		.syntax unified
+ 399              		.thumb
+ 400              		.thumb_func
+ 401              		.fpu fpv4-sp-d16
+ 403              	HAL_CAN_RequestSleep:
+ 404              		@ args = 0, pretend = 0, frame = 0
+ 405              		@ frame_needed = 0, uses_anonymous_args = 0
+ 406              		@ link register save eliminated.
+ 407 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 408 0004 013B     		subs	r3, r3, #1
+ 409 0006 012B     		cmp	r3, #1
+ 410 0008 06D8     		bhi	.L63
+ 411 000a 0268     		ldr	r2, [r0]
+ 412 000c 1368     		ldr	r3, [r2]
+ 413 000e 43F00203 		orr	r3, r3, #2
+ 414 0012 1360     		str	r3, [r2]
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 8
+
+
+ 415 0014 0020     		movs	r0, #0
+ 416 0016 7047     		bx	lr
+ 417              	.L63:
+ 418 0018 436A     		ldr	r3, [r0, #36]
+ 419 001a 43F48023 		orr	r3, r3, #262144
+ 420 001e 4362     		str	r3, [r0, #36]
+ 421 0020 0120     		movs	r0, #1
+ 422 0022 7047     		bx	lr
+ 424              		.section	.text.HAL_CAN_WakeUp,"ax",%progbits
+ 425              		.align	1
+ 426              		.global	HAL_CAN_WakeUp
+ 427              		.syntax unified
+ 428              		.thumb
+ 429              		.thumb_func
+ 430              		.fpu fpv4-sp-d16
+ 432              	HAL_CAN_WakeUp:
+ 433              		@ args = 0, pretend = 0, frame = 8
+ 434              		@ frame_needed = 0, uses_anonymous_args = 0
+ 435              		@ link register save eliminated.
+ 436 0000 82B0     		sub	sp, sp, #8
+ 437 0002 0023     		movs	r3, #0
+ 438 0004 0193     		str	r3, [sp, #4]
+ 439 0006 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 440 000a 013B     		subs	r3, r3, #1
+ 441 000c 012B     		cmp	r3, #1
+ 442 000e 18D8     		bhi	.L66
+ 443 0010 0268     		ldr	r2, [r0]
+ 444 0012 0E49     		ldr	r1, .L72
+ 445 0014 1368     		ldr	r3, [r2]
+ 446 0016 23F00203 		bic	r3, r3, #2
+ 447 001a 1360     		str	r3, [r2]
+ 448              	.L69:
+ 449 001c 019B     		ldr	r3, [sp, #4]
+ 450 001e 0133     		adds	r3, r3, #1
+ 451 0020 0193     		str	r3, [sp, #4]
+ 452 0022 019B     		ldr	r3, [sp, #4]
+ 453 0024 8B42     		cmp	r3, r1
+ 454 0026 05D9     		bls	.L67
+ 455 0028 436A     		ldr	r3, [r0, #36]
+ 456 002a 43F40033 		orr	r3, r3, #131072
+ 457              	.L71:
+ 458 002e 4362     		str	r3, [r0, #36]
+ 459 0030 0120     		movs	r0, #1
+ 460 0032 04E0     		b	.L68
+ 461              	.L67:
+ 462 0034 5368     		ldr	r3, [r2, #4]
+ 463 0036 13F00203 		ands	r3, r3, #2
+ 464 003a EFD1     		bne	.L69
+ 465 003c 1846     		mov	r0, r3
+ 466              	.L68:
+ 467 003e 02B0     		add	sp, sp, #8
+ 468              		@ sp needed
+ 469 0040 7047     		bx	lr
+ 470              	.L66:
+ 471 0042 436A     		ldr	r3, [r0, #36]
+ 472 0044 43F48023 		orr	r3, r3, #262144
+ 473 0048 F1E7     		b	.L71
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 9
+
+
+ 474              	.L73:
+ 475 004a 00BF     		.align	2
+ 476              	.L72:
+ 477 004c 40420F00 		.word	1000000
+ 479              		.section	.text.HAL_CAN_IsSleepActive,"ax",%progbits
+ 480              		.align	1
+ 481              		.global	HAL_CAN_IsSleepActive
+ 482              		.syntax unified
+ 483              		.thumb
+ 484              		.thumb_func
+ 485              		.fpu fpv4-sp-d16
+ 487              	HAL_CAN_IsSleepActive:
+ 488              		@ args = 0, pretend = 0, frame = 0
+ 489              		@ frame_needed = 0, uses_anonymous_args = 0
+ 490              		@ link register save eliminated.
+ 491 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 492 0004 013B     		subs	r3, r3, #1
+ 493 0006 012B     		cmp	r3, #1
+ 494 0008 9DBF     		ittte	ls
+ 495 000a 0368     		ldrls	r3, [r0]
+ 496 000c 5868     		ldrls	r0, [r3, #4]
+ 497 000e C0F34000 		ubfxls	r0, r0, #1, #1
+ 498 0012 0020     		movhi	r0, #0
+ 499 0014 7047     		bx	lr
+ 501              		.section	.text.HAL_CAN_AddTxMessage,"ax",%progbits
+ 502              		.align	1
+ 503              		.global	HAL_CAN_AddTxMessage
+ 504              		.syntax unified
+ 505              		.thumb
+ 506              		.thumb_func
+ 507              		.fpu fpv4-sp-d16
+ 509              	HAL_CAN_AddTxMessage:
+ 510              		@ args = 0, pretend = 0, frame = 0
+ 511              		@ frame_needed = 0, uses_anonymous_args = 0
+ 512 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 513 0002 90F82050 		ldrb	r5, [r0, #32]	@ zero_extendqisi2
+ 514 0006 0668     		ldr	r6, [r0]
+ 515 0008 013D     		subs	r5, r5, #1
+ 516 000a 012D     		cmp	r5, #1
+ 517 000c B468     		ldr	r4, [r6, #8]
+ 518 000e 40D8     		bhi	.L78
+ 519 0010 14F0E05F 		tst	r4, #469762048
+ 520 0014 39D0     		beq	.L79
+ 521 0016 C4F30164 		ubfx	r4, r4, #24, #2
+ 522 001a 032C     		cmp	r4, #3
+ 523 001c 4FF00105 		mov	r5, #1
+ 524 0020 05D1     		bne	.L80
+ 525 0022 436A     		ldr	r3, [r0, #36]
+ 526 0024 43F40003 		orr	r3, r3, #8388608
+ 527              	.L86:
+ 528 0028 4362     		str	r3, [r0, #36]
+ 529 002a 0120     		movs	r0, #1
+ 530 002c 27E0     		b	.L81
+ 531              	.L80:
+ 532 002e A540     		lsls	r5, r5, r4
+ 533 0030 1D60     		str	r5, [r3]
+ 534 0032 D1E90207 		ldrd	r0, r7, [r1, #8]
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 10
+
+
+ 535 0036 04F11803 		add	r3, r4, #24
+ 536 003a 08BB     		cbnz	r0, .L82
+ 537 003c 0868     		ldr	r0, [r1]
+ 538 003e 47EA4050 		orr	r0, r7, r0, lsl #21
+ 539              	.L85:
+ 540 0042 1B01     		lsls	r3, r3, #4
+ 541 0044 2401     		lsls	r4, r4, #4
+ 542 0046 F050     		str	r0, [r6, r3]
+ 543 0048 3319     		adds	r3, r6, r4
+ 544 004a 0869     		ldr	r0, [r1, #16]
+ 545 004c 097D     		ldrb	r1, [r1, #20]	@ zero_extendqisi2
+ 546 004e C3F88401 		str	r0, [r3, #388]
+ 547 0052 0129     		cmp	r1, #1
+ 548 0054 02BF     		ittt	eq
+ 549 0056 D3F88411 		ldreq	r1, [r3, #388]
+ 550 005a 41F48071 		orreq	r1, r1, #256
+ 551 005e C3F88411 		streq	r1, [r3, #388]
+ 552 0062 3444     		add	r4, r4, r6
+ 553 0064 5168     		ldr	r1, [r2, #4]	@ unaligned
+ 554 0066 C4F88C11 		str	r1, [r4, #396]
+ 555 006a 1268     		ldr	r2, [r2]	@ unaligned
+ 556 006c C4F88821 		str	r2, [r4, #392]
+ 557 0070 D3F88021 		ldr	r2, [r3, #384]
+ 558 0074 42F00102 		orr	r2, r2, #1
+ 559 0078 C3F88021 		str	r2, [r3, #384]
+ 560 007c 0020     		movs	r0, #0
+ 561              	.L81:
+ 562 007e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 563              	.L82:
+ 564 0080 4D68     		ldr	r5, [r1, #4]
+ 565 0082 3843     		orrs	r0, r0, r7
+ 566 0084 40EAC500 		orr	r0, r0, r5, lsl #3
+ 567 0088 DBE7     		b	.L85
+ 568              	.L79:
+ 569 008a 436A     		ldr	r3, [r0, #36]
+ 570 008c 43F40013 		orr	r3, r3, #2097152
+ 571 0090 CAE7     		b	.L86
+ 572              	.L78:
+ 573 0092 436A     		ldr	r3, [r0, #36]
+ 574 0094 43F48023 		orr	r3, r3, #262144
+ 575 0098 C6E7     		b	.L86
+ 577              		.section	.text.HAL_CAN_AbortTxRequest,"ax",%progbits
+ 578              		.align	1
+ 579              		.global	HAL_CAN_AbortTxRequest
+ 580              		.syntax unified
+ 581              		.thumb
+ 582              		.thumb_func
+ 583              		.fpu fpv4-sp-d16
+ 585              	HAL_CAN_AbortTxRequest:
+ 586              		@ args = 0, pretend = 0, frame = 0
+ 587              		@ frame_needed = 0, uses_anonymous_args = 0
+ 588              		@ link register save eliminated.
+ 589 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 590 0004 013B     		subs	r3, r3, #1
+ 591 0006 012B     		cmp	r3, #1
+ 592 0008 17D8     		bhi	.L88
+ 593 000a CA07     		lsls	r2, r1, #31
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 11
+
+
+ 594 000c 41BF     		itttt	mi
+ 595 000e 0268     		ldrmi	r2, [r0]
+ 596 0010 9368     		ldrmi	r3, [r2, #8]
+ 597 0012 43F08003 		orrmi	r3, r3, #128
+ 598 0016 9360     		strmi	r3, [r2, #8]
+ 599 0018 8B07     		lsls	r3, r1, #30
+ 600 001a 41BF     		itttt	mi
+ 601 001c 0268     		ldrmi	r2, [r0]
+ 602 001e 9368     		ldrmi	r3, [r2, #8]
+ 603 0020 43F40043 		orrmi	r3, r3, #32768
+ 604 0024 9360     		strmi	r3, [r2, #8]
+ 605 0026 11F00401 		ands	r1, r1, #4
+ 606 002a 1FBF     		itttt	ne
+ 607 002c 0268     		ldrne	r2, [r0]
+ 608 002e 9368     		ldrne	r3, [r2, #8]
+ 609 0030 43F40003 		orrne	r3, r3, #8388608
+ 610 0034 9360     		strne	r3, [r2, #8]
+ 611 0036 0020     		movs	r0, #0
+ 612 0038 7047     		bx	lr
+ 613              	.L88:
+ 614 003a 436A     		ldr	r3, [r0, #36]
+ 615 003c 43F48023 		orr	r3, r3, #262144
+ 616 0040 4362     		str	r3, [r0, #36]
+ 617 0042 0120     		movs	r0, #1
+ 618 0044 7047     		bx	lr
+ 620              		.section	.text.HAL_CAN_GetTxMailboxesFreeLevel,"ax",%progbits
+ 621              		.align	1
+ 622              		.global	HAL_CAN_GetTxMailboxesFreeLevel
+ 623              		.syntax unified
+ 624              		.thumb
+ 625              		.thumb_func
+ 626              		.fpu fpv4-sp-d16
+ 628              	HAL_CAN_GetTxMailboxesFreeLevel:
+ 629              		@ args = 0, pretend = 0, frame = 0
+ 630              		@ frame_needed = 0, uses_anonymous_args = 0
+ 631              		@ link register save eliminated.
+ 632 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 633 0004 013B     		subs	r3, r3, #1
+ 634 0006 012B     		cmp	r3, #1
+ 635 0008 0CD8     		bhi	.L103
+ 636 000a 0368     		ldr	r3, [r0]
+ 637 000c 9868     		ldr	r0, [r3, #8]
+ 638 000e 9A68     		ldr	r2, [r3, #8]
+ 639 0010 9B68     		ldr	r3, [r3, #8]
+ 640 0012 1201     		lsls	r2, r2, #4
+ 641 0014 C0F38060 		ubfx	r0, r0, #26, #1
+ 642 0018 48BF     		it	mi
+ 643 001a 0130     		addmi	r0, r0, #1
+ 644 001c DB00     		lsls	r3, r3, #3
+ 645 001e 02D5     		bpl	.L100
+ 646 0020 0130     		adds	r0, r0, #1
+ 647 0022 7047     		bx	lr
+ 648              	.L103:
+ 649 0024 0020     		movs	r0, #0
+ 650              	.L100:
+ 651 0026 7047     		bx	lr
+ 653              		.section	.text.HAL_CAN_IsTxMessagePending,"ax",%progbits
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 12
+
+
+ 654              		.align	1
+ 655              		.global	HAL_CAN_IsTxMessagePending
+ 656              		.syntax unified
+ 657              		.thumb
+ 658              		.thumb_func
+ 659              		.fpu fpv4-sp-d16
+ 661              	HAL_CAN_IsTxMessagePending:
+ 662              		@ args = 0, pretend = 0, frame = 0
+ 663              		@ frame_needed = 0, uses_anonymous_args = 0
+ 664              		@ link register save eliminated.
+ 665 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 666 0004 013B     		subs	r3, r3, #1
+ 667 0006 012B     		cmp	r3, #1
+ 668 0008 08D8     		bhi	.L112
+ 669 000a 0368     		ldr	r3, [r0]
+ 670 000c 9B68     		ldr	r3, [r3, #8]
+ 671 000e 8906     		lsls	r1, r1, #26
+ 672 0010 31EA0303 		bics	r3, r1, r3
+ 673 0014 14BF     		ite	ne
+ 674 0016 0120     		movne	r0, #1
+ 675 0018 0020     		moveq	r0, #0
+ 676 001a 7047     		bx	lr
+ 677              	.L112:
+ 678 001c 0020     		movs	r0, #0
+ 679 001e 7047     		bx	lr
+ 681              		.section	.text.HAL_CAN_GetTxTimestamp,"ax",%progbits
+ 682              		.align	1
+ 683              		.global	HAL_CAN_GetTxTimestamp
+ 684              		.syntax unified
+ 685              		.thumb
+ 686              		.thumb_func
+ 687              		.fpu fpv4-sp-d16
+ 689              	HAL_CAN_GetTxTimestamp:
+ 690              		@ args = 0, pretend = 0, frame = 0
+ 691              		@ frame_needed = 0, uses_anonymous_args = 0
+ 692              		@ link register save eliminated.
+ 693 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 694 0004 013B     		subs	r3, r3, #1
+ 695 0006 012B     		cmp	r3, #1
+ 696 0008 0AD8     		bhi	.L115
+ 697              		.syntax unified
+ 698              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 699 000a 91FAA1F1 		rbit r1, r1
+ 700              	@ 0 "" 2
+ 701              		.thumb
+ 702              		.syntax unified
+ 703 000e 0368     		ldr	r3, [r0]
+ 704 0010 B1FA81F1 		clz	r1, r1
+ 705 0014 1831     		adds	r1, r1, #24
+ 706 0016 03EB0111 		add	r1, r3, r1, lsl #4
+ 707 001a 4868     		ldr	r0, [r1, #4]
+ 708 001c 000C     		lsrs	r0, r0, #16
+ 709 001e 7047     		bx	lr
+ 710              	.L115:
+ 711 0020 0020     		movs	r0, #0
+ 712 0022 7047     		bx	lr
+ 714              		.section	.text.HAL_CAN_GetRxMessage,"ax",%progbits
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 13
+
+
+ 715              		.align	1
+ 716              		.global	HAL_CAN_GetRxMessage
+ 717              		.syntax unified
+ 718              		.thumb
+ 719              		.thumb_func
+ 720              		.fpu fpv4-sp-d16
+ 722              	HAL_CAN_GetRxMessage:
+ 723              		@ args = 0, pretend = 0, frame = 0
+ 724              		@ frame_needed = 0, uses_anonymous_args = 0
+ 725 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 726 0002 90F82040 		ldrb	r4, [r0, #32]	@ zero_extendqisi2
+ 727 0006 013C     		subs	r4, r4, #1
+ 728 0008 012C     		cmp	r4, #1
+ 729 000a 6BD8     		bhi	.L117
+ 730 000c 0668     		ldr	r6, [r0]
+ 731 000e 41B9     		cbnz	r1, .L118
+ 732 0010 F468     		ldr	r4, [r6, #12]
+ 733              	.L128:
+ 734 0012 A407     		lsls	r4, r4, #30
+ 735 0014 07D1     		bne	.L119
+ 736 0016 436A     		ldr	r3, [r0, #36]
+ 737 0018 43F40013 		orr	r3, r3, #2097152
+ 738              	.L124:
+ 739 001c 4362     		str	r3, [r0, #36]
+ 740 001e 0120     		movs	r0, #1
+ 741 0020 55E0     		b	.L120
+ 742              	.L118:
+ 743 0022 3469     		ldr	r4, [r6, #16]
+ 744 0024 F5E7     		b	.L128
+ 745              	.L119:
+ 746 0026 0C01     		lsls	r4, r1, #4
+ 747 0028 3519     		adds	r5, r6, r4
+ 748 002a D5F8B071 		ldr	r7, [r5, #432]
+ 749 002e 07F00407 		and	r7, r7, #4
+ 750 0032 9760     		str	r7, [r2, #8]
+ 751 0034 002F     		cmp	r7, #0
+ 752 0036 4BD1     		bne	.L121
+ 753 0038 D5F8B071 		ldr	r7, [r5, #432]
+ 754 003c 7F0D     		lsrs	r7, r7, #21
+ 755 003e 1760     		str	r7, [r2]
+ 756              	.L122:
+ 757 0040 D5F8B071 		ldr	r7, [r5, #432]
+ 758 0044 C7F34007 		ubfx	r7, r7, #1, #1
+ 759 0048 D760     		str	r7, [r2, #12]
+ 760 004a D5F8B471 		ldr	r7, [r5, #436]
+ 761 004e 07F00F07 		and	r7, r7, #15
+ 762 0052 1761     		str	r7, [r2, #16]
+ 763 0054 D5F8B471 		ldr	r7, [r5, #436]
+ 764 0058 D5F8B451 		ldr	r5, [r5, #436]
+ 765 005c 2644     		add	r6, r6, r4
+ 766 005e C7F30727 		ubfx	r7, r7, #8, #8
+ 767 0062 2D0C     		lsrs	r5, r5, #16
+ 768 0064 9761     		str	r7, [r2, #24]
+ 769 0066 5561     		str	r5, [r2, #20]
+ 770 0068 D6F8B821 		ldr	r2, [r6, #440]
+ 771 006c 1A70     		strb	r2, [r3]
+ 772 006e 0268     		ldr	r2, [r0]
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 14
+
+
+ 773 0070 2244     		add	r2, r2, r4
+ 774 0072 D2F8B821 		ldr	r2, [r2, #440]
+ 775 0076 120A     		lsrs	r2, r2, #8
+ 776 0078 5A70     		strb	r2, [r3, #1]
+ 777 007a 0268     		ldr	r2, [r0]
+ 778 007c 2244     		add	r2, r2, r4
+ 779 007e D2F8B821 		ldr	r2, [r2, #440]
+ 780 0082 120C     		lsrs	r2, r2, #16
+ 781 0084 9A70     		strb	r2, [r3, #2]
+ 782 0086 0268     		ldr	r2, [r0]
+ 783 0088 2244     		add	r2, r2, r4
+ 784 008a D2F8B821 		ldr	r2, [r2, #440]
+ 785 008e 120E     		lsrs	r2, r2, #24
+ 786 0090 DA70     		strb	r2, [r3, #3]
+ 787 0092 0268     		ldr	r2, [r0]
+ 788 0094 2244     		add	r2, r2, r4
+ 789 0096 D2F8BC21 		ldr	r2, [r2, #444]
+ 790 009a 1A71     		strb	r2, [r3, #4]
+ 791 009c 0268     		ldr	r2, [r0]
+ 792 009e 2244     		add	r2, r2, r4
+ 793 00a0 D2F8BC21 		ldr	r2, [r2, #444]
+ 794 00a4 120A     		lsrs	r2, r2, #8
+ 795 00a6 5A71     		strb	r2, [r3, #5]
+ 796 00a8 0268     		ldr	r2, [r0]
+ 797 00aa 2244     		add	r2, r2, r4
+ 798 00ac D2F8BC21 		ldr	r2, [r2, #444]
+ 799 00b0 120C     		lsrs	r2, r2, #16
+ 800 00b2 9A71     		strb	r2, [r3, #6]
+ 801 00b4 0268     		ldr	r2, [r0]
+ 802 00b6 1444     		add	r4, r4, r2
+ 803 00b8 D4F8BC21 		ldr	r2, [r4, #444]
+ 804 00bc 120E     		lsrs	r2, r2, #24
+ 805 00be DA71     		strb	r2, [r3, #7]
+ 806 00c0 0368     		ldr	r3, [r0]
+ 807 00c2 51B9     		cbnz	r1, .L123
+ 808 00c4 DA68     		ldr	r2, [r3, #12]
+ 809 00c6 42F02002 		orr	r2, r2, #32
+ 810 00ca DA60     		str	r2, [r3, #12]
+ 811              	.L125:
+ 812 00cc 0020     		movs	r0, #0
+ 813              	.L120:
+ 814 00ce F0BD     		pop	{r4, r5, r6, r7, pc}
+ 815              	.L121:
+ 816 00d0 D5F8B071 		ldr	r7, [r5, #432]
+ 817 00d4 FF08     		lsrs	r7, r7, #3
+ 818 00d6 5760     		str	r7, [r2, #4]
+ 819 00d8 B2E7     		b	.L122
+ 820              	.L123:
+ 821 00da 1A69     		ldr	r2, [r3, #16]
+ 822 00dc 42F02002 		orr	r2, r2, #32
+ 823 00e0 1A61     		str	r2, [r3, #16]
+ 824 00e2 F3E7     		b	.L125
+ 825              	.L117:
+ 826 00e4 436A     		ldr	r3, [r0, #36]
+ 827 00e6 43F48023 		orr	r3, r3, #262144
+ 828 00ea 97E7     		b	.L124
+ 830              		.section	.text.HAL_CAN_GetRxFifoFillLevel,"ax",%progbits
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 15
+
+
+ 831              		.align	1
+ 832              		.global	HAL_CAN_GetRxFifoFillLevel
+ 833              		.syntax unified
+ 834              		.thumb
+ 835              		.thumb_func
+ 836              		.fpu fpv4-sp-d16
+ 838              	HAL_CAN_GetRxFifoFillLevel:
+ 839              		@ args = 0, pretend = 0, frame = 0
+ 840              		@ frame_needed = 0, uses_anonymous_args = 0
+ 841              		@ link register save eliminated.
+ 842 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 843 0004 013B     		subs	r3, r3, #1
+ 844 0006 012B     		cmp	r3, #1
+ 845 0008 07D8     		bhi	.L132
+ 846 000a 0368     		ldr	r3, [r0]
+ 847 000c 19B9     		cbnz	r1, .L131
+ 848 000e D868     		ldr	r0, [r3, #12]
+ 849              	.L133:
+ 850 0010 00F00300 		and	r0, r0, #3
+ 851 0014 7047     		bx	lr
+ 852              	.L131:
+ 853 0016 1869     		ldr	r0, [r3, #16]
+ 854 0018 FAE7     		b	.L133
+ 855              	.L132:
+ 856 001a 0020     		movs	r0, #0
+ 857 001c 7047     		bx	lr
+ 859              		.section	.text.HAL_CAN_ActivateNotification,"ax",%progbits
+ 860              		.align	1
+ 861              		.global	HAL_CAN_ActivateNotification
+ 862              		.syntax unified
+ 863              		.thumb
+ 864              		.thumb_func
+ 865              		.fpu fpv4-sp-d16
+ 867              	HAL_CAN_ActivateNotification:
+ 868              		@ args = 0, pretend = 0, frame = 0
+ 869              		@ frame_needed = 0, uses_anonymous_args = 0
+ 870              		@ link register save eliminated.
+ 871 0000 90F82020 		ldrb	r2, [r0, #32]	@ zero_extendqisi2
+ 872 0004 013A     		subs	r2, r2, #1
+ 873 0006 012A     		cmp	r2, #1
+ 874 0008 05D8     		bhi	.L135
+ 875 000a 0268     		ldr	r2, [r0]
+ 876 000c 5369     		ldr	r3, [r2, #20]
+ 877 000e 0B43     		orrs	r3, r3, r1
+ 878 0010 5361     		str	r3, [r2, #20]
+ 879 0012 0020     		movs	r0, #0
+ 880 0014 7047     		bx	lr
+ 881              	.L135:
+ 882 0016 436A     		ldr	r3, [r0, #36]
+ 883 0018 43F48023 		orr	r3, r3, #262144
+ 884 001c 4362     		str	r3, [r0, #36]
+ 885 001e 0120     		movs	r0, #1
+ 886 0020 7047     		bx	lr
+ 888              		.section	.text.HAL_CAN_DeactivateNotification,"ax",%progbits
+ 889              		.align	1
+ 890              		.global	HAL_CAN_DeactivateNotification
+ 891              		.syntax unified
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 16
+
+
+ 892              		.thumb
+ 893              		.thumb_func
+ 894              		.fpu fpv4-sp-d16
+ 896              	HAL_CAN_DeactivateNotification:
+ 897              		@ args = 0, pretend = 0, frame = 0
+ 898              		@ frame_needed = 0, uses_anonymous_args = 0
+ 899              		@ link register save eliminated.
+ 900 0000 90F82020 		ldrb	r2, [r0, #32]	@ zero_extendqisi2
+ 901 0004 013A     		subs	r2, r2, #1
+ 902 0006 012A     		cmp	r2, #1
+ 903 0008 06D8     		bhi	.L138
+ 904 000a 0268     		ldr	r2, [r0]
+ 905 000c 5369     		ldr	r3, [r2, #20]
+ 906 000e 23EA0103 		bic	r3, r3, r1
+ 907 0012 5361     		str	r3, [r2, #20]
+ 908 0014 0020     		movs	r0, #0
+ 909 0016 7047     		bx	lr
+ 910              	.L138:
+ 911 0018 436A     		ldr	r3, [r0, #36]
+ 912 001a 43F48023 		orr	r3, r3, #262144
+ 913 001e 4362     		str	r3, [r0, #36]
+ 914 0020 0120     		movs	r0, #1
+ 915 0022 7047     		bx	lr
+ 917              		.section	.text.HAL_CAN_TxMailbox0CompleteCallback,"ax",%progbits
+ 918              		.align	1
+ 919              		.weak	HAL_CAN_TxMailbox0CompleteCallback
+ 920              		.syntax unified
+ 921              		.thumb
+ 922              		.thumb_func
+ 923              		.fpu fpv4-sp-d16
+ 925              	HAL_CAN_TxMailbox0CompleteCallback:
+ 926              		@ args = 0, pretend = 0, frame = 0
+ 927              		@ frame_needed = 0, uses_anonymous_args = 0
+ 928              		@ link register save eliminated.
+ 929 0000 7047     		bx	lr
+ 931              		.section	.text.HAL_CAN_TxMailbox1CompleteCallback,"ax",%progbits
+ 932              		.align	1
+ 933              		.weak	HAL_CAN_TxMailbox1CompleteCallback
+ 934              		.syntax unified
+ 935              		.thumb
+ 936              		.thumb_func
+ 937              		.fpu fpv4-sp-d16
+ 939              	HAL_CAN_TxMailbox1CompleteCallback:
+ 940              		@ args = 0, pretend = 0, frame = 0
+ 941              		@ frame_needed = 0, uses_anonymous_args = 0
+ 942              		@ link register save eliminated.
+ 943 0000 7047     		bx	lr
+ 945              		.section	.text.HAL_CAN_TxMailbox2CompleteCallback,"ax",%progbits
+ 946              		.align	1
+ 947              		.weak	HAL_CAN_TxMailbox2CompleteCallback
+ 948              		.syntax unified
+ 949              		.thumb
+ 950              		.thumb_func
+ 951              		.fpu fpv4-sp-d16
+ 953              	HAL_CAN_TxMailbox2CompleteCallback:
+ 954              		@ args = 0, pretend = 0, frame = 0
+ 955              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 17
+
+
+ 956              		@ link register save eliminated.
+ 957 0000 7047     		bx	lr
+ 959              		.section	.text.HAL_CAN_TxMailbox0AbortCallback,"ax",%progbits
+ 960              		.align	1
+ 961              		.weak	HAL_CAN_TxMailbox0AbortCallback
+ 962              		.syntax unified
+ 963              		.thumb
+ 964              		.thumb_func
+ 965              		.fpu fpv4-sp-d16
+ 967              	HAL_CAN_TxMailbox0AbortCallback:
+ 968              		@ args = 0, pretend = 0, frame = 0
+ 969              		@ frame_needed = 0, uses_anonymous_args = 0
+ 970              		@ link register save eliminated.
+ 971 0000 7047     		bx	lr
+ 973              		.section	.text.HAL_CAN_TxMailbox1AbortCallback,"ax",%progbits
+ 974              		.align	1
+ 975              		.weak	HAL_CAN_TxMailbox1AbortCallback
+ 976              		.syntax unified
+ 977              		.thumb
+ 978              		.thumb_func
+ 979              		.fpu fpv4-sp-d16
+ 981              	HAL_CAN_TxMailbox1AbortCallback:
+ 982              		@ args = 0, pretend = 0, frame = 0
+ 983              		@ frame_needed = 0, uses_anonymous_args = 0
+ 984              		@ link register save eliminated.
+ 985 0000 7047     		bx	lr
+ 987              		.section	.text.HAL_CAN_TxMailbox2AbortCallback,"ax",%progbits
+ 988              		.align	1
+ 989              		.weak	HAL_CAN_TxMailbox2AbortCallback
+ 990              		.syntax unified
+ 991              		.thumb
+ 992              		.thumb_func
+ 993              		.fpu fpv4-sp-d16
+ 995              	HAL_CAN_TxMailbox2AbortCallback:
+ 996              		@ args = 0, pretend = 0, frame = 0
+ 997              		@ frame_needed = 0, uses_anonymous_args = 0
+ 998              		@ link register save eliminated.
+ 999 0000 7047     		bx	lr
+ 1001              		.section	.text.HAL_CAN_RxFifo0MsgPendingCallback,"ax",%progbits
+ 1002              		.align	1
+ 1003              		.weak	HAL_CAN_RxFifo0MsgPendingCallback
+ 1004              		.syntax unified
+ 1005              		.thumb
+ 1006              		.thumb_func
+ 1007              		.fpu fpv4-sp-d16
+ 1009              	HAL_CAN_RxFifo0MsgPendingCallback:
+ 1010              		@ args = 0, pretend = 0, frame = 0
+ 1011              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1012              		@ link register save eliminated.
+ 1013 0000 7047     		bx	lr
+ 1015              		.section	.text.HAL_CAN_RxFifo0FullCallback,"ax",%progbits
+ 1016              		.align	1
+ 1017              		.weak	HAL_CAN_RxFifo0FullCallback
+ 1018              		.syntax unified
+ 1019              		.thumb
+ 1020              		.thumb_func
+ 1021              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 18
+
+
+ 1023              	HAL_CAN_RxFifo0FullCallback:
+ 1024              		@ args = 0, pretend = 0, frame = 0
+ 1025              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1026              		@ link register save eliminated.
+ 1027 0000 7047     		bx	lr
+ 1029              		.section	.text.HAL_CAN_RxFifo1MsgPendingCallback,"ax",%progbits
+ 1030              		.align	1
+ 1031              		.weak	HAL_CAN_RxFifo1MsgPendingCallback
+ 1032              		.syntax unified
+ 1033              		.thumb
+ 1034              		.thumb_func
+ 1035              		.fpu fpv4-sp-d16
+ 1037              	HAL_CAN_RxFifo1MsgPendingCallback:
+ 1038              		@ args = 0, pretend = 0, frame = 0
+ 1039              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1040              		@ link register save eliminated.
+ 1041 0000 7047     		bx	lr
+ 1043              		.section	.text.HAL_CAN_RxFifo1FullCallback,"ax",%progbits
+ 1044              		.align	1
+ 1045              		.weak	HAL_CAN_RxFifo1FullCallback
+ 1046              		.syntax unified
+ 1047              		.thumb
+ 1048              		.thumb_func
+ 1049              		.fpu fpv4-sp-d16
+ 1051              	HAL_CAN_RxFifo1FullCallback:
+ 1052              		@ args = 0, pretend = 0, frame = 0
+ 1053              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1054              		@ link register save eliminated.
+ 1055 0000 7047     		bx	lr
+ 1057              		.section	.text.HAL_CAN_SleepCallback,"ax",%progbits
+ 1058              		.align	1
+ 1059              		.weak	HAL_CAN_SleepCallback
+ 1060              		.syntax unified
+ 1061              		.thumb
+ 1062              		.thumb_func
+ 1063              		.fpu fpv4-sp-d16
+ 1065              	HAL_CAN_SleepCallback:
+ 1066              		@ args = 0, pretend = 0, frame = 0
+ 1067              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1068              		@ link register save eliminated.
+ 1069 0000 7047     		bx	lr
+ 1071              		.section	.text.HAL_CAN_WakeUpFromRxMsgCallback,"ax",%progbits
+ 1072              		.align	1
+ 1073              		.weak	HAL_CAN_WakeUpFromRxMsgCallback
+ 1074              		.syntax unified
+ 1075              		.thumb
+ 1076              		.thumb_func
+ 1077              		.fpu fpv4-sp-d16
+ 1079              	HAL_CAN_WakeUpFromRxMsgCallback:
+ 1080              		@ args = 0, pretend = 0, frame = 0
+ 1081              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1082              		@ link register save eliminated.
+ 1083 0000 7047     		bx	lr
+ 1085              		.section	.text.HAL_CAN_ErrorCallback,"ax",%progbits
+ 1086              		.align	1
+ 1087              		.weak	HAL_CAN_ErrorCallback
+ 1088              		.syntax unified
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 19
+
+
+ 1089              		.thumb
+ 1090              		.thumb_func
+ 1091              		.fpu fpv4-sp-d16
+ 1093              	HAL_CAN_ErrorCallback:
+ 1094              		@ args = 0, pretend = 0, frame = 0
+ 1095              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1096              		@ link register save eliminated.
+ 1097 0000 7047     		bx	lr
+ 1099              		.section	.text.HAL_CAN_IRQHandler,"ax",%progbits
+ 1100              		.align	1
+ 1101              		.global	HAL_CAN_IRQHandler
+ 1102              		.syntax unified
+ 1103              		.thumb
+ 1104              		.thumb_func
+ 1105              		.fpu fpv4-sp-d16
+ 1107              	HAL_CAN_IRQHandler:
+ 1108              		@ args = 0, pretend = 0, frame = 0
+ 1109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1110 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 1111 0004 0368     		ldr	r3, [r0]
+ 1112 0006 5E69     		ldr	r6, [r3, #20]
+ 1113 0008 D3F80490 		ldr	r9, [r3, #4]
+ 1114 000c 9F68     		ldr	r7, [r3, #8]
+ 1115 000e D3F80CB0 		ldr	fp, [r3, #12]
+ 1116 0012 D3F810A0 		ldr	r10, [r3, #16]
+ 1117 0016 D3F81880 		ldr	r8, [r3, #24]
+ 1118 001a 16F00104 		ands	r4, r6, #1
+ 1119 001e 0546     		mov	r5, r0
+ 1120 0020 22D0     		beq	.L154
+ 1121 0022 17F00104 		ands	r4, r7, #1
+ 1122 0026 07D0     		beq	.L155
+ 1123 0028 0122     		movs	r2, #1
+ 1124 002a B907     		lsls	r1, r7, #30
+ 1125 002c 9A60     		str	r2, [r3, #8]
+ 1126 002e 40F1A380 		bpl	.L156
+ 1127 0032 FFF7FEFF 		bl	HAL_CAN_TxMailbox0CompleteCallback
+ 1128 0036 0024     		movs	r4, #0
+ 1129              	.L155:
+ 1130 0038 FB05     		lsls	r3, r7, #23
+ 1131 003a 09D5     		bpl	.L157
+ 1132 003c 2B68     		ldr	r3, [r5]
+ 1133 003e 4FF48072 		mov	r2, #256
+ 1134 0042 B805     		lsls	r0, r7, #22
+ 1135 0044 9A60     		str	r2, [r3, #8]
+ 1136 0046 40F1A580 		bpl	.L158
+ 1137 004a 2846     		mov	r0, r5
+ 1138 004c FFF7FEFF 		bl	HAL_CAN_TxMailbox1CompleteCallback
+ 1139              	.L157:
+ 1140 0050 FB03     		lsls	r3, r7, #15
+ 1141 0052 09D5     		bpl	.L154
+ 1142 0054 2B68     		ldr	r3, [r5]
+ 1143 0056 4FF48032 		mov	r2, #65536
+ 1144 005a B803     		lsls	r0, r7, #14
+ 1145 005c 9A60     		str	r2, [r3, #8]
+ 1146 005e 40F1A780 		bpl	.L161
+ 1147 0062 2846     		mov	r0, r5
+ 1148 0064 FFF7FEFF 		bl	HAL_CAN_TxMailbox2CompleteCallback
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 20
+
+
+ 1149              	.L154:
+ 1150 0068 3307     		lsls	r3, r6, #28
+ 1151 006a 07D5     		bpl	.L164
+ 1152 006c 1BF0100F 		tst	fp, #16
+ 1153 0070 1FBF     		itttt	ne
+ 1154 0072 2B68     		ldrne	r3, [r5]
+ 1155 0074 1022     		movne	r2, #16
+ 1156 0076 44F40074 		orrne	r4, r4, #512
+ 1157 007a DA60     		strne	r2, [r3, #12]
+ 1158              	.L164:
+ 1159 007c 7707     		lsls	r7, r6, #29
+ 1160 007e 08D5     		bpl	.L165
+ 1161 0080 1BF0080F 		tst	fp, #8
+ 1162 0084 05D0     		beq	.L165
+ 1163 0086 2B68     		ldr	r3, [r5]
+ 1164 0088 0822     		movs	r2, #8
+ 1165 008a DA60     		str	r2, [r3, #12]
+ 1166 008c 2846     		mov	r0, r5
+ 1167 008e FFF7FEFF 		bl	HAL_CAN_RxFifo0FullCallback
+ 1168              	.L165:
+ 1169 0092 B007     		lsls	r0, r6, #30
+ 1170 0094 06D5     		bpl	.L166
+ 1171 0096 2B68     		ldr	r3, [r5]
+ 1172 0098 DB68     		ldr	r3, [r3, #12]
+ 1173 009a 9907     		lsls	r1, r3, #30
+ 1174 009c 02D0     		beq	.L166
+ 1175 009e 2846     		mov	r0, r5
+ 1176 00a0 FFF7FEFF 		bl	HAL_CAN_RxFifo0MsgPendingCallback
+ 1177              	.L166:
+ 1178 00a4 7206     		lsls	r2, r6, #25
+ 1179 00a6 07D5     		bpl	.L167
+ 1180 00a8 1AF0100F 		tst	r10, #16
+ 1181 00ac 1FBF     		itttt	ne
+ 1182 00ae 2B68     		ldrne	r3, [r5]
+ 1183 00b0 1022     		movne	r2, #16
+ 1184 00b2 44F48064 		orrne	r4, r4, #1024
+ 1185 00b6 1A61     		strne	r2, [r3, #16]
+ 1186              	.L167:
+ 1187 00b8 B306     		lsls	r3, r6, #26
+ 1188 00ba 08D5     		bpl	.L168
+ 1189 00bc 1AF0080F 		tst	r10, #8
+ 1190 00c0 05D0     		beq	.L168
+ 1191 00c2 2B68     		ldr	r3, [r5]
+ 1192 00c4 0822     		movs	r2, #8
+ 1193 00c6 1A61     		str	r2, [r3, #16]
+ 1194 00c8 2846     		mov	r0, r5
+ 1195 00ca FFF7FEFF 		bl	HAL_CAN_RxFifo1FullCallback
+ 1196              	.L168:
+ 1197 00ce F706     		lsls	r7, r6, #27
+ 1198 00d0 06D5     		bpl	.L169
+ 1199 00d2 2B68     		ldr	r3, [r5]
+ 1200 00d4 1B69     		ldr	r3, [r3, #16]
+ 1201 00d6 9807     		lsls	r0, r3, #30
+ 1202 00d8 02D0     		beq	.L169
+ 1203 00da 2846     		mov	r0, r5
+ 1204 00dc FFF7FEFF 		bl	HAL_CAN_RxFifo1MsgPendingCallback
+ 1205              	.L169:
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 21
+
+
+ 1206 00e0 B103     		lsls	r1, r6, #14
+ 1207 00e2 08D5     		bpl	.L170
+ 1208 00e4 19F0100F 		tst	r9, #16
+ 1209 00e8 05D0     		beq	.L170
+ 1210 00ea 2B68     		ldr	r3, [r5]
+ 1211 00ec 1022     		movs	r2, #16
+ 1212 00ee 5A60     		str	r2, [r3, #4]
+ 1213 00f0 2846     		mov	r0, r5
+ 1214 00f2 FFF7FEFF 		bl	HAL_CAN_SleepCallback
+ 1215              	.L170:
+ 1216 00f6 F203     		lsls	r2, r6, #15
+ 1217 00f8 08D5     		bpl	.L171
+ 1218 00fa 19F0080F 		tst	r9, #8
+ 1219 00fe 05D0     		beq	.L171
+ 1220 0100 2B68     		ldr	r3, [r5]
+ 1221 0102 0822     		movs	r2, #8
+ 1222 0104 5A60     		str	r2, [r3, #4]
+ 1223 0106 2846     		mov	r0, r5
+ 1224 0108 FFF7FEFF 		bl	HAL_CAN_WakeUpFromRxMsgCallback
+ 1225              	.L171:
+ 1226 010c 3304     		lsls	r3, r6, #16
+ 1227 010e 2AD5     		bpl	.L172
+ 1228 0110 19F0040F 		tst	r9, #4
+ 1229 0114 2A68     		ldr	r2, [r5]
+ 1230 0116 24D0     		beq	.L173
+ 1231 0118 F705     		lsls	r7, r6, #23
+ 1232 011a 04D5     		bpl	.L174
+ 1233 011c 18F0010F 		tst	r8, #1
+ 1234 0120 18BF     		it	ne
+ 1235 0122 44F00104 		orrne	r4, r4, #1
+ 1236              	.L174:
+ 1237 0126 B005     		lsls	r0, r6, #22
+ 1238 0128 04D5     		bpl	.L175
+ 1239 012a 18F0020F 		tst	r8, #2
+ 1240 012e 18BF     		it	ne
+ 1241 0130 44F00204 		orrne	r4, r4, #2
+ 1242              	.L175:
+ 1243 0134 7105     		lsls	r1, r6, #21
+ 1244 0136 04D5     		bpl	.L176
+ 1245 0138 18F0040F 		tst	r8, #4
+ 1246 013c 18BF     		it	ne
+ 1247 013e 44F00404 		orrne	r4, r4, #4
+ 1248              	.L176:
+ 1249 0142 3305     		lsls	r3, r6, #20
+ 1250 0144 0DD5     		bpl	.L173
+ 1251 0146 18F07003 		ands	r3, r8, #112
+ 1252 014a 0AD0     		beq	.L173
+ 1253 014c 302B     		cmp	r3, #48
+ 1254 014e 4CD0     		beq	.L177
+ 1255 0150 3CD8     		bhi	.L178
+ 1256 0152 102B     		cmp	r3, #16
+ 1257 0154 43D0     		beq	.L179
+ 1258 0156 202B     		cmp	r3, #32
+ 1259 0158 44D0     		beq	.L180
+ 1260              	.L181:
+ 1261 015a 9369     		ldr	r3, [r2, #24]
+ 1262 015c 23F07003 		bic	r3, r3, #112
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 22
+
+
+ 1263 0160 9361     		str	r3, [r2, #24]
+ 1264              	.L173:
+ 1265 0162 0423     		movs	r3, #4
+ 1266 0164 5360     		str	r3, [r2, #4]
+ 1267              	.L172:
+ 1268 0166 2CB1     		cbz	r4, .L153
+ 1269 0168 6B6A     		ldr	r3, [r5, #36]
+ 1270 016a 1C43     		orrs	r4, r4, r3
+ 1271 016c 6C62     		str	r4, [r5, #36]
+ 1272 016e 2846     		mov	r0, r5
+ 1273 0170 FFF7FEFF 		bl	HAL_CAN_ErrorCallback
+ 1274              	.L153:
+ 1275 0174 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1276              	.L156:
+ 1277 0178 7A07     		lsls	r2, r7, #29
+ 1278 017a 05D4     		bmi	.L188
+ 1279 017c 17F00804 		ands	r4, r7, #8
+ 1280 0180 05D1     		bne	.L189
+ 1281 0182 FFF7FEFF 		bl	HAL_CAN_TxMailbox0AbortCallback
+ 1282 0186 57E7     		b	.L155
+ 1283              	.L188:
+ 1284 0188 4FF40064 		mov	r4, #2048
+ 1285 018c 54E7     		b	.L155
+ 1286              	.L189:
+ 1287 018e 4FF48054 		mov	r4, #4096
+ 1288 0192 51E7     		b	.L155
+ 1289              	.L158:
+ 1290 0194 7905     		lsls	r1, r7, #21
+ 1291 0196 02D5     		bpl	.L159
+ 1292 0198 44F40054 		orr	r4, r4, #8192
+ 1293 019c 58E7     		b	.L157
+ 1294              	.L159:
+ 1295 019e 3A05     		lsls	r2, r7, #20
+ 1296 01a0 02D5     		bpl	.L160
+ 1297 01a2 44F48044 		orr	r4, r4, #16384
+ 1298 01a6 53E7     		b	.L157
+ 1299              	.L160:
+ 1300 01a8 2846     		mov	r0, r5
+ 1301 01aa FFF7FEFF 		bl	HAL_CAN_TxMailbox1AbortCallback
+ 1302 01ae 4FE7     		b	.L157
+ 1303              	.L161:
+ 1304 01b0 7903     		lsls	r1, r7, #13
+ 1305 01b2 02D5     		bpl	.L162
+ 1306 01b4 44F40044 		orr	r4, r4, #32768
+ 1307 01b8 56E7     		b	.L154
+ 1308              	.L162:
+ 1309 01ba 3A03     		lsls	r2, r7, #12
+ 1310 01bc 02D5     		bpl	.L163
+ 1311 01be 44F48034 		orr	r4, r4, #65536
+ 1312 01c2 51E7     		b	.L154
+ 1313              	.L163:
+ 1314 01c4 2846     		mov	r0, r5
+ 1315 01c6 FFF7FEFF 		bl	HAL_CAN_TxMailbox2AbortCallback
+ 1316 01ca 4DE7     		b	.L154
+ 1317              	.L178:
+ 1318 01cc 502B     		cmp	r3, #80
+ 1319 01ce 0FD0     		beq	.L182
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 23
+
+
+ 1320 01d0 602B     		cmp	r3, #96
+ 1321 01d2 10D0     		beq	.L183
+ 1322 01d4 402B     		cmp	r3, #64
+ 1323 01d6 C0D1     		bne	.L181
+ 1324 01d8 44F04004 		orr	r4, r4, #64
+ 1325 01dc BDE7     		b	.L181
+ 1326              	.L179:
+ 1327 01de 44F00804 		orr	r4, r4, #8
+ 1328 01e2 BAE7     		b	.L181
+ 1329              	.L180:
+ 1330 01e4 44F01004 		orr	r4, r4, #16
+ 1331 01e8 B7E7     		b	.L181
+ 1332              	.L177:
+ 1333 01ea 44F02004 		orr	r4, r4, #32
+ 1334 01ee B4E7     		b	.L181
+ 1335              	.L182:
+ 1336 01f0 44F08004 		orr	r4, r4, #128
+ 1337 01f4 B1E7     		b	.L181
+ 1338              	.L183:
+ 1339 01f6 44F48074 		orr	r4, r4, #256
+ 1340 01fa AEE7     		b	.L181
+ 1342              		.section	.text.HAL_CAN_GetState,"ax",%progbits
+ 1343              		.align	1
+ 1344              		.global	HAL_CAN_GetState
+ 1345              		.syntax unified
+ 1346              		.thumb
+ 1347              		.thumb_func
+ 1348              		.fpu fpv4-sp-d16
+ 1350              	HAL_CAN_GetState:
+ 1351              		@ args = 0, pretend = 0, frame = 0
+ 1352              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1353              		@ link register save eliminated.
+ 1354 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 1355 0004 DBB2     		uxtb	r3, r3
+ 1356 0006 5A1E     		subs	r2, r3, #1
+ 1357 0008 012A     		cmp	r2, #1
+ 1358 000a 08D8     		bhi	.L278
+ 1359 000c 0268     		ldr	r2, [r0]
+ 1360 000e 5168     		ldr	r1, [r2, #4]
+ 1361 0010 8907     		lsls	r1, r1, #30
+ 1362 0012 06D4     		bmi	.L279
+ 1363 0014 1268     		ldr	r2, [r2]
+ 1364 0016 12F0020F 		tst	r2, #2
+ 1365 001a 18BF     		it	ne
+ 1366 001c 0323     		movne	r3, #3
+ 1367              	.L278:
+ 1368 001e 1846     		mov	r0, r3
+ 1369 0020 7047     		bx	lr
+ 1370              	.L279:
+ 1371 0022 0423     		movs	r3, #4
+ 1372 0024 FBE7     		b	.L278
+ 1374              		.section	.text.HAL_CAN_GetError,"ax",%progbits
+ 1375              		.align	1
+ 1376              		.global	HAL_CAN_GetError
+ 1377              		.syntax unified
+ 1378              		.thumb
+ 1379              		.thumb_func
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 24
+
+
+ 1380              		.fpu fpv4-sp-d16
+ 1382              	HAL_CAN_GetError:
+ 1383              		@ args = 0, pretend = 0, frame = 0
+ 1384              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1385              		@ link register save eliminated.
+ 1386 0000 406A     		ldr	r0, [r0, #36]
+ 1387 0002 7047     		bx	lr
+ 1389              		.section	.text.HAL_CAN_ResetError,"ax",%progbits
+ 1390              		.align	1
+ 1391              		.global	HAL_CAN_ResetError
+ 1392              		.syntax unified
+ 1393              		.thumb
+ 1394              		.thumb_func
+ 1395              		.fpu fpv4-sp-d16
+ 1397              	HAL_CAN_ResetError:
+ 1398              		@ args = 0, pretend = 0, frame = 0
+ 1399              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1400              		@ link register save eliminated.
+ 1401 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 1402 0004 013B     		subs	r3, r3, #1
+ 1403 0006 012B     		cmp	r3, #1
+ 1404 0008 8BBF     		itete	hi
+ 1405 000a 436A     		ldrhi	r3, [r0, #36]
+ 1406 000c 0023     		movls	r3, #0
+ 1407 000e 43F48023 		orrhi	r3, r3, #262144
+ 1408 0012 4362     		strls	r3, [r0, #36]
+ 1409 0014 8ABF     		itet	hi
+ 1410 0016 4362     		strhi	r3, [r0, #36]
+ 1411 0018 1846     		movls	r0, r3
+ 1412 001a 0120     		movhi	r0, #1
+ 1413 001c 7047     		bx	lr
+ 1415              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 25
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_can.c
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:16     .text.HAL_CAN_MspInit:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:24     .text.HAL_CAN_MspInit:0000000000000000 HAL_CAN_MspInit
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:31     .text.HAL_CAN_Init:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:38     .text.HAL_CAN_Init:0000000000000000 HAL_CAN_Init
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:150    .text.HAL_CAN_MspDeInit:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:157    .text.HAL_CAN_MspDeInit:0000000000000000 HAL_CAN_MspDeInit
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:164    .text.HAL_CAN_ConfigFilter:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:171    .text.HAL_CAN_ConfigFilter:0000000000000000 HAL_CAN_ConfigFilter
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:261    .text.HAL_CAN_Start:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:268    .text.HAL_CAN_Start:0000000000000000 HAL_CAN_Start
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:312    .text.HAL_CAN_Stop:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:319    .text.HAL_CAN_Stop:0000000000000000 HAL_CAN_Stop
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:366    .text.HAL_CAN_DeInit:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:373    .text.HAL_CAN_DeInit:0000000000000000 HAL_CAN_DeInit
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:396    .text.HAL_CAN_RequestSleep:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:403    .text.HAL_CAN_RequestSleep:0000000000000000 HAL_CAN_RequestSleep
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:425    .text.HAL_CAN_WakeUp:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:432    .text.HAL_CAN_WakeUp:0000000000000000 HAL_CAN_WakeUp
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:477    .text.HAL_CAN_WakeUp:000000000000004c $d
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:480    .text.HAL_CAN_IsSleepActive:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:487    .text.HAL_CAN_IsSleepActive:0000000000000000 HAL_CAN_IsSleepActive
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:502    .text.HAL_CAN_AddTxMessage:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:509    .text.HAL_CAN_AddTxMessage:0000000000000000 HAL_CAN_AddTxMessage
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:578    .text.HAL_CAN_AbortTxRequest:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:585    .text.HAL_CAN_AbortTxRequest:0000000000000000 HAL_CAN_AbortTxRequest
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:621    .text.HAL_CAN_GetTxMailboxesFreeLevel:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:628    .text.HAL_CAN_GetTxMailboxesFreeLevel:0000000000000000 HAL_CAN_GetTxMailboxesFreeLevel
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:654    .text.HAL_CAN_IsTxMessagePending:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:661    .text.HAL_CAN_IsTxMessagePending:0000000000000000 HAL_CAN_IsTxMessagePending
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:682    .text.HAL_CAN_GetTxTimestamp:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:689    .text.HAL_CAN_GetTxTimestamp:0000000000000000 HAL_CAN_GetTxTimestamp
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:715    .text.HAL_CAN_GetRxMessage:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:722    .text.HAL_CAN_GetRxMessage:0000000000000000 HAL_CAN_GetRxMessage
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:831    .text.HAL_CAN_GetRxFifoFillLevel:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:838    .text.HAL_CAN_GetRxFifoFillLevel:0000000000000000 HAL_CAN_GetRxFifoFillLevel
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:860    .text.HAL_CAN_ActivateNotification:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:867    .text.HAL_CAN_ActivateNotification:0000000000000000 HAL_CAN_ActivateNotification
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:889    .text.HAL_CAN_DeactivateNotification:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:896    .text.HAL_CAN_DeactivateNotification:0000000000000000 HAL_CAN_DeactivateNotification
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:918    .text.HAL_CAN_TxMailbox0CompleteCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:925    .text.HAL_CAN_TxMailbox0CompleteCallback:0000000000000000 HAL_CAN_TxMailbox0CompleteCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:932    .text.HAL_CAN_TxMailbox1CompleteCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:939    .text.HAL_CAN_TxMailbox1CompleteCallback:0000000000000000 HAL_CAN_TxMailbox1CompleteCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:946    .text.HAL_CAN_TxMailbox2CompleteCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:953    .text.HAL_CAN_TxMailbox2CompleteCallback:0000000000000000 HAL_CAN_TxMailbox2CompleteCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:960    .text.HAL_CAN_TxMailbox0AbortCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:967    .text.HAL_CAN_TxMailbox0AbortCallback:0000000000000000 HAL_CAN_TxMailbox0AbortCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:974    .text.HAL_CAN_TxMailbox1AbortCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:981    .text.HAL_CAN_TxMailbox1AbortCallback:0000000000000000 HAL_CAN_TxMailbox1AbortCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:988    .text.HAL_CAN_TxMailbox2AbortCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:995    .text.HAL_CAN_TxMailbox2AbortCallback:0000000000000000 HAL_CAN_TxMailbox2AbortCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1002   .text.HAL_CAN_RxFifo0MsgPendingCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1009   .text.HAL_CAN_RxFifo0MsgPendingCallback:0000000000000000 HAL_CAN_RxFifo0MsgPendingCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1016   .text.HAL_CAN_RxFifo0FullCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1023   .text.HAL_CAN_RxFifo0FullCallback:0000000000000000 HAL_CAN_RxFifo0FullCallback
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s 			page 26
+
+
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1030   .text.HAL_CAN_RxFifo1MsgPendingCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1037   .text.HAL_CAN_RxFifo1MsgPendingCallback:0000000000000000 HAL_CAN_RxFifo1MsgPendingCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1044   .text.HAL_CAN_RxFifo1FullCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1051   .text.HAL_CAN_RxFifo1FullCallback:0000000000000000 HAL_CAN_RxFifo1FullCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1058   .text.HAL_CAN_SleepCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1065   .text.HAL_CAN_SleepCallback:0000000000000000 HAL_CAN_SleepCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1072   .text.HAL_CAN_WakeUpFromRxMsgCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1079   .text.HAL_CAN_WakeUpFromRxMsgCallback:0000000000000000 HAL_CAN_WakeUpFromRxMsgCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1086   .text.HAL_CAN_ErrorCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1093   .text.HAL_CAN_ErrorCallback:0000000000000000 HAL_CAN_ErrorCallback
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1100   .text.HAL_CAN_IRQHandler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1107   .text.HAL_CAN_IRQHandler:0000000000000000 HAL_CAN_IRQHandler
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1343   .text.HAL_CAN_GetState:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1350   .text.HAL_CAN_GetState:0000000000000000 HAL_CAN_GetState
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1375   .text.HAL_CAN_GetError:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1382   .text.HAL_CAN_GetError:0000000000000000 HAL_CAN_GetError
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1390   .text.HAL_CAN_ResetError:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccFR6HZA.s:1397   .text.HAL_CAN_ResetError:0000000000000000 HAL_CAN_ResetError
+
+UNDEFINED SYMBOLS
+HAL_GetTick

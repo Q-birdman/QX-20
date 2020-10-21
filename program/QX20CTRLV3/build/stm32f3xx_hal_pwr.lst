@@ -1,0 +1,385 @@
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_pwr.c"
+  14              		.text
+  15              		.section	.text.HAL_PWR_DeInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	HAL_PWR_DeInit
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	HAL_PWR_DeInit:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27              		@ link register save eliminated.
+  28 0000 044B     		ldr	r3, .L2
+  29 0002 1A69     		ldr	r2, [r3, #16]
+  30 0004 42F08052 		orr	r2, r2, #268435456
+  31 0008 1A61     		str	r2, [r3, #16]
+  32 000a 1A69     		ldr	r2, [r3, #16]
+  33 000c 22F08052 		bic	r2, r2, #268435456
+  34 0010 1A61     		str	r2, [r3, #16]
+  35 0012 7047     		bx	lr
+  36              	.L3:
+  37              		.align	2
+  38              	.L2:
+  39 0014 00100240 		.word	1073876992
+  41              		.section	.text.HAL_PWR_EnableBkUpAccess,"ax",%progbits
+  42              		.align	1
+  43              		.global	HAL_PWR_EnableBkUpAccess
+  44              		.syntax unified
+  45              		.thumb
+  46              		.thumb_func
+  47              		.fpu fpv4-sp-d16
+  49              	HAL_PWR_EnableBkUpAccess:
+  50              		@ args = 0, pretend = 0, frame = 0
+  51              		@ frame_needed = 0, uses_anonymous_args = 0
+  52              		@ link register save eliminated.
+  53 0000 024A     		ldr	r2, .L5
+  54 0002 1368     		ldr	r3, [r2]
+  55 0004 43F48073 		orr	r3, r3, #256
+  56 0008 1360     		str	r3, [r2]
+  57 000a 7047     		bx	lr
+  58              	.L6:
+  59              		.align	2
+  60              	.L5:
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 2
+
+
+  61 000c 00700040 		.word	1073770496
+  63              		.section	.text.HAL_PWR_DisableBkUpAccess,"ax",%progbits
+  64              		.align	1
+  65              		.global	HAL_PWR_DisableBkUpAccess
+  66              		.syntax unified
+  67              		.thumb
+  68              		.thumb_func
+  69              		.fpu fpv4-sp-d16
+  71              	HAL_PWR_DisableBkUpAccess:
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74              		@ link register save eliminated.
+  75 0000 024A     		ldr	r2, .L8
+  76 0002 1368     		ldr	r3, [r2]
+  77 0004 23F48073 		bic	r3, r3, #256
+  78 0008 1360     		str	r3, [r2]
+  79 000a 7047     		bx	lr
+  80              	.L9:
+  81              		.align	2
+  82              	.L8:
+  83 000c 00700040 		.word	1073770496
+  85              		.section	.text.HAL_PWR_EnableWakeUpPin,"ax",%progbits
+  86              		.align	1
+  87              		.global	HAL_PWR_EnableWakeUpPin
+  88              		.syntax unified
+  89              		.thumb
+  90              		.thumb_func
+  91              		.fpu fpv4-sp-d16
+  93              	HAL_PWR_EnableWakeUpPin:
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96              		@ link register save eliminated.
+  97 0000 024A     		ldr	r2, .L11
+  98 0002 5368     		ldr	r3, [r2, #4]
+  99 0004 1843     		orrs	r0, r0, r3
+ 100 0006 5060     		str	r0, [r2, #4]
+ 101 0008 7047     		bx	lr
+ 102              	.L12:
+ 103 000a 00BF     		.align	2
+ 104              	.L11:
+ 105 000c 00700040 		.word	1073770496
+ 107              		.section	.text.HAL_PWR_DisableWakeUpPin,"ax",%progbits
+ 108              		.align	1
+ 109              		.global	HAL_PWR_DisableWakeUpPin
+ 110              		.syntax unified
+ 111              		.thumb
+ 112              		.thumb_func
+ 113              		.fpu fpv4-sp-d16
+ 115              	HAL_PWR_DisableWakeUpPin:
+ 116              		@ args = 0, pretend = 0, frame = 0
+ 117              		@ frame_needed = 0, uses_anonymous_args = 0
+ 118              		@ link register save eliminated.
+ 119 0000 024A     		ldr	r2, .L14
+ 120 0002 5368     		ldr	r3, [r2, #4]
+ 121 0004 23EA0000 		bic	r0, r3, r0
+ 122 0008 5060     		str	r0, [r2, #4]
+ 123 000a 7047     		bx	lr
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 3
+
+
+ 124              	.L15:
+ 125              		.align	2
+ 126              	.L14:
+ 127 000c 00700040 		.word	1073770496
+ 129              		.section	.text.HAL_PWR_EnterSLEEPMode,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	HAL_PWR_EnterSLEEPMode
+ 132              		.syntax unified
+ 133              		.thumb
+ 134              		.thumb_func
+ 135              		.fpu fpv4-sp-d16
+ 137              	HAL_PWR_EnterSLEEPMode:
+ 138              		@ args = 0, pretend = 0, frame = 0
+ 139              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140              		@ link register save eliminated.
+ 141 0000 064A     		ldr	r2, .L19
+ 142 0002 1369     		ldr	r3, [r2, #16]
+ 143 0004 0129     		cmp	r1, #1
+ 144 0006 23F00403 		bic	r3, r3, #4
+ 145 000a 1361     		str	r3, [r2, #16]
+ 146 000c 01D1     		bne	.L17
+ 147              		.syntax unified
+ 148              	@ 385 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 149 000e 30BF     		wfi
+ 150              	@ 0 "" 2
+ 151              		.thumb
+ 152              		.syntax unified
+ 153 0010 7047     		bx	lr
+ 154              	.L17:
+ 155              		.syntax unified
+ 156              	@ 406 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 157 0012 40BF     		sev
+ 158              	@ 0 "" 2
+ 159              	@ 396 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 160 0014 20BF     		wfe
+ 161              	@ 0 "" 2
+ 162              	@ 396 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 163 0016 20BF     		wfe
+ 164              	@ 0 "" 2
+ 165              		.thumb
+ 166              		.syntax unified
+ 167 0018 7047     		bx	lr
+ 168              	.L20:
+ 169 001a 00BF     		.align	2
+ 170              	.L19:
+ 171 001c 00ED00E0 		.word	-536810240
+ 173              		.section	.text.HAL_PWR_EnterSTOPMode,"ax",%progbits
+ 174              		.align	1
+ 175              		.global	HAL_PWR_EnterSTOPMode
+ 176              		.syntax unified
+ 177              		.thumb
+ 178              		.thumb_func
+ 179              		.fpu fpv4-sp-d16
+ 181              	HAL_PWR_EnterSTOPMode:
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184              		@ link register save eliminated.
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 4
+
+
+ 185 0000 0B4A     		ldr	r2, .L24
+ 186 0002 1368     		ldr	r3, [r2]
+ 187 0004 23F00303 		bic	r3, r3, #3
+ 188 0008 1843     		orrs	r0, r0, r3
+ 189 000a 0A4B     		ldr	r3, .L24+4
+ 190 000c 1060     		str	r0, [r2]
+ 191 000e 1A69     		ldr	r2, [r3, #16]
+ 192 0010 0129     		cmp	r1, #1
+ 193 0012 42F00402 		orr	r2, r2, #4
+ 194 0016 1A61     		str	r2, [r3, #16]
+ 195 0018 05D1     		bne	.L22
+ 196              		.syntax unified
+ 197              	@ 385 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 198 001a 30BF     		wfi
+ 199              	@ 0 "" 2
+ 200              		.thumb
+ 201              		.syntax unified
+ 202              	.L23:
+ 203 001c 1A69     		ldr	r2, [r3, #16]
+ 204 001e 22F00402 		bic	r2, r2, #4
+ 205 0022 1A61     		str	r2, [r3, #16]
+ 206 0024 7047     		bx	lr
+ 207              	.L22:
+ 208              		.syntax unified
+ 209              	@ 406 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 210 0026 40BF     		sev
+ 211              	@ 0 "" 2
+ 212              	@ 396 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 213 0028 20BF     		wfe
+ 214              	@ 0 "" 2
+ 215              	@ 396 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 216 002a 20BF     		wfe
+ 217              	@ 0 "" 2
+ 218              		.thumb
+ 219              		.syntax unified
+ 220 002c F6E7     		b	.L23
+ 221              	.L25:
+ 222 002e 00BF     		.align	2
+ 223              	.L24:
+ 224 0030 00700040 		.word	1073770496
+ 225 0034 00ED00E0 		.word	-536810240
+ 227              		.section	.text.HAL_PWR_EnterSTANDBYMode,"ax",%progbits
+ 228              		.align	1
+ 229              		.global	HAL_PWR_EnterSTANDBYMode
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 233              		.fpu fpv4-sp-d16
+ 235              	HAL_PWR_EnterSTANDBYMode:
+ 236              		@ args = 0, pretend = 0, frame = 0
+ 237              		@ frame_needed = 0, uses_anonymous_args = 0
+ 238              		@ link register save eliminated.
+ 239 0000 054A     		ldr	r2, .L27
+ 240 0002 1368     		ldr	r3, [r2]
+ 241 0004 43F00203 		orr	r3, r3, #2
+ 242 0008 1360     		str	r3, [r2]
+ 243 000a 044A     		ldr	r2, .L27+4
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 5
+
+
+ 244 000c 1369     		ldr	r3, [r2, #16]
+ 245 000e 43F00403 		orr	r3, r3, #4
+ 246 0012 1361     		str	r3, [r2, #16]
+ 247              		.syntax unified
+ 248              	@ 385 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 249 0014 30BF     		wfi
+ 250              	@ 0 "" 2
+ 251              		.thumb
+ 252              		.syntax unified
+ 253 0016 7047     		bx	lr
+ 254              	.L28:
+ 255              		.align	2
+ 256              	.L27:
+ 257 0018 00700040 		.word	1073770496
+ 258 001c 00ED00E0 		.word	-536810240
+ 260              		.section	.text.HAL_PWR_EnableSleepOnExit,"ax",%progbits
+ 261              		.align	1
+ 262              		.global	HAL_PWR_EnableSleepOnExit
+ 263              		.syntax unified
+ 264              		.thumb
+ 265              		.thumb_func
+ 266              		.fpu fpv4-sp-d16
+ 268              	HAL_PWR_EnableSleepOnExit:
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271              		@ link register save eliminated.
+ 272 0000 024A     		ldr	r2, .L30
+ 273 0002 1369     		ldr	r3, [r2, #16]
+ 274 0004 43F00203 		orr	r3, r3, #2
+ 275 0008 1361     		str	r3, [r2, #16]
+ 276 000a 7047     		bx	lr
+ 277              	.L31:
+ 278              		.align	2
+ 279              	.L30:
+ 280 000c 00ED00E0 		.word	-536810240
+ 282              		.section	.text.HAL_PWR_DisableSleepOnExit,"ax",%progbits
+ 283              		.align	1
+ 284              		.global	HAL_PWR_DisableSleepOnExit
+ 285              		.syntax unified
+ 286              		.thumb
+ 287              		.thumb_func
+ 288              		.fpu fpv4-sp-d16
+ 290              	HAL_PWR_DisableSleepOnExit:
+ 291              		@ args = 0, pretend = 0, frame = 0
+ 292              		@ frame_needed = 0, uses_anonymous_args = 0
+ 293              		@ link register save eliminated.
+ 294 0000 024A     		ldr	r2, .L33
+ 295 0002 1369     		ldr	r3, [r2, #16]
+ 296 0004 23F00203 		bic	r3, r3, #2
+ 297 0008 1361     		str	r3, [r2, #16]
+ 298 000a 7047     		bx	lr
+ 299              	.L34:
+ 300              		.align	2
+ 301              	.L33:
+ 302 000c 00ED00E0 		.word	-536810240
+ 304              		.section	.text.HAL_PWR_EnableSEVOnPend,"ax",%progbits
+ 305              		.align	1
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 6
+
+
+ 306              		.global	HAL_PWR_EnableSEVOnPend
+ 307              		.syntax unified
+ 308              		.thumb
+ 309              		.thumb_func
+ 310              		.fpu fpv4-sp-d16
+ 312              	HAL_PWR_EnableSEVOnPend:
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
+ 315              		@ link register save eliminated.
+ 316 0000 024A     		ldr	r2, .L36
+ 317 0002 1369     		ldr	r3, [r2, #16]
+ 318 0004 43F01003 		orr	r3, r3, #16
+ 319 0008 1361     		str	r3, [r2, #16]
+ 320 000a 7047     		bx	lr
+ 321              	.L37:
+ 322              		.align	2
+ 323              	.L36:
+ 324 000c 00ED00E0 		.word	-536810240
+ 326              		.section	.text.HAL_PWR_DisableSEVOnPend,"ax",%progbits
+ 327              		.align	1
+ 328              		.global	HAL_PWR_DisableSEVOnPend
+ 329              		.syntax unified
+ 330              		.thumb
+ 331              		.thumb_func
+ 332              		.fpu fpv4-sp-d16
+ 334              	HAL_PWR_DisableSEVOnPend:
+ 335              		@ args = 0, pretend = 0, frame = 0
+ 336              		@ frame_needed = 0, uses_anonymous_args = 0
+ 337              		@ link register save eliminated.
+ 338 0000 024A     		ldr	r2, .L39
+ 339 0002 1369     		ldr	r3, [r2, #16]
+ 340 0004 23F01003 		bic	r3, r3, #16
+ 341 0008 1361     		str	r3, [r2, #16]
+ 342 000a 7047     		bx	lr
+ 343              	.L40:
+ 344              		.align	2
+ 345              	.L39:
+ 346 000c 00ED00E0 		.word	-536810240
+ 348              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_pwr.c
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:16     .text.HAL_PWR_DeInit:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:24     .text.HAL_PWR_DeInit:0000000000000000 HAL_PWR_DeInit
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:39     .text.HAL_PWR_DeInit:0000000000000014 $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:42     .text.HAL_PWR_EnableBkUpAccess:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:49     .text.HAL_PWR_EnableBkUpAccess:0000000000000000 HAL_PWR_EnableBkUpAccess
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:61     .text.HAL_PWR_EnableBkUpAccess:000000000000000c $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:64     .text.HAL_PWR_DisableBkUpAccess:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:71     .text.HAL_PWR_DisableBkUpAccess:0000000000000000 HAL_PWR_DisableBkUpAccess
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:83     .text.HAL_PWR_DisableBkUpAccess:000000000000000c $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:86     .text.HAL_PWR_EnableWakeUpPin:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:93     .text.HAL_PWR_EnableWakeUpPin:0000000000000000 HAL_PWR_EnableWakeUpPin
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:105    .text.HAL_PWR_EnableWakeUpPin:000000000000000c $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:108    .text.HAL_PWR_DisableWakeUpPin:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:115    .text.HAL_PWR_DisableWakeUpPin:0000000000000000 HAL_PWR_DisableWakeUpPin
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:127    .text.HAL_PWR_DisableWakeUpPin:000000000000000c $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:130    .text.HAL_PWR_EnterSLEEPMode:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:137    .text.HAL_PWR_EnterSLEEPMode:0000000000000000 HAL_PWR_EnterSLEEPMode
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:171    .text.HAL_PWR_EnterSLEEPMode:000000000000001c $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:174    .text.HAL_PWR_EnterSTOPMode:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:181    .text.HAL_PWR_EnterSTOPMode:0000000000000000 HAL_PWR_EnterSTOPMode
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:224    .text.HAL_PWR_EnterSTOPMode:0000000000000030 $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:228    .text.HAL_PWR_EnterSTANDBYMode:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:235    .text.HAL_PWR_EnterSTANDBYMode:0000000000000000 HAL_PWR_EnterSTANDBYMode
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:257    .text.HAL_PWR_EnterSTANDBYMode:0000000000000018 $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:261    .text.HAL_PWR_EnableSleepOnExit:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:268    .text.HAL_PWR_EnableSleepOnExit:0000000000000000 HAL_PWR_EnableSleepOnExit
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:280    .text.HAL_PWR_EnableSleepOnExit:000000000000000c $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:283    .text.HAL_PWR_DisableSleepOnExit:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:290    .text.HAL_PWR_DisableSleepOnExit:0000000000000000 HAL_PWR_DisableSleepOnExit
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:302    .text.HAL_PWR_DisableSleepOnExit:000000000000000c $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:305    .text.HAL_PWR_EnableSEVOnPend:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:312    .text.HAL_PWR_EnableSEVOnPend:0000000000000000 HAL_PWR_EnableSEVOnPend
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:324    .text.HAL_PWR_EnableSEVOnPend:000000000000000c $d
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:327    .text.HAL_PWR_DisableSEVOnPend:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:334    .text.HAL_PWR_DisableSEVOnPend:0000000000000000 HAL_PWR_DisableSEVOnPend
+C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:346    .text.HAL_PWR_DisableSEVOnPend:000000000000000c $d
+
+NO UNDEFINED SYMBOLS

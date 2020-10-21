@@ -1,0 +1,99 @@
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"servo.c"
+  14              		.text
+  15              		.section	.text.rotateSrv1,"ax",%progbits
+  16              		.align	1
+  17              		.global	rotateSrv1
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	rotateSrv1:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27              		@ link register save eliminated.
+  28 0000 054A     		ldr	r2, .L2
+  29 0002 D2E90013 		ldrd	r1, r3, [r2]
+  30 0006 2420     		movs	r0, #36
+  31 0008 00FB0313 		mla	r3, r0, r3, r1
+  32 000c 1360     		str	r3, [r2]
+  33 000e 4FF08042 		mov	r2, #1073741824
+  34 0012 9363     		str	r3, [r2, #56]
+  35 0014 7047     		bx	lr
+  36              	.L3:
+  37 0016 00BF     		.align	2
+  38              	.L2:
+  39 0018 00000000 		.word	.LANCHOR0
+  41              		.section	.text.rotateSrv2,"ax",%progbits
+  42              		.align	1
+  43              		.global	rotateSrv2
+  44              		.syntax unified
+  45              		.thumb
+  46              		.thumb_func
+  47              		.fpu fpv4-sp-d16
+  49              	rotateSrv2:
+  50              		@ args = 0, pretend = 0, frame = 0
+  51              		@ frame_needed = 0, uses_anonymous_args = 0
+  52              		@ link register save eliminated.
+  53 0000 054A     		ldr	r2, .L5
+  54 0002 D2E90013 		ldrd	r1, r3, [r2]
+  55 0006 2420     		movs	r0, #36
+  56 0008 00FB0313 		mla	r3, r0, r3, r1
+  57 000c 1360     		str	r3, [r2]
+  58 000e 4FF08042 		mov	r2, #1073741824
+  59 0012 D363     		str	r3, [r2, #60]
+  60 0014 7047     		bx	lr
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s 			page 2
+
+
+  61              	.L6:
+  62 0016 00BF     		.align	2
+  63              	.L5:
+  64 0018 00000000 		.word	.LANCHOR1
+  66              		.global	srv2
+  67              		.global	srv1
+  68              		.section	.data.srv1,"aw"
+  69              		.align	2
+  70              		.set	.LANCHOR0,. + 0
+  73              	srv1:
+  74 0000 F0D20000 		.word	54000
+  75 0004 00000000 		.word	0
+  76              		.section	.data.srv2,"aw"
+  77              		.align	2
+  78              		.set	.LANCHOR1,. + 0
+  81              	srv2:
+  82 0000 F0D20000 		.word	54000
+  83 0004 00000000 		.word	0
+  84              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 servo.c
+C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:16     .text.rotateSrv1:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:24     .text.rotateSrv1:0000000000000000 rotateSrv1
+C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:39     .text.rotateSrv1:0000000000000018 $d
+C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:42     .text.rotateSrv2:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:49     .text.rotateSrv2:0000000000000000 rotateSrv2
+C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:64     .text.rotateSrv2:0000000000000018 $d
+C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:81     .data.srv2:0000000000000000 srv2
+C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:73     .data.srv1:0000000000000000 srv1
+C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:69     .data.srv1:0000000000000000 $d
+C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:77     .data.srv2:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

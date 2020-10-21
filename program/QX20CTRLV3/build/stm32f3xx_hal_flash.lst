@@ -1,0 +1,610 @@
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_flash.c"
+  14              		.text
+  15              		.section	.text.FLASH_SetErrorCode,"ax",%progbits
+  16              		.align	1
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv4-sp-d16
+  23              	FLASH_SetErrorCode:
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26              		@ link register save eliminated.
+  27 0000 0B4A     		ldr	r2, .L8
+  28 0002 D368     		ldr	r3, [r2, #12]
+  29 0004 13F01003 		ands	r3, r3, #16
+  30 0008 05D0     		beq	.L2
+  31 000a 0A49     		ldr	r1, .L8+4
+  32 000c CB69     		ldr	r3, [r1, #28]
+  33 000e 43F00203 		orr	r3, r3, #2
+  34 0012 CB61     		str	r3, [r1, #28]
+  35 0014 1023     		movs	r3, #16
+  36              	.L2:
+  37 0016 D268     		ldr	r2, [r2, #12]
+  38 0018 5207     		lsls	r2, r2, #29
+  39 001a 06D5     		bpl	.L3
+  40 001c 0549     		ldr	r1, .L8+4
+  41 001e CA69     		ldr	r2, [r1, #28]
+  42 0020 42F00102 		orr	r2, r2, #1
+  43 0024 CA61     		str	r2, [r1, #28]
+  44 0026 43F00403 		orr	r3, r3, #4
+  45              	.L3:
+  46 002a 014A     		ldr	r2, .L8
+  47 002c D360     		str	r3, [r2, #12]
+  48 002e 7047     		bx	lr
+  49              	.L9:
+  50              		.align	2
+  51              	.L8:
+  52 0030 00200240 		.word	1073881088
+  53 0034 00000000 		.word	pFlash
+  55              		.section	.text.HAL_FLASH_Program_IT,"ax",%progbits
+  56              		.align	1
+  57              		.global	HAL_FLASH_Program_IT
+  58              		.syntax unified
+  59              		.thumb
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 2
+
+
+  60              		.thumb_func
+  61              		.fpu fpv4-sp-d16
+  63              	HAL_FLASH_Program_IT:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 70B5     		push	{r4, r5, r6, lr}
+  67 0002 1D46     		mov	r5, r3
+  68 0004 134B     		ldr	r3, .L17
+  69 0006 1446     		mov	r4, r2
+  70 0008 1A7E     		ldrb	r2, [r3, #24]	@ zero_extendqisi2
+  71 000a 012A     		cmp	r2, #1
+  72 000c 20D0     		beq	.L15
+  73 000e 124E     		ldr	r6, .L17+4
+  74 0010 0122     		movs	r2, #1
+  75 0012 1A76     		strb	r2, [r3, #24]
+  76 0014 3269     		ldr	r2, [r6, #16]
+  77 0016 0128     		cmp	r0, #1
+  78 0018 42F4A052 		orr	r2, r2, #5120
+  79 001c 3261     		str	r2, [r6, #16]
+  80 001e 9960     		str	r1, [r3, #8]
+  81 0020 C3E90445 		strd	r4, [r3, #16]
+  82 0024 0CD1     		bne	.L12
+  83 0026 0322     		movs	r2, #3
+  84              	.L16:
+  85 0028 1A70     		strb	r2, [r3]
+  86 002a 5860     		str	r0, [r3, #4]
+  87              	.L13:
+  88 002c 0A4A     		ldr	r2, .L17+4
+  89 002e 0020     		movs	r0, #0
+  90 0030 D861     		str	r0, [r3, #28]
+  91 0032 1369     		ldr	r3, [r2, #16]
+  92 0034 A4B2     		uxth	r4, r4
+  93 0036 43F00103 		orr	r3, r3, #1
+  94 003a 1361     		str	r3, [r2, #16]
+  95 003c 0C80     		strh	r4, [r1]	@ movhi
+  96              	.L11:
+  97 003e 70BD     		pop	{r4, r5, r6, pc}
+  98              	.L12:
+  99 0040 0228     		cmp	r0, #2
+ 100 0042 4FF00402 		mov	r2, #4
+ 101 0046 EFD0     		beq	.L16
+ 102 0048 0520     		movs	r0, #5
+ 103 004a 1870     		strb	r0, [r3]
+ 104 004c 5A60     		str	r2, [r3, #4]
+ 105 004e EDE7     		b	.L13
+ 106              	.L15:
+ 107 0050 0220     		movs	r0, #2
+ 108 0052 F4E7     		b	.L11
+ 109              	.L18:
+ 110              		.align	2
+ 111              	.L17:
+ 112 0054 00000000 		.word	pFlash
+ 113 0058 00200240 		.word	1073881088
+ 115              		.section	.text.HAL_FLASH_EndOfOperationCallback,"ax",%progbits
+ 116              		.align	1
+ 117              		.weak	HAL_FLASH_EndOfOperationCallback
+ 118              		.syntax unified
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 3
+
+
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.fpu fpv4-sp-d16
+ 123              	HAL_FLASH_EndOfOperationCallback:
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 0, uses_anonymous_args = 0
+ 126              		@ link register save eliminated.
+ 127 0000 7047     		bx	lr
+ 129              		.section	.text.HAL_FLASH_OperationErrorCallback,"ax",%progbits
+ 130              		.align	1
+ 131              		.weak	HAL_FLASH_OperationErrorCallback
+ 132              		.syntax unified
+ 133              		.thumb
+ 134              		.thumb_func
+ 135              		.fpu fpv4-sp-d16
+ 137              	HAL_FLASH_OperationErrorCallback:
+ 138              		@ args = 0, pretend = 0, frame = 0
+ 139              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140              		@ link register save eliminated.
+ 141 0000 7047     		bx	lr
+ 143              		.section	.text.HAL_FLASH_IRQHandler,"ax",%progbits
+ 144              		.align	1
+ 145              		.global	HAL_FLASH_IRQHandler
+ 146              		.syntax unified
+ 147              		.thumb
+ 148              		.thumb_func
+ 149              		.fpu fpv4-sp-d16
+ 151              	HAL_FLASH_IRQHandler:
+ 152              		@ args = 0, pretend = 0, frame = 0
+ 153              		@ frame_needed = 0, uses_anonymous_args = 0
+ 154 0000 424B     		ldr	r3, .L43
+ 155 0002 DA68     		ldr	r2, [r3, #12]
+ 156 0004 12F0100F 		tst	r2, #16
+ 157 0008 70B5     		push	{r4, r5, r6, lr}
+ 158 000a 414C     		ldr	r4, .L43+4
+ 159 000c 02D1     		bne	.L22
+ 160 000e DB68     		ldr	r3, [r3, #12]
+ 161 0010 5A07     		lsls	r2, r3, #29
+ 162 0012 09D5     		bpl	.L23
+ 163              	.L22:
+ 164 0014 4FF0FF33 		mov	r3, #-1
+ 165 0018 A068     		ldr	r0, [r4, #8]
+ 166 001a A360     		str	r3, [r4, #8]
+ 167 001c FFF7FEFF 		bl	FLASH_SetErrorCode
+ 168 0020 FFF7FEFF 		bl	HAL_FLASH_OperationErrorCallback
+ 169 0024 0023     		movs	r3, #0
+ 170 0026 2370     		strb	r3, [r4]
+ 171              	.L23:
+ 172 0028 384D     		ldr	r5, .L43
+ 173 002a EB68     		ldr	r3, [r5, #12]
+ 174 002c 9B06     		lsls	r3, r3, #26
+ 175 002e 18D5     		bpl	.L25
+ 176 0030 2023     		movs	r3, #32
+ 177 0032 EB60     		str	r3, [r5, #12]
+ 178 0034 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 179 0036 A3B1     		cbz	r3, .L25
+ 180 0038 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 4
+
+
+ 181 003a 012B     		cmp	r3, #1
+ 182 003c 27D1     		bne	.L27
+ 183 003e 6368     		ldr	r3, [r4, #4]
+ 184 0040 013B     		subs	r3, r3, #1
+ 185 0042 6360     		str	r3, [r4, #4]
+ 186 0044 6368     		ldr	r3, [r4, #4]
+ 187 0046 DBB1     		cbz	r3, .L28
+ 188 0048 A068     		ldr	r0, [r4, #8]
+ 189 004a FFF7FEFF 		bl	HAL_FLASH_EndOfOperationCallback
+ 190 004e A068     		ldr	r0, [r4, #8]
+ 191 0050 00F50060 		add	r0, r0, #2048
+ 192 0054 A060     		str	r0, [r4, #8]
+ 193 0056 2B69     		ldr	r3, [r5, #16]
+ 194 0058 23F00203 		bic	r3, r3, #2
+ 195 005c 2B61     		str	r3, [r5, #16]
+ 196 005e FFF7FEFF 		bl	FLASH_PageErase
+ 197              	.L25:
+ 198 0062 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 199 0064 03F0FF01 		and	r1, r3, #255
+ 200 0068 4BB9     		cbnz	r3, .L21
+ 201 006a 284B     		ldr	r3, .L43
+ 202 006c 1A69     		ldr	r2, [r3, #16]
+ 203 006e 22F00702 		bic	r2, r2, #7
+ 204 0072 1A61     		str	r2, [r3, #16]
+ 205 0074 1A69     		ldr	r2, [r3, #16]
+ 206 0076 22F4A052 		bic	r2, r2, #5120
+ 207 007a 1A61     		str	r2, [r3, #16]
+ 208 007c 2176     		strb	r1, [r4, #24]
+ 209              	.L21:
+ 210 007e 70BD     		pop	{r4, r5, r6, pc}
+ 211              	.L28:
+ 212 0080 4FF0FF30 		mov	r0, #-1
+ 213 0084 A060     		str	r0, [r4, #8]
+ 214 0086 2370     		strb	r3, [r4]
+ 215 0088 FFF7FEFF 		bl	HAL_FLASH_EndOfOperationCallback
+ 216 008c E9E7     		b	.L25
+ 217              	.L27:
+ 218 008e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 219 0090 022B     		cmp	r3, #2
+ 220 0092 09D1     		bne	.L29
+ 221 0094 2B69     		ldr	r3, [r5, #16]
+ 222 0096 23F00403 		bic	r3, r3, #4
+ 223 009a 2B61     		str	r3, [r5, #16]
+ 224 009c 0020     		movs	r0, #0
+ 225 009e FFF7FEFF 		bl	HAL_FLASH_EndOfOperationCallback
+ 226              	.L42:
+ 227 00a2 0023     		movs	r3, #0
+ 228 00a4 2370     		strb	r3, [r4]
+ 229 00a6 DCE7     		b	.L25
+ 230              	.L29:
+ 231 00a8 6368     		ldr	r3, [r4, #4]
+ 232 00aa 013B     		subs	r3, r3, #1
+ 233 00ac 6360     		str	r3, [r4, #4]
+ 234 00ae 6368     		ldr	r3, [r4, #4]
+ 235 00b0 D3B1     		cbz	r3, .L30
+ 236 00b2 A368     		ldr	r3, [r4, #8]
+ 237 00b4 0233     		adds	r3, r3, #2
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 5
+
+
+ 238 00b6 A360     		str	r3, [r4, #8]
+ 239 00b8 A668     		ldr	r6, [r4, #8]
+ 240 00ba D4E90401 		ldrd	r0, [r4, #16]
+ 241 00be 020C     		lsrs	r2, r0, #16
+ 242 00c0 42EA0142 		orr	r2, r2, r1, lsl #16
+ 243 00c4 0B0C     		lsrs	r3, r1, #16
+ 244 00c6 C4E90423 		strd	r2, [r4, #16]
+ 245 00ca 2B69     		ldr	r3, [r5, #16]
+ 246 00cc 23F00103 		bic	r3, r3, #1
+ 247 00d0 2B61     		str	r3, [r5, #16]
+ 248 00d2 D4E90423 		ldrd	r2, [r4, #16]
+ 249 00d6 0023     		movs	r3, #0
+ 250 00d8 E361     		str	r3, [r4, #28]
+ 251 00da 2B69     		ldr	r3, [r5, #16]
+ 252 00dc 92B2     		uxth	r2, r2
+ 253 00de 43F00103 		orr	r3, r3, #1
+ 254 00e2 2B61     		str	r3, [r5, #16]
+ 255 00e4 3280     		strh	r2, [r6]	@ movhi
+ 256 00e6 BCE7     		b	.L25
+ 257              	.L30:
+ 258 00e8 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 259 00ea 032B     		cmp	r3, #3
+ 260 00ec 06D1     		bne	.L31
+ 261 00ee A068     		ldr	r0, [r4, #8]
+ 262              	.L41:
+ 263 00f0 FFF7FEFF 		bl	HAL_FLASH_EndOfOperationCallback
+ 264 00f4 4FF0FF33 		mov	r3, #-1
+ 265 00f8 A360     		str	r3, [r4, #8]
+ 266 00fa D2E7     		b	.L42
+ 267              	.L31:
+ 268 00fc 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 269 00fe A068     		ldr	r0, [r4, #8]
+ 270 0100 042B     		cmp	r3, #4
+ 271 0102 0CBF     		ite	eq
+ 272 0104 0238     		subeq	r0, r0, #2
+ 273 0106 0638     		subne	r0, r0, #6
+ 274 0108 F2E7     		b	.L41
+ 275              	.L44:
+ 276 010a 00BF     		.align	2
+ 277              	.L43:
+ 278 010c 00200240 		.word	1073881088
+ 279 0110 00000000 		.word	pFlash
+ 281              		.section	.text.HAL_FLASH_Unlock,"ax",%progbits
+ 282              		.align	1
+ 283              		.global	HAL_FLASH_Unlock
+ 284              		.syntax unified
+ 285              		.thumb
+ 286              		.thumb_func
+ 287              		.fpu fpv4-sp-d16
+ 289              	HAL_FLASH_Unlock:
+ 290              		@ args = 0, pretend = 0, frame = 0
+ 291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 292              		@ link register save eliminated.
+ 293 0000 064B     		ldr	r3, .L48
+ 294 0002 1869     		ldr	r0, [r3, #16]
+ 295 0004 10F08000 		ands	r0, r0, #128
+ 296 0008 07D0     		beq	.L46
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 6
+
+
+ 297 000a 054A     		ldr	r2, .L48+4
+ 298 000c 5A60     		str	r2, [r3, #4]
+ 299 000e 02F18832 		add	r2, r2, #-2004318072
+ 300 0012 5A60     		str	r2, [r3, #4]
+ 301 0014 1869     		ldr	r0, [r3, #16]
+ 302 0016 C0F3C010 		ubfx	r0, r0, #7, #1
+ 303              	.L46:
+ 304 001a 7047     		bx	lr
+ 305              	.L49:
+ 306              		.align	2
+ 307              	.L48:
+ 308 001c 00200240 		.word	1073881088
+ 309 0020 23016745 		.word	1164378403
+ 311              		.section	.text.HAL_FLASH_Lock,"ax",%progbits
+ 312              		.align	1
+ 313              		.global	HAL_FLASH_Lock
+ 314              		.syntax unified
+ 315              		.thumb
+ 316              		.thumb_func
+ 317              		.fpu fpv4-sp-d16
+ 319              	HAL_FLASH_Lock:
+ 320              		@ args = 0, pretend = 0, frame = 0
+ 321              		@ frame_needed = 0, uses_anonymous_args = 0
+ 322              		@ link register save eliminated.
+ 323 0000 034A     		ldr	r2, .L51
+ 324 0002 1369     		ldr	r3, [r2, #16]
+ 325 0004 43F08003 		orr	r3, r3, #128
+ 326 0008 1361     		str	r3, [r2, #16]
+ 327 000a 0020     		movs	r0, #0
+ 328 000c 7047     		bx	lr
+ 329              	.L52:
+ 330 000e 00BF     		.align	2
+ 331              	.L51:
+ 332 0010 00200240 		.word	1073881088
+ 334              		.section	.text.HAL_FLASH_OB_Unlock,"ax",%progbits
+ 335              		.align	1
+ 336              		.global	HAL_FLASH_OB_Unlock
+ 337              		.syntax unified
+ 338              		.thumb
+ 339              		.thumb_func
+ 340              		.fpu fpv4-sp-d16
+ 342              	HAL_FLASH_OB_Unlock:
+ 343              		@ args = 0, pretend = 0, frame = 0
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345              		@ link register save eliminated.
+ 346 0000 064B     		ldr	r3, .L56
+ 347 0002 1869     		ldr	r0, [r3, #16]
+ 348 0004 10F40070 		ands	r0, r0, #512
+ 349 0008 01BF     		itttt	eq
+ 350 000a 054A     		ldreq	r2, .L56+4
+ 351 000c 9A60     		streq	r2, [r3, #8]
+ 352 000e 02F18832 		addeq	r2, r2, #-2004318072
+ 353 0012 9A60     		streq	r2, [r3, #8]
+ 354 0014 18BF     		it	ne
+ 355 0016 0120     		movne	r0, #1
+ 356 0018 7047     		bx	lr
+ 357              	.L57:
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 7
+
+
+ 358 001a 00BF     		.align	2
+ 359              	.L56:
+ 360 001c 00200240 		.word	1073881088
+ 361 0020 23016745 		.word	1164378403
+ 363              		.section	.text.HAL_FLASH_OB_Lock,"ax",%progbits
+ 364              		.align	1
+ 365              		.global	HAL_FLASH_OB_Lock
+ 366              		.syntax unified
+ 367              		.thumb
+ 368              		.thumb_func
+ 369              		.fpu fpv4-sp-d16
+ 371              	HAL_FLASH_OB_Lock:
+ 372              		@ args = 0, pretend = 0, frame = 0
+ 373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 374              		@ link register save eliminated.
+ 375 0000 034A     		ldr	r2, .L59
+ 376 0002 1369     		ldr	r3, [r2, #16]
+ 377 0004 23F40073 		bic	r3, r3, #512
+ 378 0008 1361     		str	r3, [r2, #16]
+ 379 000a 0020     		movs	r0, #0
+ 380 000c 7047     		bx	lr
+ 381              	.L60:
+ 382 000e 00BF     		.align	2
+ 383              	.L59:
+ 384 0010 00200240 		.word	1073881088
+ 386              		.section	.text.HAL_FLASH_GetError,"ax",%progbits
+ 387              		.align	1
+ 388              		.global	HAL_FLASH_GetError
+ 389              		.syntax unified
+ 390              		.thumb
+ 391              		.thumb_func
+ 392              		.fpu fpv4-sp-d16
+ 394              	HAL_FLASH_GetError:
+ 395              		@ args = 0, pretend = 0, frame = 0
+ 396              		@ frame_needed = 0, uses_anonymous_args = 0
+ 397              		@ link register save eliminated.
+ 398 0000 014B     		ldr	r3, .L62
+ 399 0002 D869     		ldr	r0, [r3, #28]
+ 400 0004 7047     		bx	lr
+ 401              	.L63:
+ 402 0006 00BF     		.align	2
+ 403              	.L62:
+ 404 0008 00000000 		.word	pFlash
+ 406              		.section	.text.FLASH_WaitForLastOperation,"ax",%progbits
+ 407              		.align	1
+ 408              		.global	FLASH_WaitForLastOperation
+ 409              		.syntax unified
+ 410              		.thumb
+ 411              		.thumb_func
+ 412              		.fpu fpv4-sp-d16
+ 414              	FLASH_WaitForLastOperation:
+ 415              		@ args = 0, pretend = 0, frame = 0
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 417 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 418 0002 0546     		mov	r5, r0
+ 419 0004 FFF7FEFF 		bl	HAL_GetTick
+ 420 0008 104C     		ldr	r4, .L79
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 8
+
+
+ 421 000a 0746     		mov	r7, r0
+ 422 000c 2646     		mov	r6, r4
+ 423              	.L66:
+ 424 000e E368     		ldr	r3, [r4, #12]
+ 425 0010 D907     		lsls	r1, r3, #31
+ 426 0012 0FD4     		bmi	.L70
+ 427 0014 E368     		ldr	r3, [r4, #12]
+ 428 0016 9A06     		lsls	r2, r3, #26
+ 429 0018 44BF     		itt	mi
+ 430 001a 2023     		movmi	r3, #32
+ 431 001c E360     		strmi	r3, [r4, #12]
+ 432 001e F368     		ldr	r3, [r6, #12]
+ 433 0020 DB06     		lsls	r3, r3, #27
+ 434 0022 03D4     		bmi	.L72
+ 435 0024 F068     		ldr	r0, [r6, #12]
+ 436 0026 10F00400 		ands	r0, r0, #4
+ 437 002a 07D0     		beq	.L68
+ 438              	.L72:
+ 439 002c FFF7FEFF 		bl	FLASH_SetErrorCode
+ 440 0030 0120     		movs	r0, #1
+ 441 0032 03E0     		b	.L68
+ 442              	.L70:
+ 443 0034 681C     		adds	r0, r5, #1
+ 444 0036 EAD0     		beq	.L66
+ 445 0038 0DB9     		cbnz	r5, .L67
+ 446              	.L69:
+ 447 003a 0320     		movs	r0, #3
+ 448              	.L68:
+ 449 003c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 450              	.L67:
+ 451 003e FFF7FEFF 		bl	HAL_GetTick
+ 452 0042 C01B     		subs	r0, r0, r7
+ 453 0044 A842     		cmp	r0, r5
+ 454 0046 E2D9     		bls	.L66
+ 455 0048 F7E7     		b	.L69
+ 456              	.L80:
+ 457 004a 00BF     		.align	2
+ 458              	.L79:
+ 459 004c 00200240 		.word	1073881088
+ 461              		.section	.text.HAL_FLASH_Program,"ax",%progbits
+ 462              		.align	1
+ 463              		.global	HAL_FLASH_Program
+ 464              		.syntax unified
+ 465              		.thumb
+ 466              		.thumb_func
+ 467              		.fpu fpv4-sp-d16
+ 469              	HAL_FLASH_Program:
+ 470              		@ args = 0, pretend = 0, frame = 0
+ 471              		@ frame_needed = 0, uses_anonymous_args = 0
+ 472 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 473 0004 244C     		ldr	r4, .L90
+ 474 0006 1E46     		mov	r6, r3
+ 475 0008 237E     		ldrb	r3, [r4, #24]	@ zero_extendqisi2
+ 476 000a 012B     		cmp	r3, #1
+ 477 000c 0546     		mov	r5, r0
+ 478 000e 0F46     		mov	r7, r1
+ 479 0010 9046     		mov	r8, r2
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 9
+
+
+ 480 0012 3FD0     		beq	.L86
+ 481 0014 0123     		movs	r3, #1
+ 482 0016 4CF25030 		movw	r0, #50000
+ 483 001a 2376     		strb	r3, [r4, #24]
+ 484 001c FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 485 0020 A0BB     		cbnz	r0, .L83
+ 486 0022 012D     		cmp	r5, #1
+ 487 0024 03D0     		beq	.L84
+ 488 0026 022D     		cmp	r5, #2
+ 489 0028 0CBF     		ite	eq
+ 490 002a 0225     		moveq	r5, #2
+ 491 002c 0425     		movne	r5, #4
+ 492              	.L84:
+ 493 002e 4FF00009 		mov	r9, #0
+ 494 0032 DFF868A0 		ldr	r10, .L90+4
+ 495 0036 CB46     		mov	fp, r9
+ 496              	.L85:
+ 497 0038 4FEA0913 		lsl	r3, r9, #4
+ 498 003c C3F12001 		rsb	r1, r3, #32
+ 499 0040 A3F12002 		sub	r2, r3, #32
+ 500 0044 06FA01F1 		lsl	r1, r6, r1
+ 501 0048 28FA03F3 		lsr	r3, r8, r3
+ 502 004c C4F81CB0 		str	fp, [r4, #28]
+ 503 0050 0B43     		orrs	r3, r3, r1
+ 504 0052 26FA02F2 		lsr	r2, r6, r2
+ 505 0056 1343     		orrs	r3, r3, r2
+ 506 0058 DAF81020 		ldr	r2, [r10, #16]
+ 507 005c 9BB2     		uxth	r3, r3
+ 508 005e 42F00102 		orr	r2, r2, #1
+ 509 0062 CAF81020 		str	r2, [r10, #16]
+ 510 0066 4CF25030 		movw	r0, #50000
+ 511 006a 27F81930 		strh	r3, [r7, r9, lsl #1]	@ movhi
+ 512 006e FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 513 0072 DAF81030 		ldr	r3, [r10, #16]
+ 514 0076 23F00103 		bic	r3, r3, #1
+ 515 007a CAF81030 		str	r3, [r10, #16]
+ 516 007e 28B9     		cbnz	r0, .L83
+ 517 0080 09F10109 		add	r9, r9, #1
+ 518 0084 5FFA89F3 		uxtb	r3, r9
+ 519 0088 9D42     		cmp	r5, r3
+ 520 008a D5D8     		bhi	.L85
+ 521              	.L83:
+ 522 008c 0023     		movs	r3, #0
+ 523 008e 2376     		strb	r3, [r4, #24]
+ 524              	.L82:
+ 525 0090 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 526              	.L86:
+ 527 0094 0220     		movs	r0, #2
+ 528 0096 FBE7     		b	.L82
+ 529              	.L91:
+ 530              		.align	2
+ 531              	.L90:
+ 532 0098 00000000 		.word	pFlash
+ 533 009c 00200240 		.word	1073881088
+ 535              		.section	.text.HAL_FLASH_OB_Launch,"ax",%progbits
+ 536              		.align	1
+ 537              		.global	HAL_FLASH_OB_Launch
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 10
+
+
+ 538              		.syntax unified
+ 539              		.thumb
+ 540              		.thumb_func
+ 541              		.fpu fpv4-sp-d16
+ 543              	HAL_FLASH_OB_Launch:
+ 544              		@ args = 0, pretend = 0, frame = 0
+ 545              		@ frame_needed = 0, uses_anonymous_args = 0
+ 546              		@ link register save eliminated.
+ 547 0000 044A     		ldr	r2, .L93
+ 548 0002 1369     		ldr	r3, [r2, #16]
+ 549 0004 43F40053 		orr	r3, r3, #8192
+ 550 0008 1361     		str	r3, [r2, #16]
+ 551 000a 4CF25030 		movw	r0, #50000
+ 552 000e FFF7FEBF 		b	FLASH_WaitForLastOperation
+ 553              	.L94:
+ 554 0012 00BF     		.align	2
+ 555              	.L93:
+ 556 0014 00200240 		.word	1073881088
+ 558              		.comm	pFlash,32,8
+ 559              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_flash.c
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:16     .text.FLASH_SetErrorCode:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:23     .text.FLASH_SetErrorCode:0000000000000000 FLASH_SetErrorCode
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:52     .text.FLASH_SetErrorCode:0000000000000030 $d
+                            *COM*:0000000000000020 pFlash
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:56     .text.HAL_FLASH_Program_IT:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:63     .text.HAL_FLASH_Program_IT:0000000000000000 HAL_FLASH_Program_IT
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:112    .text.HAL_FLASH_Program_IT:0000000000000054 $d
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:116    .text.HAL_FLASH_EndOfOperationCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:123    .text.HAL_FLASH_EndOfOperationCallback:0000000000000000 HAL_FLASH_EndOfOperationCallback
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:130    .text.HAL_FLASH_OperationErrorCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:137    .text.HAL_FLASH_OperationErrorCallback:0000000000000000 HAL_FLASH_OperationErrorCallback
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:144    .text.HAL_FLASH_IRQHandler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:151    .text.HAL_FLASH_IRQHandler:0000000000000000 HAL_FLASH_IRQHandler
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:278    .text.HAL_FLASH_IRQHandler:000000000000010c $d
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:282    .text.HAL_FLASH_Unlock:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:289    .text.HAL_FLASH_Unlock:0000000000000000 HAL_FLASH_Unlock
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:308    .text.HAL_FLASH_Unlock:000000000000001c $d
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:312    .text.HAL_FLASH_Lock:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:319    .text.HAL_FLASH_Lock:0000000000000000 HAL_FLASH_Lock
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:332    .text.HAL_FLASH_Lock:0000000000000010 $d
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:335    .text.HAL_FLASH_OB_Unlock:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:342    .text.HAL_FLASH_OB_Unlock:0000000000000000 HAL_FLASH_OB_Unlock
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:360    .text.HAL_FLASH_OB_Unlock:000000000000001c $d
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:364    .text.HAL_FLASH_OB_Lock:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:371    .text.HAL_FLASH_OB_Lock:0000000000000000 HAL_FLASH_OB_Lock
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:384    .text.HAL_FLASH_OB_Lock:0000000000000010 $d
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:387    .text.HAL_FLASH_GetError:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:394    .text.HAL_FLASH_GetError:0000000000000000 HAL_FLASH_GetError
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:404    .text.HAL_FLASH_GetError:0000000000000008 $d
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:407    .text.FLASH_WaitForLastOperation:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:414    .text.FLASH_WaitForLastOperation:0000000000000000 FLASH_WaitForLastOperation
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:459    .text.FLASH_WaitForLastOperation:000000000000004c $d
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:462    .text.HAL_FLASH_Program:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:469    .text.HAL_FLASH_Program:0000000000000000 HAL_FLASH_Program
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:532    .text.HAL_FLASH_Program:0000000000000098 $d
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:536    .text.HAL_FLASH_OB_Launch:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:543    .text.HAL_FLASH_OB_Launch:0000000000000000 HAL_FLASH_OB_Launch
+C:\Users\gyoku\AppData\Local\Temp\cckmGIpa.s:556    .text.HAL_FLASH_OB_Launch:0000000000000014 $d
+
+UNDEFINED SYMBOLS
+FLASH_PageErase
+HAL_GetTick

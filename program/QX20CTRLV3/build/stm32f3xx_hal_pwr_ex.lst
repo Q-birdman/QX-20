@@ -1,0 +1,179 @@
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_pwr_ex.c"
+  14              		.text
+  15              		.section	.text.HAL_PWR_ConfigPVD,"ax",%progbits
+  16              		.align	1
+  17              		.global	HAL_PWR_ConfigPVD
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	HAL_PWR_ConfigPVD:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27              		@ link register save eliminated.
+  28 0000 184A     		ldr	r2, .L18
+  29 0002 0168     		ldr	r1, [r0]
+  30 0004 1368     		ldr	r3, [r2]
+  31 0006 23F0E003 		bic	r3, r3, #224
+  32 000a 0B43     		orrs	r3, r3, r1
+  33 000c 1360     		str	r3, [r2]
+  34 000e 164B     		ldr	r3, .L18+4
+  35 0010 5A68     		ldr	r2, [r3, #4]
+  36 0012 22F48032 		bic	r2, r2, #65536
+  37 0016 5A60     		str	r2, [r3, #4]
+  38 0018 1A68     		ldr	r2, [r3]
+  39 001a 22F48032 		bic	r2, r2, #65536
+  40 001e 1A60     		str	r2, [r3]
+  41 0020 9A68     		ldr	r2, [r3, #8]
+  42 0022 22F48032 		bic	r2, r2, #65536
+  43 0026 9A60     		str	r2, [r3, #8]
+  44 0028 DA68     		ldr	r2, [r3, #12]
+  45 002a 22F48032 		bic	r2, r2, #65536
+  46 002e DA60     		str	r2, [r3, #12]
+  47 0030 4268     		ldr	r2, [r0, #4]
+  48 0032 D103     		lsls	r1, r2, #15
+  49 0034 42BF     		ittt	mi
+  50 0036 1968     		ldrmi	r1, [r3]
+  51 0038 41F48031 		orrmi	r1, r1, #65536
+  52 003c 1960     		strmi	r1, [r3]
+  53 003e 9003     		lsls	r0, r2, #14
+  54 0040 42BF     		ittt	mi
+  55 0042 5968     		ldrmi	r1, [r3, #4]
+  56 0044 41F48031 		orrmi	r1, r1, #65536
+  57 0048 5960     		strmi	r1, [r3, #4]
+  58 004a D107     		lsls	r1, r2, #31
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s 			page 2
+
+
+  59 004c 42BF     		ittt	mi
+  60 004e 9968     		ldrmi	r1, [r3, #8]
+  61 0050 41F48031 		orrmi	r1, r1, #65536
+  62 0054 9960     		strmi	r1, [r3, #8]
+  63 0056 9207     		lsls	r2, r2, #30
+  64 0058 42BF     		ittt	mi
+  65 005a DA68     		ldrmi	r2, [r3, #12]
+  66 005c 42F48032 		orrmi	r2, r2, #65536
+  67 0060 DA60     		strmi	r2, [r3, #12]
+  68 0062 7047     		bx	lr
+  69              	.L19:
+  70              		.align	2
+  71              	.L18:
+  72 0064 00700040 		.word	1073770496
+  73 0068 00040140 		.word	1073808384
+  75              		.section	.text.HAL_PWR_EnablePVD,"ax",%progbits
+  76              		.align	1
+  77              		.global	HAL_PWR_EnablePVD
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  81              		.fpu fpv4-sp-d16
+  83              	HAL_PWR_EnablePVD:
+  84              		@ args = 0, pretend = 0, frame = 0
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86              		@ link register save eliminated.
+  87 0000 024A     		ldr	r2, .L21
+  88 0002 1368     		ldr	r3, [r2]
+  89 0004 43F01003 		orr	r3, r3, #16
+  90 0008 1360     		str	r3, [r2]
+  91 000a 7047     		bx	lr
+  92              	.L22:
+  93              		.align	2
+  94              	.L21:
+  95 000c 00700040 		.word	1073770496
+  97              		.section	.text.HAL_PWR_DisablePVD,"ax",%progbits
+  98              		.align	1
+  99              		.global	HAL_PWR_DisablePVD
+ 100              		.syntax unified
+ 101              		.thumb
+ 102              		.thumb_func
+ 103              		.fpu fpv4-sp-d16
+ 105              	HAL_PWR_DisablePVD:
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108              		@ link register save eliminated.
+ 109 0000 024A     		ldr	r2, .L24
+ 110 0002 1368     		ldr	r3, [r2]
+ 111 0004 23F01003 		bic	r3, r3, #16
+ 112 0008 1360     		str	r3, [r2]
+ 113 000a 7047     		bx	lr
+ 114              	.L25:
+ 115              		.align	2
+ 116              	.L24:
+ 117 000c 00700040 		.word	1073770496
+ 119              		.section	.text.HAL_PWR_PVDCallback,"ax",%progbits
+ 120              		.align	1
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s 			page 3
+
+
+ 121              		.weak	HAL_PWR_PVDCallback
+ 122              		.syntax unified
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.fpu fpv4-sp-d16
+ 127              	HAL_PWR_PVDCallback:
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              		@ link register save eliminated.
+ 131 0000 7047     		bx	lr
+ 133              		.section	.text.HAL_PWR_PVD_IRQHandler,"ax",%progbits
+ 134              		.align	1
+ 135              		.global	HAL_PWR_PVD_IRQHandler
+ 136              		.syntax unified
+ 137              		.thumb
+ 138              		.thumb_func
+ 139              		.fpu fpv4-sp-d16
+ 141              	HAL_PWR_PVD_IRQHandler:
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144 0000 10B5     		push	{r4, lr}
+ 145 0002 054C     		ldr	r4, .L32
+ 146 0004 6369     		ldr	r3, [r4, #20]
+ 147 0006 DB03     		lsls	r3, r3, #15
+ 148 0008 04D5     		bpl	.L27
+ 149 000a FFF7FEFF 		bl	HAL_PWR_PVDCallback
+ 150 000e 4FF48033 		mov	r3, #65536
+ 151 0012 6361     		str	r3, [r4, #20]
+ 152              	.L27:
+ 153 0014 10BD     		pop	{r4, pc}
+ 154              	.L33:
+ 155 0016 00BF     		.align	2
+ 156              	.L32:
+ 157 0018 00040140 		.word	1073808384
+ 159              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_pwr_ex.c
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:16     .text.HAL_PWR_ConfigPVD:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:24     .text.HAL_PWR_ConfigPVD:0000000000000000 HAL_PWR_ConfigPVD
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:72     .text.HAL_PWR_ConfigPVD:0000000000000064 $d
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:76     .text.HAL_PWR_EnablePVD:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:83     .text.HAL_PWR_EnablePVD:0000000000000000 HAL_PWR_EnablePVD
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:95     .text.HAL_PWR_EnablePVD:000000000000000c $d
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:98     .text.HAL_PWR_DisablePVD:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:105    .text.HAL_PWR_DisablePVD:0000000000000000 HAL_PWR_DisablePVD
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:117    .text.HAL_PWR_DisablePVD:000000000000000c $d
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:120    .text.HAL_PWR_PVDCallback:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:127    .text.HAL_PWR_PVDCallback:0000000000000000 HAL_PWR_PVDCallback
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:134    .text.HAL_PWR_PVD_IRQHandler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:141    .text.HAL_PWR_PVD_IRQHandler:0000000000000000 HAL_PWR_PVD_IRQHandler
+C:\Users\gyoku\AppData\Local\Temp\ccm5dsHP.s:157    .text.HAL_PWR_PVD_IRQHandler:0000000000000018 $d
+
+NO UNDEFINED SYMBOLS
