@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s 			page 1
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s 			page 1
   60 0000 FEE7     		b	.L5
   62              		.section	.text.BusFault_Handler,"ax",%progbits
   63              		.align	1
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s 			page 2
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s 			page 2
 
 
   64              		.global	BusFault_Handler
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s 			page 1
  126              		.thumb
  127              		.thumb_func
  128              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s 			page 3
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s 			page 3
 
 
  130              	PendSV_Handler:
@@ -138,24 +138,24 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s 			page 1
  146              		@ frame_needed = 0, uses_anonymous_args = 0
  147 0000 08B5     		push	{r3, lr}
  148 0002 FFF7FEFF 		bl	HAL_GetTick
- 149 0006 0A23     		movs	r3, #10
- 150 0008 B0FBF3F2 		udiv	r2, r0, r3
- 151 000c 02FB1300 		mls	r0, r2, r3, r0
- 152 0010 18B9     		cbnz	r0, .L14
- 153 0012 FFF7FEFF 		bl	rotateSrv1
- 154 0016 FFF7FEFF 		bl	rotateSrv2
+ 149 0006 4FF47A73 		mov	r3, #1000
+ 150 000a B0FBF3F2 		udiv	r2, r0, r3
+ 151 000e 02FB1300 		mls	r0, r2, r3, r0
+ 152 0012 18B9     		cbnz	r0, .L14
+ 153 0014 FFF7FEFF 		bl	rotateSrv1
+ 154 0018 FFF7FEFF 		bl	rotateSrv2
  155              	.L14:
- 156 001a FFF7FEFF 		bl	HAL_GetTick
- 157 001e 4FF4FA73 		mov	r3, #500
- 158 0022 B0FBF3F2 		udiv	r2, r0, r3
- 159 0026 02FB1300 		mls	r0, r2, r3, r0
- 160 002a 28B9     		cbnz	r0, .L15
- 161 002c 4FF40041 		mov	r1, #32768
- 162 0030 4FF09040 		mov	r0, #1207959552
- 163 0034 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 156 001c FFF7FEFF 		bl	HAL_GetTick
+ 157 0020 4FF4FA73 		mov	r3, #500
+ 158 0024 B0FBF3F2 		udiv	r2, r0, r3
+ 159 0028 02FB1300 		mls	r0, r2, r3, r0
+ 160 002c 28B9     		cbnz	r0, .L15
+ 161 002e 4FF40041 		mov	r1, #32768
+ 162 0032 4FF09040 		mov	r0, #1207959552
+ 163 0036 FFF7FEFF 		bl	HAL_GPIO_TogglePin
  164              	.L15:
- 165 0038 BDE80840 		pop	{r3, lr}
- 166 003c FFF7FEBF 		b	HAL_IncTick
+ 165 003a BDE80840 		pop	{r3, lr}
+ 166 003e FFF7FEBF 		b	HAL_IncTick
  168              		.section	.text.EXTI3_IRQHandler,"ax",%progbits
  169              		.align	1
  170              		.global	EXTI3_IRQHandler
@@ -170,92 +170,112 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s 			page 1
  180 0002 0821     		movs	r1, #8
  181 0004 4FF09040 		mov	r0, #1207959552
  182 0008 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 183 000c 044B     		ldr	r3, .L17
- 184 000e 5860     		str	r0, [r3, #4]
- 185 0010 FFF7FEFF 		bl	rotateSrv1
- 186 0014 0820     		movs	r0, #8
- 187 0016 BDE80840 		pop	{r3, lr}
- 188 001a FFF7FEBF 		b	HAL_GPIO_EXTI_IRQHandler
- 189              	.L18:
- 190 001e 00BF     		.align	2
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s 			page 4
+ 183 000c 054B     		ldr	r3, .L17
+ 184 000e C0F10100 		rsb	r0, r0, #1
+ 185 0012 5860     		str	r0, [r3, #4]
+ 186 0014 FFF7FEFF 		bl	rotateSrv1
+ 187 0018 0820     		movs	r0, #8
+ 188 001a BDE80840 		pop	{r3, lr}
+ 189 001e FFF7FEBF 		b	HAL_GPIO_EXTI_IRQHandler
+ 190              	.L18:
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s 			page 4
 
 
- 191              	.L17:
- 192 0020 00000000 		.word	srv1
- 194              		.section	.text.EXTI4_IRQHandler,"ax",%progbits
- 195              		.align	1
- 196              		.global	EXTI4_IRQHandler
- 197              		.syntax unified
- 198              		.thumb
- 199              		.thumb_func
- 200              		.fpu fpv4-sp-d16
- 202              	EXTI4_IRQHandler:
- 203              		@ args = 0, pretend = 0, frame = 0
- 204              		@ frame_needed = 0, uses_anonymous_args = 0
- 205 0000 08B5     		push	{r3, lr}
- 206 0002 1021     		movs	r1, #16
- 207 0004 4FF09040 		mov	r0, #1207959552
- 208 0008 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 209 000c 044B     		ldr	r3, .L20
- 210 000e 4042     		rsbs	r0, r0, #0
- 211 0010 5860     		str	r0, [r3, #4]
- 212 0012 FFF7FEFF 		bl	rotateSrv1
- 213 0016 1020     		movs	r0, #16
- 214 0018 BDE80840 		pop	{r3, lr}
- 215 001c FFF7FEBF 		b	HAL_GPIO_EXTI_IRQHandler
- 216              	.L21:
- 217              		.align	2
- 218              	.L20:
- 219 0020 00000000 		.word	srv1
- 221              		.section	.text.EXTI9_5_IRQHandler,"ax",%progbits
- 222              		.align	1
- 223              		.global	EXTI9_5_IRQHandler
- 224              		.syntax unified
- 225              		.thumb
- 226              		.thumb_func
- 227              		.fpu fpv4-sp-d16
- 229              	EXTI9_5_IRQHandler:
- 230              		@ args = 0, pretend = 0, frame = 0
- 231              		@ frame_needed = 0, uses_anonymous_args = 0
- 232 0000 08B5     		push	{r3, lr}
- 233 0002 2020     		movs	r0, #32
- 234 0004 FFF7FEFF 		bl	HAL_GPIO_EXTI_IRQHandler
- 235 0008 4020     		movs	r0, #64
- 236 000a BDE80840 		pop	{r3, lr}
- 237 000e FFF7FEBF 		b	HAL_GPIO_EXTI_IRQHandler
- 239              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s 			page 5
+ 191 0022 00BF     		.align	2
+ 192              	.L17:
+ 193 0024 00000000 		.word	srv1
+ 195              		.section	.text.EXTI4_IRQHandler,"ax",%progbits
+ 196              		.align	1
+ 197              		.global	EXTI4_IRQHandler
+ 198              		.syntax unified
+ 199              		.thumb
+ 200              		.thumb_func
+ 201              		.fpu fpv4-sp-d16
+ 203              	EXTI4_IRQHandler:
+ 204              		@ args = 0, pretend = 0, frame = 0
+ 205              		@ frame_needed = 0, uses_anonymous_args = 0
+ 206 0000 08B5     		push	{r3, lr}
+ 207 0002 1021     		movs	r1, #16
+ 208 0004 4FF09040 		mov	r0, #1207959552
+ 209 0008 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 210 000c 044B     		ldr	r3, .L20
+ 211 000e 0138     		subs	r0, r0, #1
+ 212 0010 5860     		str	r0, [r3, #4]
+ 213 0012 FFF7FEFF 		bl	rotateSrv1
+ 214 0016 1020     		movs	r0, #16
+ 215 0018 BDE80840 		pop	{r3, lr}
+ 216 001c FFF7FEBF 		b	HAL_GPIO_EXTI_IRQHandler
+ 217              	.L21:
+ 218              		.align	2
+ 219              	.L20:
+ 220 0020 00000000 		.word	srv1
+ 222              		.section	.text.EXTI9_5_IRQHandler,"ax",%progbits
+ 223              		.align	1
+ 224              		.global	EXTI9_5_IRQHandler
+ 225              		.syntax unified
+ 226              		.thumb
+ 227              		.thumb_func
+ 228              		.fpu fpv4-sp-d16
+ 230              	EXTI9_5_IRQHandler:
+ 231              		@ args = 0, pretend = 0, frame = 0
+ 232              		@ frame_needed = 0, uses_anonymous_args = 0
+ 233 0000 10B5     		push	{r4, lr}
+ 234 0002 2021     		movs	r1, #32
+ 235 0004 4FF09040 		mov	r0, #1207959552
+ 236 0008 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 237 000c 094C     		ldr	r4, .L23
+ 238 000e C0F10100 		rsb	r0, r0, #1
+ 239 0012 6060     		str	r0, [r4, #4]
+ 240 0014 4021     		movs	r1, #64
+ 241 0016 4FF09040 		mov	r0, #1207959552
+ 242 001a FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 243 001e 0138     		subs	r0, r0, #1
+ 244 0020 6060     		str	r0, [r4, #4]
+ 245 0022 2020     		movs	r0, #32
+ 246 0024 FFF7FEFF 		bl	HAL_GPIO_EXTI_IRQHandler
+ 247 0028 4020     		movs	r0, #64
+ 248 002a BDE81040 		pop	{r4, lr}
+ 249 002e FFF7FEBF 		b	HAL_GPIO_EXTI_IRQHandler
+ 250              	.L24:
+ 251 0032 00BF     		.align	2
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s 			page 5
+
+
+ 252              	.L23:
+ 253 0034 00000000 		.word	srv2
+ 255              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f3xx_it.c
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:16     .text.NMI_Handler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:31     .text.HardFault_Handler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:38     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:47     .text.MemManage_Handler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:54     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:63     .text.BusFault_Handler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:70     .text.BusFault_Handler:0000000000000000 BusFault_Handler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:79     .text.UsageFault_Handler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:86     .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:95     .text.SVC_Handler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:102    .text.SVC_Handler:0000000000000000 SVC_Handler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:109    .text.DebugMon_Handler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:116    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:123    .text.PendSV_Handler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:130    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:137    .text.SysTick_Handler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:144    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:169    .text.EXTI3_IRQHandler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:176    .text.EXTI3_IRQHandler:0000000000000000 EXTI3_IRQHandler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:192    .text.EXTI3_IRQHandler:0000000000000020 $d
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:195    .text.EXTI4_IRQHandler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:202    .text.EXTI4_IRQHandler:0000000000000000 EXTI4_IRQHandler
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:219    .text.EXTI4_IRQHandler:0000000000000020 $d
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:222    .text.EXTI9_5_IRQHandler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccTJhyHg.s:229    .text.EXTI9_5_IRQHandler:0000000000000000 EXTI9_5_IRQHandler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:16     .text.NMI_Handler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:31     .text.HardFault_Handler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:38     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:47     .text.MemManage_Handler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:54     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:63     .text.BusFault_Handler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:70     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:79     .text.UsageFault_Handler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:86     .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:95     .text.SVC_Handler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:102    .text.SVC_Handler:0000000000000000 SVC_Handler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:109    .text.DebugMon_Handler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:116    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:123    .text.PendSV_Handler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:130    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:137    .text.SysTick_Handler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:144    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:169    .text.EXTI3_IRQHandler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:176    .text.EXTI3_IRQHandler:0000000000000000 EXTI3_IRQHandler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:193    .text.EXTI3_IRQHandler:0000000000000024 $d
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:196    .text.EXTI4_IRQHandler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:203    .text.EXTI4_IRQHandler:0000000000000000 EXTI4_IRQHandler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:220    .text.EXTI4_IRQHandler:0000000000000020 $d
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:223    .text.EXTI9_5_IRQHandler:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:230    .text.EXTI9_5_IRQHandler:0000000000000000 EXTI9_5_IRQHandler
+C:\Users\gyoku\AppData\Local\Temp\ccbOw69o.s:253    .text.EXTI9_5_IRQHandler:0000000000000034 $d
 
 UNDEFINED SYMBOLS
 HAL_GetTick
@@ -266,3 +286,4 @@ HAL_IncTick
 HAL_GPIO_ReadPin
 HAL_GPIO_EXTI_IRQHandler
 srv1
+srv2

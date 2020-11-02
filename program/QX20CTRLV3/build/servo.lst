@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s 			page 1
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckaly06.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -28,72 +28,74 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s 			page 1
   26              		@ frame_needed = 0, uses_anonymous_args = 0
   27              		@ link register save eliminated.
   28 0000 054A     		ldr	r2, .L2
-  29 0002 D2E90013 		ldrd	r1, r3, [r2]
-  30 0006 2420     		movs	r0, #36
-  31 0008 00FB0313 		mla	r3, r0, r3, r1
-  32 000c 1360     		str	r3, [r2]
-  33 000e 4FF08042 		mov	r2, #1073741824
-  34 0012 9363     		str	r3, [r2, #56]
-  35 0014 7047     		bx	lr
-  36              	.L3:
-  37 0016 00BF     		.align	2
-  38              	.L2:
-  39 0018 00000000 		.word	.LANCHOR0
-  41              		.section	.text.rotateSrv2,"ax",%progbits
-  42              		.align	1
-  43              		.global	rotateSrv2
-  44              		.syntax unified
-  45              		.thumb
-  46              		.thumb_func
-  47              		.fpu fpv4-sp-d16
-  49              	rotateSrv2:
-  50              		@ args = 0, pretend = 0, frame = 0
-  51              		@ frame_needed = 0, uses_anonymous_args = 0
-  52              		@ link register save eliminated.
-  53 0000 054A     		ldr	r2, .L5
-  54 0002 D2E90013 		ldrd	r1, r3, [r2]
-  55 0006 2420     		movs	r0, #36
-  56 0008 00FB0313 		mla	r3, r0, r3, r1
-  57 000c 1360     		str	r3, [r2]
-  58 000e 4FF08042 		mov	r2, #1073741824
-  59 0012 D363     		str	r3, [r2, #60]
-  60 0014 7047     		bx	lr
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s 			page 2
+  29 0002 5368     		ldr	r3, [r2, #4]
+  30 0004 1168     		ldr	r1, [r2]
+  31 0006 03EB8303 		add	r3, r3, r3, lsl #2
+  32 000a 0B44     		add	r3, r3, r1
+  33 000c 1360     		str	r3, [r2]
+  34 000e 4FF08042 		mov	r2, #1073741824
+  35 0012 9363     		str	r3, [r2, #56]
+  36 0014 7047     		bx	lr
+  37              	.L3:
+  38 0016 00BF     		.align	2
+  39              	.L2:
+  40 0018 00000000 		.word	.LANCHOR0
+  42              		.section	.text.rotateSrv2,"ax",%progbits
+  43              		.align	1
+  44              		.global	rotateSrv2
+  45              		.syntax unified
+  46              		.thumb
+  47              		.thumb_func
+  48              		.fpu fpv4-sp-d16
+  50              	rotateSrv2:
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+  54 0000 054A     		ldr	r2, .L5
+  55 0002 5368     		ldr	r3, [r2, #4]
+  56 0004 1168     		ldr	r1, [r2]
+  57 0006 03EB8303 		add	r3, r3, r3, lsl #2
+  58 000a 0B44     		add	r3, r3, r1
+  59 000c 1360     		str	r3, [r2]
+  60 000e 4FF08042 		mov	r2, #1073741824
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckaly06.s 			page 2
 
 
-  61              	.L6:
-  62 0016 00BF     		.align	2
-  63              	.L5:
-  64 0018 00000000 		.word	.LANCHOR1
-  66              		.global	srv2
-  67              		.global	srv1
-  68              		.section	.data.srv1,"aw"
-  69              		.align	2
-  70              		.set	.LANCHOR0,. + 0
-  73              	srv1:
-  74 0000 F0D20000 		.word	54000
-  75 0004 00000000 		.word	0
-  76              		.section	.data.srv2,"aw"
-  77              		.align	2
-  78              		.set	.LANCHOR1,. + 0
-  81              	srv2:
-  82 0000 F0D20000 		.word	54000
-  83 0004 00000000 		.word	0
-  84              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s 			page 3
+  61 0012 D363     		str	r3, [r2, #60]
+  62 0014 7047     		bx	lr
+  63              	.L6:
+  64 0016 00BF     		.align	2
+  65              	.L5:
+  66 0018 00000000 		.word	.LANCHOR1
+  68              		.global	srv2
+  69              		.global	srv1
+  70              		.section	.data.srv1,"aw"
+  71              		.align	2
+  72              		.set	.LANCHOR0,. + 0
+  75              	srv1:
+  76 0000 F0D20000 		.word	54000
+  77 0004 00000000 		.word	0
+  78              		.section	.data.srv2,"aw"
+  79              		.align	2
+  80              		.set	.LANCHOR1,. + 0
+  83              	srv2:
+  84 0000 F0D20000 		.word	54000
+  85 0004 00000000 		.word	0
+  86              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
+ARM GAS  C:\Users\gyoku\AppData\Local\Temp\cckaly06.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 servo.c
-C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:16     .text.rotateSrv1:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:24     .text.rotateSrv1:0000000000000000 rotateSrv1
-C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:39     .text.rotateSrv1:0000000000000018 $d
-C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:42     .text.rotateSrv2:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:49     .text.rotateSrv2:0000000000000000 rotateSrv2
-C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:64     .text.rotateSrv2:0000000000000018 $d
-C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:81     .data.srv2:0000000000000000 srv2
-C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:73     .data.srv1:0000000000000000 srv1
-C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:69     .data.srv1:0000000000000000 $d
-C:\Users\gyoku\AppData\Local\Temp\cctgoH3A.s:77     .data.srv2:0000000000000000 $d
+C:\Users\gyoku\AppData\Local\Temp\cckaly06.s:16     .text.rotateSrv1:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckaly06.s:24     .text.rotateSrv1:0000000000000000 rotateSrv1
+C:\Users\gyoku\AppData\Local\Temp\cckaly06.s:40     .text.rotateSrv1:0000000000000018 $d
+C:\Users\gyoku\AppData\Local\Temp\cckaly06.s:43     .text.rotateSrv2:0000000000000000 $t
+C:\Users\gyoku\AppData\Local\Temp\cckaly06.s:50     .text.rotateSrv2:0000000000000000 rotateSrv2
+C:\Users\gyoku\AppData\Local\Temp\cckaly06.s:66     .text.rotateSrv2:0000000000000018 $d
+C:\Users\gyoku\AppData\Local\Temp\cckaly06.s:83     .data.srv2:0000000000000000 srv2
+C:\Users\gyoku\AppData\Local\Temp\cckaly06.s:75     .data.srv1:0000000000000000 srv1
+C:\Users\gyoku\AppData\Local\Temp\cckaly06.s:71     .data.srv1:0000000000000000 $d
+C:\Users\gyoku\AppData\Local\Temp\cckaly06.s:79     .data.srv2:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS
