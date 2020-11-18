@@ -1,14 +1,14 @@
-build/servo.o: Src/servo.c Inc/servo.h Inc/qx20.h \
+build/servo.o: Src/servo.c Inc/servo.h Inc/qx20.h Inc/usart.h \
+ Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h \
+ Inc/stm32f3xx_hal_conf.h \
+ Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h \
+ Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h \
  Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h \
  Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303x8.h \
  Drivers/CMSIS/Include/core_cm4.h Drivers/CMSIS/Include/core_cmInstr.h \
  Drivers/CMSIS/Include/cmsis_gcc.h Drivers/CMSIS/Include/core_cmFunc.h \
  Drivers/CMSIS/Include/core_cmSimd.h \
  Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h \
- Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h \
- Inc/stm32f3xx_hal_conf.h \
- Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h \
- Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h \
  Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc_ex.h \
  Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h \
  Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio_ex.h \
@@ -31,6 +31,16 @@ Inc/servo.h:
 
 Inc/qx20.h:
 
+Inc/usart.h:
+
+Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
+
+Inc/stm32f3xx_hal_conf.h:
+
+Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h:
+
+Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h:
+
 Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h:
 
 Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303x8.h:
@@ -46,14 +56,6 @@ Drivers/CMSIS/Include/core_cmFunc.h:
 Drivers/CMSIS/Include/core_cmSimd.h:
 
 Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h:
-
-Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
-
-Inc/stm32f3xx_hal_conf.h:
-
-Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h:
-
-Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h:
 
 Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc_ex.h:
 

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s 			page 1
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s 			page 1
   57              		.thumb_func
   58              		.fpu fpv4-sp-d16
   60              	HAL_CAN_MspInit:
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s 			page 2
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s 			page 2
 
 
   61              		@ args = 0, pretend = 0, frame = 32
@@ -71,11 +71,11 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s 			page 1
   68 000a 03A8     		add	r0, sp, #12
   69 000c FFF7FEFF 		bl	memset
   70 0010 2268     		ldr	r2, [r4]
-  71 0012 134B     		ldr	r3, .L6
+  71 0012 144B     		ldr	r3, .L6
   72 0014 9A42     		cmp	r2, r3
-  73 0016 21D1     		bne	.L4
+  73 0016 23D1     		bne	.L4
   74 0018 03F5D633 		add	r3, r3, #109568
-  75 001c 0321     		movs	r1, #3
+  75 001c 0021     		movs	r1, #0
   76 001e DA69     		ldr	r2, [r3, #28]
   77 0020 42F00072 		orr	r2, r2, #33554432
   78 0024 DA61     		str	r2, [r3, #28]
@@ -93,262 +93,294 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s 			page 1
   90 0042 4FF4C052 		mov	r2, #6144
   91 0046 0223     		movs	r3, #2
   92 0048 CDE90323 		strd	r2, r3, [sp, #12]
-  93 004c 0923     		movs	r3, #9
-  94 004e CDE90613 		strd	r1, r3, [sp, #24]
+  93 004c 0323     		movs	r3, #3
+  94 004e CDE90513 		strd	r1, r3, [sp, #20]
   95 0052 4FF09040 		mov	r0, #1207959552
-  96 0056 03A9     		add	r1, sp, #12
-  97 0058 FFF7FEFF 		bl	HAL_GPIO_Init
-  98              	.L4:
-  99 005c 08B0     		add	sp, sp, #32
- 100              		@ sp needed
- 101 005e 10BD     		pop	{r4, pc}
- 102              	.L7:
- 103              		.align	2
- 104              	.L6:
- 105 0060 00640040 		.word	1073767424
- 107              		.section	.text.HAL_CAN_MspDeInit,"ax",%progbits
- 108              		.align	1
- 109              		.global	HAL_CAN_MspDeInit
- 110              		.syntax unified
- 111              		.thumb
- 112              		.thumb_func
- 113              		.fpu fpv4-sp-d16
- 115              	HAL_CAN_MspDeInit:
- 116              		@ args = 0, pretend = 0, frame = 0
- 117              		@ frame_needed = 0, uses_anonymous_args = 0
- 118              		@ link register save eliminated.
- 119 0000 0268     		ldr	r2, [r0]
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s 			page 3
+  96 0056 0923     		movs	r3, #9
+  97 0058 03A9     		add	r1, sp, #12
+  98 005a 0793     		str	r3, [sp, #28]
+  99 005c FFF7FEFF 		bl	HAL_GPIO_Init
+ 100              	.L4:
+ 101 0060 08B0     		add	sp, sp, #32
+ 102              		@ sp needed
+ 103 0062 10BD     		pop	{r4, pc}
+ 104              	.L7:
+ 105              		.align	2
+ 106              	.L6:
+ 107 0064 00640040 		.word	1073767424
+ 109              		.section	.text.HAL_CAN_MspDeInit,"ax",%progbits
+ 110              		.align	1
+ 111              		.global	HAL_CAN_MspDeInit
+ 112              		.syntax unified
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.fpu fpv4-sp-d16
+ 117              	HAL_CAN_MspDeInit:
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s 			page 3
 
 
- 120 0002 074B     		ldr	r3, .L10
- 121 0004 9A42     		cmp	r2, r3
- 122 0006 0AD1     		bne	.L8
- 123 0008 064A     		ldr	r2, .L10+4
- 124 000a D369     		ldr	r3, [r2, #28]
- 125 000c 23F00073 		bic	r3, r3, #33554432
- 126 0010 D361     		str	r3, [r2, #28]
- 127 0012 4FF4C051 		mov	r1, #6144
- 128 0016 4FF09040 		mov	r0, #1207959552
- 129 001a FFF7FEBF 		b	HAL_GPIO_DeInit
- 130              	.L8:
- 131 001e 7047     		bx	lr
- 132              	.L11:
- 133              		.align	2
- 134              	.L10:
- 135 0020 00640040 		.word	1073767424
- 136 0024 00100240 		.word	1073876992
- 138              		.section	.text.HAL_TIM_PWM_MspInit,"ax",%progbits
- 139              		.align	1
- 140              		.global	HAL_TIM_PWM_MspInit
- 141              		.syntax unified
- 142              		.thumb
- 143              		.thumb_func
- 144              		.fpu fpv4-sp-d16
- 146              	HAL_TIM_PWM_MspInit:
- 147              		@ args = 0, pretend = 0, frame = 8
- 148              		@ frame_needed = 0, uses_anonymous_args = 0
- 149              		@ link register save eliminated.
- 150 0000 0368     		ldr	r3, [r0]
- 151 0002 B3F1804F 		cmp	r3, #1073741824
- 152 0006 82B0     		sub	sp, sp, #8
- 153 0008 0AD1     		bne	.L12
- 154 000a 03F50433 		add	r3, r3, #135168
- 155 000e DA69     		ldr	r2, [r3, #28]
- 156 0010 42F00102 		orr	r2, r2, #1
- 157 0014 DA61     		str	r2, [r3, #28]
- 158 0016 DB69     		ldr	r3, [r3, #28]
- 159 0018 03F00103 		and	r3, r3, #1
- 160 001c 0193     		str	r3, [sp, #4]
- 161 001e 019B     		ldr	r3, [sp, #4]
- 162              	.L12:
- 163 0020 02B0     		add	sp, sp, #8
- 164              		@ sp needed
- 165 0022 7047     		bx	lr
- 167              		.section	.text.HAL_TIM_MspPostInit,"ax",%progbits
- 168              		.align	1
- 169              		.global	HAL_TIM_MspPostInit
- 170              		.syntax unified
- 171              		.thumb
- 172              		.thumb_func
- 173              		.fpu fpv4-sp-d16
- 175              	HAL_TIM_MspPostInit:
- 176              		@ args = 0, pretend = 0, frame = 24
- 177              		@ frame_needed = 0, uses_anonymous_args = 0
- 178 0000 10B5     		push	{r4, lr}
- 179 0002 0446     		mov	r4, r0
- 180 0004 86B0     		sub	sp, sp, #24
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s 			page 4
+ 120              		@ link register save eliminated.
+ 121 0000 0268     		ldr	r2, [r0]
+ 122 0002 074B     		ldr	r3, .L10
+ 123 0004 9A42     		cmp	r2, r3
+ 124 0006 0AD1     		bne	.L8
+ 125 0008 064A     		ldr	r2, .L10+4
+ 126 000a D369     		ldr	r3, [r2, #28]
+ 127 000c 23F00073 		bic	r3, r3, #33554432
+ 128 0010 D361     		str	r3, [r2, #28]
+ 129 0012 4FF4C051 		mov	r1, #6144
+ 130 0016 4FF09040 		mov	r0, #1207959552
+ 131 001a FFF7FEBF 		b	HAL_GPIO_DeInit
+ 132              	.L8:
+ 133 001e 7047     		bx	lr
+ 134              	.L11:
+ 135              		.align	2
+ 136              	.L10:
+ 137 0020 00640040 		.word	1073767424
+ 138 0024 00100240 		.word	1073876992
+ 140              		.section	.text.HAL_TIM_PWM_MspInit,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	HAL_TIM_PWM_MspInit
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ 146              		.fpu fpv4-sp-d16
+ 148              	HAL_TIM_PWM_MspInit:
+ 149              		@ args = 0, pretend = 0, frame = 8
+ 150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151              		@ link register save eliminated.
+ 152 0000 0368     		ldr	r3, [r0]
+ 153 0002 B3F1804F 		cmp	r3, #1073741824
+ 154 0006 82B0     		sub	sp, sp, #8
+ 155 0008 0AD1     		bne	.L12
+ 156 000a 03F50433 		add	r3, r3, #135168
+ 157 000e DA69     		ldr	r2, [r3, #28]
+ 158 0010 42F00102 		orr	r2, r2, #1
+ 159 0014 DA61     		str	r2, [r3, #28]
+ 160 0016 DB69     		ldr	r3, [r3, #28]
+ 161 0018 03F00103 		and	r3, r3, #1
+ 162 001c 0193     		str	r3, [sp, #4]
+ 163 001e 019B     		ldr	r3, [sp, #4]
+ 164              	.L12:
+ 165 0020 02B0     		add	sp, sp, #8
+ 166              		@ sp needed
+ 167 0022 7047     		bx	lr
+ 169              		.section	.text.HAL_TIM_MspPostInit,"ax",%progbits
+ 170              		.align	1
+ 171              		.global	HAL_TIM_MspPostInit
+ 172              		.syntax unified
+ 173              		.thumb
+ 174              		.thumb_func
+ 175              		.fpu fpv4-sp-d16
+ 177              	HAL_TIM_MspPostInit:
+ 178              		@ args = 0, pretend = 0, frame = 24
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s 			page 4
 
 
- 181 0006 1422     		movs	r2, #20
- 182 0008 0021     		movs	r1, #0
- 183 000a 01A8     		add	r0, sp, #4
- 184 000c FFF7FEFF 		bl	memset
- 185 0010 2368     		ldr	r3, [r4]
- 186 0012 B3F1804F 		cmp	r3, #1073741824
- 187 0016 15D1     		bne	.L14
- 188 0018 03F50433 		add	r3, r3, #135168
- 189 001c 01A9     		add	r1, sp, #4
- 190 001e 5A69     		ldr	r2, [r3, #20]
- 191 0020 42F40032 		orr	r2, r2, #131072
- 192 0024 5A61     		str	r2, [r3, #20]
- 193 0026 5B69     		ldr	r3, [r3, #20]
- 194 0028 03F40033 		and	r3, r3, #131072
- 195 002c 0093     		str	r3, [sp]
- 196 002e 009B     		ldr	r3, [sp]
- 197 0030 0622     		movs	r2, #6
- 198 0032 0223     		movs	r3, #2
- 199 0034 CDE90123 		strd	r2, r3, [sp, #4]
- 200 0038 4FF09040 		mov	r0, #1207959552
- 201 003c 0123     		movs	r3, #1
- 202 003e 0593     		str	r3, [sp, #20]
- 203 0040 FFF7FEFF 		bl	HAL_GPIO_Init
- 204              	.L14:
- 205 0044 06B0     		add	sp, sp, #24
- 206              		@ sp needed
- 207 0046 10BD     		pop	{r4, pc}
- 209              		.section	.text.HAL_TIM_PWM_MspDeInit,"ax",%progbits
- 210              		.align	1
- 211              		.global	HAL_TIM_PWM_MspDeInit
- 212              		.syntax unified
- 213              		.thumb
- 214              		.thumb_func
- 215              		.fpu fpv4-sp-d16
- 217              	HAL_TIM_PWM_MspDeInit:
- 218              		@ args = 0, pretend = 0, frame = 0
- 219              		@ frame_needed = 0, uses_anonymous_args = 0
- 220              		@ link register save eliminated.
- 221 0000 0368     		ldr	r3, [r0]
- 222 0002 B3F1804F 		cmp	r3, #1073741824
- 223 0006 01BF     		itttt	eq
- 224 0008 024A     		ldreq	r2, .L18
- 225 000a D369     		ldreq	r3, [r2, #28]
- 226 000c 23F00103 		biceq	r3, r3, #1
- 227 0010 D361     		streq	r3, [r2, #28]
- 228 0012 7047     		bx	lr
- 229              	.L19:
- 230              		.align	2
- 231              	.L18:
- 232 0014 00100240 		.word	1073876992
- 234              		.section	.text.HAL_UART_MspInit,"ax",%progbits
- 235              		.align	1
- 236              		.global	HAL_UART_MspInit
- 237              		.syntax unified
- 238              		.thumb
- 239              		.thumb_func
- 240              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s 			page 5
+ 181 0002 0446     		mov	r4, r0
+ 182 0004 86B0     		sub	sp, sp, #24
+ 183 0006 1422     		movs	r2, #20
+ 184 0008 0021     		movs	r1, #0
+ 185 000a 01A8     		add	r0, sp, #4
+ 186 000c FFF7FEFF 		bl	memset
+ 187 0010 2368     		ldr	r3, [r4]
+ 188 0012 B3F1804F 		cmp	r3, #1073741824
+ 189 0016 18D1     		bne	.L14
+ 190 0018 03F50433 		add	r3, r3, #135168
+ 191 001c 01A9     		add	r1, sp, #4
+ 192 001e 5A69     		ldr	r2, [r3, #20]
+ 193 0020 42F40032 		orr	r2, r2, #131072
+ 194 0024 5A61     		str	r2, [r3, #20]
+ 195 0026 5B69     		ldr	r3, [r3, #20]
+ 196 0028 03F40033 		and	r3, r3, #131072
+ 197 002c 0093     		str	r3, [sp]
+ 198 002e 009B     		ldr	r3, [sp]
+ 199 0030 0622     		movs	r2, #6
+ 200 0032 0223     		movs	r3, #2
+ 201 0034 CDE90123 		strd	r2, r3, [sp, #4]
+ 202 0038 0023     		movs	r3, #0
+ 203 003a CDE90333 		strd	r3, r3, [sp, #12]
+ 204 003e 4FF09040 		mov	r0, #1207959552
+ 205 0042 0123     		movs	r3, #1
+ 206 0044 0593     		str	r3, [sp, #20]
+ 207 0046 FFF7FEFF 		bl	HAL_GPIO_Init
+ 208              	.L14:
+ 209 004a 06B0     		add	sp, sp, #24
+ 210              		@ sp needed
+ 211 004c 10BD     		pop	{r4, pc}
+ 213              		.section	.text.HAL_TIM_PWM_MspDeInit,"ax",%progbits
+ 214              		.align	1
+ 215              		.global	HAL_TIM_PWM_MspDeInit
+ 216              		.syntax unified
+ 217              		.thumb
+ 218              		.thumb_func
+ 219              		.fpu fpv4-sp-d16
+ 221              	HAL_TIM_PWM_MspDeInit:
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+ 224              		@ link register save eliminated.
+ 225 0000 0368     		ldr	r3, [r0]
+ 226 0002 B3F1804F 		cmp	r3, #1073741824
+ 227 0006 01BF     		itttt	eq
+ 228 0008 024A     		ldreq	r2, .L18
+ 229 000a D369     		ldreq	r3, [r2, #28]
+ 230 000c 23F00103 		biceq	r3, r3, #1
+ 231 0010 D361     		streq	r3, [r2, #28]
+ 232 0012 7047     		bx	lr
+ 233              	.L19:
+ 234              		.align	2
+ 235              	.L18:
+ 236 0014 00100240 		.word	1073876992
+ 238              		.section	.text.HAL_UART_MspInit,"ax",%progbits
+ 239              		.align	1
+ 240              		.global	HAL_UART_MspInit
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s 			page 5
 
 
- 242              	HAL_UART_MspInit:
- 243              		@ args = 0, pretend = 0, frame = 32
- 244              		@ frame_needed = 0, uses_anonymous_args = 0
- 245 0000 10B5     		push	{r4, lr}
- 246 0002 0446     		mov	r4, r0
- 247 0004 88B0     		sub	sp, sp, #32
- 248 0006 1422     		movs	r2, #20
- 249 0008 0021     		movs	r1, #0
- 250 000a 03A8     		add	r0, sp, #12
- 251 000c FFF7FEFF 		bl	memset
- 252 0010 2268     		ldr	r2, [r4]
- 253 0012 134B     		ldr	r3, .L22
- 254 0014 9A42     		cmp	r2, r3
- 255 0016 21D1     		bne	.L20
- 256 0018 03F55843 		add	r3, r3, #55296
- 257 001c 0321     		movs	r1, #3
- 258 001e 9A69     		ldr	r2, [r3, #24]
- 259 0020 42F48042 		orr	r2, r2, #16384
- 260 0024 9A61     		str	r2, [r3, #24]
- 261 0026 9A69     		ldr	r2, [r3, #24]
- 262 0028 02F48042 		and	r2, r2, #16384
- 263 002c 0192     		str	r2, [sp, #4]
- 264 002e 019A     		ldr	r2, [sp, #4]
- 265 0030 5A69     		ldr	r2, [r3, #20]
- 266 0032 42F40032 		orr	r2, r2, #131072
- 267 0036 5A61     		str	r2, [r3, #20]
- 268 0038 5B69     		ldr	r3, [r3, #20]
- 269 003a 03F40033 		and	r3, r3, #131072
- 270 003e 0293     		str	r3, [sp, #8]
- 271 0040 029B     		ldr	r3, [sp, #8]
- 272 0042 4FF4C062 		mov	r2, #1536
- 273 0046 0223     		movs	r3, #2
- 274 0048 CDE90323 		strd	r2, r3, [sp, #12]
- 275 004c 0723     		movs	r3, #7
- 276 004e CDE90613 		strd	r1, r3, [sp, #24]
- 277 0052 4FF09040 		mov	r0, #1207959552
- 278 0056 03A9     		add	r1, sp, #12
- 279 0058 FFF7FEFF 		bl	HAL_GPIO_Init
- 280              	.L20:
- 281 005c 08B0     		add	sp, sp, #32
- 282              		@ sp needed
- 283 005e 10BD     		pop	{r4, pc}
- 284              	.L23:
- 285              		.align	2
- 286              	.L22:
- 287 0060 00380140 		.word	1073821696
- 289              		.section	.text.HAL_UART_MspDeInit,"ax",%progbits
- 290              		.align	1
- 291              		.global	HAL_UART_MspDeInit
- 292              		.syntax unified
- 293              		.thumb
- 294              		.thumb_func
- 295              		.fpu fpv4-sp-d16
- 297              	HAL_UART_MspDeInit:
- 298              		@ args = 0, pretend = 0, frame = 0
- 299              		@ frame_needed = 0, uses_anonymous_args = 0
- 300              		@ link register save eliminated.
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s 			page 6
+ 241              		.syntax unified
+ 242              		.thumb
+ 243              		.thumb_func
+ 244              		.fpu fpv4-sp-d16
+ 246              	HAL_UART_MspInit:
+ 247              		@ args = 0, pretend = 0, frame = 32
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249 0000 70B5     		push	{r4, r5, r6, lr}
+ 250 0002 0646     		mov	r6, r0
+ 251 0004 88B0     		sub	sp, sp, #32
+ 252 0006 1422     		movs	r2, #20
+ 253 0008 0021     		movs	r1, #0
+ 254 000a 03A8     		add	r0, sp, #12
+ 255 000c FFF7FEFF 		bl	memset
+ 256 0010 3268     		ldr	r2, [r6]
+ 257 0012 1E4B     		ldr	r3, .L26
+ 258 0014 9A42     		cmp	r2, r3
+ 259 0016 37D1     		bne	.L20
+ 260 0018 03F55843 		add	r3, r3, #55296
+ 261 001c 0025     		movs	r5, #0
+ 262 001e 9A69     		ldr	r2, [r3, #24]
+ 263 0020 1B4C     		ldr	r4, .L26+4
+ 264 0022 42F48042 		orr	r2, r2, #16384
+ 265 0026 9A61     		str	r2, [r3, #24]
+ 266 0028 9A69     		ldr	r2, [r3, #24]
+ 267 002a 02F48042 		and	r2, r2, #16384
+ 268 002e 0192     		str	r2, [sp, #4]
+ 269 0030 019A     		ldr	r2, [sp, #4]
+ 270 0032 5A69     		ldr	r2, [r3, #20]
+ 271 0034 42F40032 		orr	r2, r2, #131072
+ 272 0038 5A61     		str	r2, [r3, #20]
+ 273 003a 5B69     		ldr	r3, [r3, #20]
+ 274 003c 03F40033 		and	r3, r3, #131072
+ 275 0040 0293     		str	r3, [sp, #8]
+ 276 0042 029B     		ldr	r3, [sp, #8]
+ 277 0044 4FF4C062 		mov	r2, #1536
+ 278 0048 0223     		movs	r3, #2
+ 279 004a CDE90323 		strd	r2, r3, [sp, #12]
+ 280 004e 0323     		movs	r3, #3
+ 281 0050 CDE90553 		strd	r5, r3, [sp, #20]
+ 282 0054 4FF09040 		mov	r0, #1207959552
+ 283 0058 0723     		movs	r3, #7
+ 284 005a 03A9     		add	r1, sp, #12
+ 285 005c 0793     		str	r3, [sp, #28]
+ 286 005e FFF7FEFF 		bl	HAL_GPIO_Init
+ 287 0062 0C4B     		ldr	r3, .L26+8
+ 288 0064 A560     		str	r5, [r4, #8]
+ 289 0066 C4E90035 		strd	r3, r5, [r4]
+ 290 006a 8023     		movs	r3, #128
+ 291 006c C4E90335 		strd	r3, r5, [r4, #12]
+ 292 0070 2046     		mov	r0, r4
+ 293 0072 2023     		movs	r3, #32
+ 294 0074 C4E90635 		strd	r3, r5, [r4, #24]
+ 295 0078 6561     		str	r5, [r4, #20]
+ 296 007a FFF7FEFF 		bl	HAL_DMA_Init
+ 297 007e 08B1     		cbz	r0, .L22
+ 298 0080 FFF7FEFF 		bl	Error_Handler
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s 			page 6
 
 
- 301 0000 0268     		ldr	r2, [r0]
- 302 0002 074B     		ldr	r3, .L26
- 303 0004 9A42     		cmp	r2, r3
- 304 0006 0AD1     		bne	.L24
- 305 0008 064A     		ldr	r2, .L26+4
- 306 000a 9369     		ldr	r3, [r2, #24]
- 307 000c 23F48043 		bic	r3, r3, #16384
- 308 0010 9361     		str	r3, [r2, #24]
- 309 0012 4FF4C061 		mov	r1, #1536
- 310 0016 4FF09040 		mov	r0, #1207959552
- 311 001a FFF7FEBF 		b	HAL_GPIO_DeInit
- 312              	.L24:
- 313 001e 7047     		bx	lr
- 314              	.L27:
- 315              		.align	2
- 316              	.L26:
- 317 0020 00380140 		.word	1073821696
- 318 0024 00100240 		.word	1073876992
- 320              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s 			page 7
+ 299              	.L22:
+ 300 0084 7466     		str	r4, [r6, #100]
+ 301 0086 6662     		str	r6, [r4, #36]
+ 302              	.L20:
+ 303 0088 08B0     		add	sp, sp, #32
+ 304              		@ sp needed
+ 305 008a 70BD     		pop	{r4, r5, r6, pc}
+ 306              	.L27:
+ 307              		.align	2
+ 308              	.L26:
+ 309 008c 00380140 		.word	1073821696
+ 310 0090 00000000 		.word	hdma_usart1_rx
+ 311 0094 58000240 		.word	1073872984
+ 313              		.section	.text.HAL_UART_MspDeInit,"ax",%progbits
+ 314              		.align	1
+ 315              		.global	HAL_UART_MspDeInit
+ 316              		.syntax unified
+ 317              		.thumb
+ 318              		.thumb_func
+ 319              		.fpu fpv4-sp-d16
+ 321              	HAL_UART_MspDeInit:
+ 322              		@ args = 0, pretend = 0, frame = 0
+ 323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 324 0000 0268     		ldr	r2, [r0]
+ 325 0002 0B4B     		ldr	r3, .L30
+ 326 0004 9A42     		cmp	r2, r3
+ 327 0006 10B5     		push	{r4, lr}
+ 328 0008 0446     		mov	r4, r0
+ 329 000a 0FD1     		bne	.L28
+ 330 000c 094A     		ldr	r2, .L30+4
+ 331 000e 9369     		ldr	r3, [r2, #24]
+ 332 0010 23F48043 		bic	r3, r3, #16384
+ 333 0014 4FF09040 		mov	r0, #1207959552
+ 334 0018 9361     		str	r3, [r2, #24]
+ 335 001a 4FF4C061 		mov	r1, #1536
+ 336 001e FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 337 0022 606E     		ldr	r0, [r4, #100]
+ 338 0024 BDE81040 		pop	{r4, lr}
+ 339 0028 FFF7FEBF 		b	HAL_DMA_DeInit
+ 340              	.L28:
+ 341 002c 10BD     		pop	{r4, pc}
+ 342              	.L31:
+ 343 002e 00BF     		.align	2
+ 344              	.L30:
+ 345 0030 00380140 		.word	1073821696
+ 346 0034 00100240 		.word	1073876992
+ 348              		.ident	"GCC: (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)"
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s 			page 7
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 stm32f3xx_hal_msp.c
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:16     .text.HAL_MspInit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:24     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:50     .text.HAL_MspInit:000000000000002c $d
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:53     .text.HAL_CAN_MspInit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:60     .text.HAL_CAN_MspInit:0000000000000000 HAL_CAN_MspInit
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:105    .text.HAL_CAN_MspInit:0000000000000060 $d
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:108    .text.HAL_CAN_MspDeInit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:115    .text.HAL_CAN_MspDeInit:0000000000000000 HAL_CAN_MspDeInit
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:135    .text.HAL_CAN_MspDeInit:0000000000000020 $d
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:139    .text.HAL_TIM_PWM_MspInit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:146    .text.HAL_TIM_PWM_MspInit:0000000000000000 HAL_TIM_PWM_MspInit
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:168    .text.HAL_TIM_MspPostInit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:175    .text.HAL_TIM_MspPostInit:0000000000000000 HAL_TIM_MspPostInit
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:210    .text.HAL_TIM_PWM_MspDeInit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:217    .text.HAL_TIM_PWM_MspDeInit:0000000000000000 HAL_TIM_PWM_MspDeInit
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:232    .text.HAL_TIM_PWM_MspDeInit:0000000000000014 $d
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:235    .text.HAL_UART_MspInit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:242    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:287    .text.HAL_UART_MspInit:0000000000000060 $d
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:290    .text.HAL_UART_MspDeInit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:297    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
-C:\Users\gyoku\AppData\Local\Temp\ccpXGRVa.s:317    .text.HAL_UART_MspDeInit:0000000000000020 $d
+                            *ABS*:00000000 stm32f3xx_hal_msp.c
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:16     .text.HAL_MspInit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:24     .text.HAL_MspInit:00000000 HAL_MspInit
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:50     .text.HAL_MspInit:0000002c $d
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:53     .text.HAL_CAN_MspInit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:60     .text.HAL_CAN_MspInit:00000000 HAL_CAN_MspInit
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:107    .text.HAL_CAN_MspInit:00000064 $d
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:110    .text.HAL_CAN_MspDeInit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:117    .text.HAL_CAN_MspDeInit:00000000 HAL_CAN_MspDeInit
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:137    .text.HAL_CAN_MspDeInit:00000020 $d
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:141    .text.HAL_TIM_PWM_MspInit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:148    .text.HAL_TIM_PWM_MspInit:00000000 HAL_TIM_PWM_MspInit
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:170    .text.HAL_TIM_MspPostInit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:177    .text.HAL_TIM_MspPostInit:00000000 HAL_TIM_MspPostInit
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:214    .text.HAL_TIM_PWM_MspDeInit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:221    .text.HAL_TIM_PWM_MspDeInit:00000000 HAL_TIM_PWM_MspDeInit
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:236    .text.HAL_TIM_PWM_MspDeInit:00000014 $d
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:239    .text.HAL_UART_MspInit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:246    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:309    .text.HAL_UART_MspInit:0000008c $d
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:314    .text.HAL_UART_MspDeInit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:321    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+C:\Users\q-bir\AppData\Local\Temp\ccsjUufs.s:345    .text.HAL_UART_MspDeInit:00000030 $d
 
 UNDEFINED SYMBOLS
 memset
 HAL_GPIO_Init
 HAL_GPIO_DeInit
+HAL_DMA_Init
+Error_Handler
+hdma_usart1_rx
+HAL_DMA_DeInit

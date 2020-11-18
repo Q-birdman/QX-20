@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
   56 0044 FFF7FEFF 		bl	HAL_InitTick
   57 0048 0546     		mov	r5, r0
   58 004a 0028     		cmp	r0, #0
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 2
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 2
 
 
   59 004c 38D1     		bne	.L10
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  113 00ba 0228     		cmp	r0, #2
  114 00bc D4D9     		bls	.L8
  115 00be F0E7     		b	.L6
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 3
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 3
 
 
  116              	.L10:
@@ -147,7 +147,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  141 0006 18B9     		cbnz	r0, .L15
  142              	.L23:
  143 0008 0120     		movs	r0, #1
- 144              	.L105:
+ 144              	.L16:
  145 000a 02B0     		add	sp, sp, #8
  146              		@ sp needed
  147 000c BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
@@ -170,15 +170,15 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  164              	.L52:
  165 002e EA69     		ldr	r2, [r5, #28]
  166 0030 002A     		cmp	r2, #0
- 167 0032 40F0D681 		bne	.L72
- 168              	.L78:
+ 167 0032 40F0D681 		bne	.L74
+ 168              	.L80:
  169 0036 0020     		movs	r0, #0
- 170 0038 E7E7     		b	.L105
+ 170 0038 E7E7     		b	.L16
  171              	.L17:
  172 003a BA4C     		ldr	r4, .L112
  173 003c 6368     		ldr	r3, [r4, #4]
  174 003e 03F00C03 		and	r3, r3, #12
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 4
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 4
 
 
  175 0042 042B     		cmp	r3, #4
@@ -231,38 +231,38 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  222 0098 E362     		str	r3, [r4, #44]
  223 009a 52B3     		cbz	r2, .L28
  224 009c FFF7FEFF 		bl	HAL_GetTick
- 225 00a0 4FF40036 		mov	r6, #131072
- 226 00a4 8046     		mov	r8, r0
- 227 00a6 0127     		movs	r7, #1
+ 225 00a0 4FF40037 		mov	r7, #131072
+ 226 00a4 0646     		mov	r6, r0
+ 227 00a6 4FF00108 		mov	r8, #1
  228              	.L29:
  229              		.syntax unified
  230              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 231 00a8 96FAA6F3 		rbit r3, r6
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 5
+ 231 00aa 97FAA7F3 		rbit r3, r7
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 5
 
 
  232              	@ 0 "" 2
  233              		.thumb
  234              		.syntax unified
- 235 00ac 2268     		ldr	r2, [r4]
+ 235 00ae 2268     		ldr	r2, [r4]
  236              		.syntax unified
  237              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 238 00ae 96FAA6F3 		rbit r3, r6
+ 238 00b0 97FAA7F3 		rbit r3, r7
  239              	@ 0 "" 2
  240              		.thumb
  241              		.syntax unified
- 242 00b2 B3FA83F3 		clz	r3, r3
- 243 00b6 03F01F03 		and	r3, r3, #31
- 244 00ba 07FA03F3 		lsl	r3, r7, r3
- 245 00be 1342     		tst	r3, r2
- 246 00c0 A9D1     		bne	.L22
- 247 00c2 FFF7FEFF 		bl	HAL_GetTick
- 248 00c6 A0EB0800 		sub	r0, r0, r8
- 249 00ca 6428     		cmp	r0, #100
- 250 00cc ECD9     		bls	.L29
+ 242 00b4 B3FA83F3 		clz	r3, r3
+ 243 00b8 03F01F03 		and	r3, r3, #31
+ 244 00bc 08FA03F3 		lsl	r3, r8, r3
+ 245 00c0 1342     		tst	r3, r2
+ 246 00c2 A8D1     		bne	.L22
+ 247 00c4 FFF7FEFF 		bl	HAL_GetTick
+ 248 00c8 831B     		subs	r3, r0, r6
+ 249 00ca 642B     		cmp	r3, #100
+ 250 00cc EDD9     		bls	.L29
  251              	.L32:
  252 00ce 0320     		movs	r0, #3
- 253 00d0 9BE7     		b	.L105
+ 253 00d0 9BE7     		b	.L16
  254              	.L24:
  255 00d2 2368     		ldr	r3, [r4]
  256 00d4 32B9     		cbnz	r2, .L26
@@ -280,35 +280,35 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  268 00f0 C9E7     		b	.L110
  269              	.L28:
  270 00f2 FFF7FEFF 		bl	HAL_GetTick
- 271 00f6 4FF40036 		mov	r6, #131072
- 272 00fa 8046     		mov	r8, r0
- 273 00fc 0127     		movs	r7, #1
+ 271 00f6 4FF40037 		mov	r7, #131072
+ 272 00fa 0646     		mov	r6, r0
+ 273 00fc 4FF00108 		mov	r8, #1
  274              	.L31:
  275              		.syntax unified
  276              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 277 00fe 96FAA6F3 		rbit r3, r6
+ 277 0100 97FAA7F3 		rbit r3, r7
  278              	@ 0 "" 2
  279              		.thumb
  280              		.syntax unified
- 281 0102 2268     		ldr	r2, [r4]
+ 281 0104 2268     		ldr	r2, [r4]
  282              		.syntax unified
  283              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 284 0104 96FAA6F3 		rbit r3, r6
+ 284 0106 97FAA7F3 		rbit r3, r7
  285              	@ 0 "" 2
  286              		.thumb
  287              		.syntax unified
- 288 0108 B3FA83F3 		clz	r3, r3
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 6
+ 288 010a B3FA83F3 		clz	r3, r3
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 6
 
 
- 289 010c 03F01F03 		and	r3, r3, #31
- 290 0110 07FA03F3 		lsl	r3, r7, r3
- 291 0114 1342     		tst	r3, r2
- 292 0116 3FF47EAF 		beq	.L22
- 293 011a FFF7FEFF 		bl	HAL_GetTick
- 294 011e A0EB0800 		sub	r0, r0, r8
- 295 0122 6428     		cmp	r0, #100
- 296 0124 EBD9     		bls	.L31
+ 289 010e 03F01F03 		and	r3, r3, #31
+ 290 0112 08FA03F3 		lsl	r3, r8, r3
+ 291 0116 1342     		tst	r3, r2
+ 292 0118 3FF47DAF 		beq	.L22
+ 293 011c FFF7FEFF 		bl	HAL_GetTick
+ 294 0120 831B     		subs	r3, r0, r6
+ 295 0122 642B     		cmp	r3, #100
+ 296 0124 ECD9     		bls	.L31
  297 0126 D2E7     		b	.L32
  298              	.L18:
  299 0128 7E4C     		ldr	r4, .L112
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  343 0170 B3FA83F2 		clz	r2, r3
  344 0174 6B69     		ldr	r3, [r5, #20]
  345 0176 9340     		lsls	r3, r3, r2
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 7
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 7
 
 
  346 0178 21F0F802 		bic	r2, r1, #248
@@ -379,33 +379,33 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  361 0190 03F18453 		add	r3, r3, #276824064
  362 0194 03F58413 		add	r3, r3, #1081344
  363 0198 9B00     		lsls	r3, r3, #2
- 364 019a 0227     		movs	r7, #2
- 365 019c 1E60     		str	r6, [r3]
- 366 019e FFF7FEFF 		bl	HAL_GetTick
- 367 01a2 8046     		mov	r8, r0
+ 364 019a 4FF00208 		mov	r8, #2
+ 365 019e 1E60     		str	r6, [r3]
+ 366 01a0 FFF7FEFF 		bl	HAL_GetTick
+ 367 01a4 0746     		mov	r7, r0
  368              	.L39:
  369              		.syntax unified
  370              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 371 01a4 97FAA7F3 		rbit r3, r7
+ 371 01a6 98FAA8F3 		rbit r3, r8
  372              	@ 0 "" 2
  373              		.thumb
  374              		.syntax unified
- 375 01a8 2268     		ldr	r2, [r4]
+ 375 01aa 2268     		ldr	r2, [r4]
  376              		.syntax unified
  377              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 378 01aa 97FAA7F3 		rbit r3, r7
+ 378 01ac 98FAA8F3 		rbit r3, r8
  379              	@ 0 "" 2
  380              		.thumb
  381              		.syntax unified
- 382 01ae B3FA83F3 		clz	r3, r3
- 383 01b2 03F01F03 		and	r3, r3, #31
- 384 01b6 06FA03F3 		lsl	r3, r6, r3
- 385 01ba 1342     		tst	r3, r2
- 386 01bc D4D1     		bne	.L108
- 387 01be FFF7FEFF 		bl	HAL_GetTick
- 388 01c2 A0EB0800 		sub	r0, r0, r8
- 389 01c6 0228     		cmp	r0, #2
- 390 01c8 ECD9     		bls	.L39
+ 382 01b0 B3FA83F3 		clz	r3, r3
+ 383 01b4 03F01F03 		and	r3, r3, #31
+ 384 01b8 06FA03F3 		lsl	r3, r6, r3
+ 385 01bc 1342     		tst	r3, r2
+ 386 01be D3D1     		bne	.L108
+ 387 01c0 FFF7FEFF 		bl	HAL_GetTick
+ 388 01c4 C31B     		subs	r3, r0, r7
+ 389 01c6 022B     		cmp	r3, #2
+ 390 01c8 EDD9     		bls	.L39
  391 01ca 80E7     		b	.L32
  392              	.L38:
  393              		.syntax unified
@@ -418,36 +418,36 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  400 01d4 03F18453 		add	r3, r3, #276824064
  401 01d8 03F58413 		add	r3, r3, #1081344
  402 01dc 9B00     		lsls	r3, r3, #2
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 8
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 8
 
 
- 403 01de 0227     		movs	r7, #2
- 404 01e0 1A60     		str	r2, [r3]
- 405 01e2 FFF7FEFF 		bl	HAL_GetTick
- 406 01e6 8046     		mov	r8, r0
+ 403 01de 4FF00208 		mov	r8, #2
+ 404 01e2 1A60     		str	r2, [r3]
+ 405 01e4 FFF7FEFF 		bl	HAL_GetTick
+ 406 01e8 0746     		mov	r7, r0
  407              	.L41:
  408              		.syntax unified
  409              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 410 01e8 97FAA7F3 		rbit r3, r7
+ 410 01ea 98FAA8F3 		rbit r3, r8
  411              	@ 0 "" 2
  412              		.thumb
  413              		.syntax unified
- 414 01ec 2268     		ldr	r2, [r4]
+ 414 01ee 2268     		ldr	r2, [r4]
  415              		.syntax unified
  416              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 417 01ee 97FAA7F3 		rbit r3, r7
+ 417 01f0 98FAA8F3 		rbit r3, r8
  418              	@ 0 "" 2
  419              		.thumb
  420              		.syntax unified
- 421 01f2 B3FA83F3 		clz	r3, r3
- 422 01f6 03F01F03 		and	r3, r3, #31
- 423 01fa 06FA03F3 		lsl	r3, r6, r3
- 424 01fe 1342     		tst	r3, r2
- 425 0200 3FF40DAF 		beq	.L34
- 426 0204 FFF7FEFF 		bl	HAL_GetTick
- 427 0208 A0EB0800 		sub	r0, r0, r8
- 428 020c 0228     		cmp	r0, #2
- 429 020e EBD9     		bls	.L41
+ 421 01f4 B3FA83F3 		clz	r3, r3
+ 422 01f8 03F01F03 		and	r3, r3, #31
+ 423 01fc 06FA03F3 		lsl	r3, r6, r3
+ 424 0200 1342     		tst	r3, r2
+ 425 0202 3FF40CAF 		beq	.L34
+ 426 0206 FFF7FEFF 		bl	HAL_GetTick
+ 427 020a C31B     		subs	r3, r0, r7
+ 428 020c 022B     		cmp	r3, #2
+ 429 020e ECD9     		bls	.L41
  430 0210 5DE7     		b	.L32
  431              	.L43:
  432 0212 AA69     		ldr	r2, [r5, #24]
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  457              	@ 0 "" 2
  458              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  459 023a 97FAA7F3 		rbit r3, r7
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 9
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 9
 
 
  460              	@ 0 "" 2
@@ -497,8 +497,8 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  473 0250 1342     		tst	r3, r2
  474 0252 7FF4E8AE 		bne	.L49
  475 0256 FFF7FEFF 		bl	HAL_GetTick
- 476 025a A0EB0800 		sub	r0, r0, r8
- 477 025e 0228     		cmp	r0, #2
+ 476 025a A0EB0803 		sub	r3, r0, r8
+ 477 025e 022B     		cmp	r3, #2
  478 0260 E7D9     		bls	.L47
  479 0262 34E7     		b	.L32
  480              	.L46:
@@ -538,21 +538,21 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  514 028c B3FA83F3 		clz	r3, r3
  515 0290 03F01F03 		and	r3, r3, #31
  516 0294 04FA03F3 		lsl	r3, r4, r3
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 10
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 10
 
 
  517 0298 1342     		tst	r3, r2
  518 029a 3FF4C4AE 		beq	.L49
  519 029e FFF7FEFF 		bl	HAL_GetTick
- 520 02a2 A0EB0800 		sub	r0, r0, r8
- 521 02a6 0228     		cmp	r0, #2
+ 520 02a2 A0EB0803 		sub	r3, r0, r8
+ 521 02a6 022B     		cmp	r3, #2
  522 02a8 E7D9     		bls	.L50
  523 02aa 10E7     		b	.L32
  524              	.L44:
  525 02ac 1D4C     		ldr	r4, .L112
  526 02ae E369     		ldr	r3, [r4, #28]
  527 02b0 D900     		lsls	r1, r3, #3
- 528 02b2 34D4     		bmi	.L82
+ 528 02b2 34D4     		bmi	.L83
  529 02b4 E369     		ldr	r3, [r4, #28]
  530 02b6 43F08053 		orr	r3, r3, #268435456
  531 02ba E361     		str	r3, [r4, #28]
@@ -577,10 +577,10 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  550 02dc 2362     		str	r3, [r4, #32]
  551 02de FFF7FEFF 		bl	HAL_GetTick
  552 02e2 0227     		movs	r7, #2
- 553 02e4 8246     		mov	r10, r0
- 554 02e6 B946     		mov	r9, r7
- 555 02e8 4FF00108 		mov	r8, #1
- 556              	.L81:
+ 553 02e4 8046     		mov	r8, r0
+ 554 02e6 BA46     		mov	r10, r7
+ 555 02e8 4FF00109 		mov	r9, #1
+ 556              	.L65:
  557              		.syntax unified
  558              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  559 02ec 97FAA7F3 		rbit r3, r7
@@ -591,31 +591,31 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  564              		.thumb
  565              		.syntax unified
  566 02f4 002B     		cmp	r3, #0
- 567 02f6 6CD0     		beq	.L64
+ 567 02f6 6CD0     		beq	.L66
  568 02f8 226A     		ldr	r2, [r4, #32]
- 569              	.L65:
+ 569              	.L67:
  570              		.syntax unified
  571              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 572 02fa 99FAA9F3 		rbit r3, r9
+ 572 02fa 9AFAAAF3 		rbit r3, r10
  573              	@ 0 "" 2
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 11
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 11
 
 
  574              		.thumb
  575              		.syntax unified
  576 02fe B3FA83F3 		clz	r3, r3
  577 0302 03F01F03 		and	r3, r3, #31
- 578 0306 08FA03F3 		lsl	r3, r8, r3
+ 578 0306 09FA03F3 		lsl	r3, r9, r3
  579 030a 1342     		tst	r3, r2
- 580 030c 58D0     		beq	.L66
- 581              	.L71:
+ 580 030c 58D0     		beq	.L68
+ 581              	.L73:
  582 030e 002E     		cmp	r6, #0
  583 0310 3FF48DAE 		beq	.L52
  584 0314 E369     		ldr	r3, [r4, #28]
  585 0316 23F08053 		bic	r3, r3, #268435456
  586 031a E361     		str	r3, [r4, #28]
  587 031c 87E6     		b	.L52
- 588              	.L82:
+ 588              	.L83:
  589 031e 0026     		movs	r6, #0
  590 0320 D2E7     		b	.L53
  591              	.L113:
@@ -649,39 +649,39 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  619 0362 2362     		str	r3, [r4, #32]
  620 0364 FFF7FEFF 		bl	HAL_GetTick
  621 0368 0227     		movs	r7, #2
- 622 036a 8246     		mov	r10, r0
- 623 036c B946     		mov	r9, r7
- 624 036e 4FF00108 		mov	r8, #1
+ 622 036a 8046     		mov	r8, r0
+ 623 036c BA46     		mov	r10, r7
+ 624 036e 4FF00109 		mov	r9, #1
  625              	.L62:
  626              		.syntax unified
  627              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  628 0372 97FAA7F3 		rbit r3, r7
  629              	@ 0 "" 2
  630              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 12
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 12
 
 
  631 0376 97FAA7F3 		rbit r3, r7
  632              	@ 0 "" 2
  633              		.thumb
  634              		.syntax unified
- 635 037a 73B3     		cbz	r3, .L68
+ 635 037a 73B3     		cbz	r3, .L70
  636 037c 226A     		ldr	r2, [r4, #32]
- 637              	.L69:
+ 637              	.L71:
  638              		.syntax unified
  639              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 640 037e 99FAA9F3 		rbit r3, r9
+ 640 037e 9AFAAAF3 		rbit r3, r10
  641              	@ 0 "" 2
  642              		.thumb
  643              		.syntax unified
  644 0382 B3FA83F3 		clz	r3, r3
  645 0386 03F01F03 		and	r3, r3, #31
- 646 038a 08FA03F3 		lsl	r3, r8, r3
+ 646 038a 09FA03F3 		lsl	r3, r9, r3
  647 038e 1342     		tst	r3, r2
- 648 0390 BDD0     		beq	.L71
+ 648 0390 BDD0     		beq	.L73
  649 0392 FFF7FEFF 		bl	HAL_GetTick
  650 0396 41F28833 		movw	r3, #5000
- 651 039a A0EB0A00 		sub	r0, r0, r10
+ 651 039a A0EB0800 		sub	r0, r0, r8
  652 039e 9842     		cmp	r0, r3
  653 03a0 E7D9     		bls	.L62
  654 03a2 94E6     		b	.L32
@@ -698,14 +698,14 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  665 03b8 236A     		ldr	r3, [r4, #32]
  666 03ba 23F00403 		bic	r3, r3, #4
  667 03be 8DE7     		b	.L109
- 668              	.L66:
+ 668              	.L68:
  669 03c0 FFF7FEFF 		bl	HAL_GetTick
  670 03c4 41F28833 		movw	r3, #5000
- 671 03c8 A0EB0A00 		sub	r0, r0, r10
+ 671 03c8 A0EB0800 		sub	r0, r0, r8
  672 03cc 9842     		cmp	r0, r3
- 673 03ce 8DD9     		bls	.L81
+ 673 03ce 8DD9     		bls	.L65
  674 03d0 7DE6     		b	.L32
- 675              	.L64:
+ 675              	.L66:
  676              		.syntax unified
  677              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  678 03d2 97FAA7F3 		rbit r3, r7
@@ -713,20 +713,20 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  680              		.thumb
  681              		.syntax unified
  682 03d6 626A     		ldr	r2, [r4, #36]
- 683 03d8 8FE7     		b	.L65
- 684              	.L68:
+ 683 03d8 8FE7     		b	.L67
+ 684              	.L70:
  685              		.syntax unified
  686              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  687 03da 97FAA7F3 		rbit r3, r7
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 13
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 13
 
 
  688              	@ 0 "" 2
  689              		.thumb
  690              		.syntax unified
  691 03de 626A     		ldr	r2, [r4, #36]
- 692 03e0 CDE7     		b	.L69
- 693              	.L72:
+ 692 03e0 CDE7     		b	.L71
+ 693              	.L74:
  694 03e2 414C     		ldr	r4, .L114
  695 03e4 6368     		ldr	r3, [r4, #4]
  696 03e6 03F00C03 		and	r3, r3, #12
@@ -734,7 +734,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  698 03ec 3FF40CAE 		beq	.L23
  699 03f0 022A     		cmp	r2, #2
  700 03f2 4FF08073 		mov	r3, #16777216
- 701 03f6 52D1     		bne	.L73
+ 701 03f6 51D1     		bne	.L75
  702              		.syntax unified
  703              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  704 03f8 93FAA3F3 		rbit r3, r3
@@ -748,20 +748,20 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  712 040a 0022     		movs	r2, #0
  713 040c 1A60     		str	r2, [r3]
  714 040e FFF7FEFF 		bl	HAL_GetTick
- 715 0412 4FF00077 		mov	r7, #33554432
- 716 0416 8046     		mov	r8, r0
+ 715 0412 4FF00078 		mov	r8, #33554432
+ 716 0416 0746     		mov	r7, r0
  717 0418 0126     		movs	r6, #1
- 718              	.L74:
+ 718              	.L76:
  719              		.syntax unified
  720              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 721 041a 97FAA7F3 		rbit r3, r7
+ 721 041a 98FAA8F3 		rbit r3, r8
  722              	@ 0 "" 2
  723              		.thumb
  724              		.syntax unified
  725 041e 2268     		ldr	r2, [r4]
  726              		.syntax unified
  727              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 728 0420 97FAA7F3 		rbit r3, r7
+ 728 0420 98FAA8F3 		rbit r3, r8
  729              	@ 0 "" 2
  730              		.thumb
  731              		.syntax unified
@@ -769,7 +769,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  733 0428 03F01F03 		and	r3, r3, #31
  734 042c 06FA03F3 		lsl	r3, r6, r3
  735 0430 1342     		tst	r3, r2
- 736 0432 2DD1     		bne	.L75
+ 736 0432 2DD1     		bne	.L77
  737 0434 D5E90813 		ldrd	r1, r3, [r5, #32]
  738 0438 6268     		ldr	r2, [r4, #4]
  739 043a 0B43     		orrs	r3, r3, r1
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  742 0442 6360     		str	r3, [r4, #4]
  743 0444 4FF08073 		mov	r3, #16777216
  744              		.syntax unified
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 14
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 14
 
 
  745              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
@@ -790,87 +790,87 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  751 0450 03F18453 		add	r3, r3, #276824064
  752 0454 03F58413 		add	r3, r3, #1081344
  753 0458 9B00     		lsls	r3, r3, #2
- 754 045a 4FF00075 		mov	r5, #33554432
- 755 045e 1E60     		str	r6, [r3]
- 756 0460 FFF7FEFF 		bl	HAL_GetTick
- 757 0464 0126     		movs	r6, #1
- 758 0466 0746     		mov	r7, r0
- 759              	.L76:
+ 754 045a 0127     		movs	r7, #1
+ 755 045c 1E60     		str	r6, [r3]
+ 756 045e FFF7FEFF 		bl	HAL_GetTick
+ 757 0462 4FF00076 		mov	r6, #33554432
+ 758 0466 0546     		mov	r5, r0
+ 759              	.L78:
  760              		.syntax unified
  761              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 762 0468 95FAA5F3 		rbit r3, r5
+ 762 0468 96FAA6F3 		rbit r3, r6
  763              	@ 0 "" 2
  764              		.thumb
  765              		.syntax unified
  766 046c 2268     		ldr	r2, [r4]
  767              		.syntax unified
  768              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 769 046e 95FAA5F3 		rbit r3, r5
+ 769 046e 96FAA6F3 		rbit r3, r6
  770              	@ 0 "" 2
  771              		.thumb
  772              		.syntax unified
  773 0472 B3FA83F3 		clz	r3, r3
  774 0476 03F01F03 		and	r3, r3, #31
- 775 047a 06FA03F3 		lsl	r3, r6, r3
+ 775 047a 07FA03F3 		lsl	r3, r7, r3
  776 047e 1342     		tst	r3, r2
- 777 0480 7FF4D9AD 		bne	.L78
+ 777 0480 7FF4D9AD 		bne	.L80
  778 0484 FFF7FEFF 		bl	HAL_GetTick
- 779 0488 C01B     		subs	r0, r0, r7
+ 779 0488 401B     		subs	r0, r0, r5
  780 048a 0228     		cmp	r0, #2
- 781 048c ECD9     		bls	.L76
+ 781 048c ECD9     		bls	.L78
  782 048e 1EE6     		b	.L32
- 783              	.L75:
+ 783              	.L77:
  784 0490 FFF7FEFF 		bl	HAL_GetTick
- 785 0494 A0EB0800 		sub	r0, r0, r8
- 786 0498 0228     		cmp	r0, #2
- 787 049a BED9     		bls	.L74
- 788 049c 17E6     		b	.L32
- 789              	.L73:
+ 785 0494 C31B     		subs	r3, r0, r7
+ 786 0496 022B     		cmp	r3, #2
+ 787 0498 BFD9     		bls	.L76
+ 788 049a 18E6     		b	.L32
+ 789              	.L75:
  790              		.syntax unified
  791              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 792 049e 93FAA3F3 		rbit r3, r3
+ 792 049c 93FAA3F3 		rbit r3, r3
  793              	@ 0 "" 2
  794              		.thumb
  795              		.syntax unified
- 796 04a2 B3FA83F3 		clz	r3, r3
- 797 04a6 03F18453 		add	r3, r3, #276824064
- 798 04aa 03F58413 		add	r3, r3, #1081344
- 799 04ae 9B00     		lsls	r3, r3, #2
- 800 04b0 0022     		movs	r2, #0
- 801 04b2 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 15
+ 796 04a0 B3FA83F3 		clz	r3, r3
+ 797 04a4 03F18453 		add	r3, r3, #276824064
+ 798 04a8 03F58413 		add	r3, r3, #1081344
+ 799 04ac 9B00     		lsls	r3, r3, #2
+ 800 04ae 0022     		movs	r2, #0
+ 801 04b0 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 15
 
 
- 802 04b4 FFF7FEFF 		bl	HAL_GetTick
- 803 04b8 4FF00075 		mov	r5, #33554432
- 804 04bc 0746     		mov	r7, r0
- 805 04be 0126     		movs	r6, #1
- 806              	.L79:
+ 802 04b2 FFF7FEFF 		bl	HAL_GetTick
+ 803 04b6 4FF00076 		mov	r6, #33554432
+ 804 04ba 0546     		mov	r5, r0
+ 805 04bc 0127     		movs	r7, #1
+ 806              	.L81:
  807              		.syntax unified
  808              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 809 04c0 95FAA5F3 		rbit r3, r5
+ 809 04be 96FAA6F3 		rbit r3, r6
  810              	@ 0 "" 2
  811              		.thumb
  812              		.syntax unified
- 813 04c4 2268     		ldr	r2, [r4]
+ 813 04c2 2268     		ldr	r2, [r4]
  814              		.syntax unified
  815              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 816 04c6 95FAA5F3 		rbit r3, r5
+ 816 04c4 96FAA6F3 		rbit r3, r6
  817              	@ 0 "" 2
  818              		.thumb
  819              		.syntax unified
- 820 04ca B3FA83F3 		clz	r3, r3
- 821 04ce 03F01F03 		and	r3, r3, #31
- 822 04d2 06FA03F3 		lsl	r3, r6, r3
- 823 04d6 1342     		tst	r3, r2
- 824 04d8 3FF4ADAD 		beq	.L78
- 825 04dc FFF7FEFF 		bl	HAL_GetTick
- 826 04e0 C01B     		subs	r0, r0, r7
- 827 04e2 0228     		cmp	r0, #2
- 828 04e4 ECD9     		bls	.L79
- 829 04e6 F2E5     		b	.L32
+ 820 04c8 B3FA83F3 		clz	r3, r3
+ 821 04cc 03F01F03 		and	r3, r3, #31
+ 822 04d0 07FA03F3 		lsl	r3, r7, r3
+ 823 04d4 1342     		tst	r3, r2
+ 824 04d6 3FF4AEAD 		beq	.L80
+ 825 04da FFF7FEFF 		bl	HAL_GetTick
+ 826 04de 401B     		subs	r0, r0, r5
+ 827 04e0 0228     		cmp	r0, #2
+ 828 04e2 ECD9     		bls	.L81
+ 829 04e4 F3E5     		b	.L32
  830              	.L115:
- 831              		.align	2
+ 831 04e6 00BF     		.align	2
  832              	.L114:
  833 04e8 00100240 		.word	1073876992
  835              		.section	.text.HAL_RCC_MCOConfig,"ax",%progbits
@@ -888,37 +888,37 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  848 0004 0223     		movs	r3, #2
  849 0006 0293     		str	r3, [sp, #8]
  850 0008 0D46     		mov	r5, r1
- 851 000a 0323     		movs	r3, #3
- 852 000c 0021     		movs	r1, #0
- 853 000e CDE90313 		strd	r1, r3, [sp, #12]
+ 851 000a 0023     		movs	r3, #0
+ 852 000c 0321     		movs	r1, #3
+ 853 000e CDE90331 		strd	r3, r1, [sp, #12]
  854 0012 0E4C     		ldr	r4, .L117
- 855 0014 0591     		str	r1, [sp, #20]
- 856 0016 4FF48073 		mov	r3, #256
- 857 001a 0193     		str	r3, [sp, #4]
- 858 001c 6169     		ldr	r1, [r4, #20]
- 859 001e 41F40031 		orr	r1, r1, #131072
- 860 0022 6161     		str	r1, [r4, #20]
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 16
+ 855 0014 0593     		str	r3, [sp, #20]
+ 856 0016 1646     		mov	r6, r2
+ 857 0018 4FF48072 		mov	r2, #256
+ 858 001c 0192     		str	r2, [sp, #4]
+ 859 001e 6369     		ldr	r3, [r4, #20]
+ 860 0020 43F40033 		orr	r3, r3, #131072
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 16
 
 
- 861 0024 6169     		ldr	r1, [r4, #20]
- 862 0026 01F40031 		and	r1, r1, #131072
- 863 002a 0091     		str	r1, [sp]
- 864 002c 4FF09040 		mov	r0, #1207959552
- 865 0030 01A9     		add	r1, sp, #4
- 866 0032 1646     		mov	r6, r2
+ 861 0024 6361     		str	r3, [r4, #20]
+ 862 0026 6369     		ldr	r3, [r4, #20]
+ 863 0028 03F40033 		and	r3, r3, #131072
+ 864 002c 0093     		str	r3, [sp]
+ 865 002e 01A9     		add	r1, sp, #4
+ 866 0030 4FF09040 		mov	r0, #1207959552
  867 0034 009B     		ldr	r3, [sp]
  868 0036 FFF7FEFF 		bl	HAL_GPIO_Init
  869 003a 6368     		ldr	r3, [r4, #4]
  870 003c 23F0EE43 		bic	r3, r3, #1996488704
- 871 0040 3343     		orrs	r3, r3, r6
- 872 0042 2B43     		orrs	r3, r3, r5
- 873 0044 6360     		str	r3, [r4, #4]
- 874 0046 06B0     		add	sp, sp, #24
+ 871 0040 43EA0602 		orr	r2, r3, r6
+ 872 0044 2A43     		orrs	r2, r2, r5
+ 873 0046 6260     		str	r2, [r4, #4]
+ 874 0048 06B0     		add	sp, sp, #24
  875              		@ sp needed
- 876 0048 70BD     		pop	{r4, r5, r6, pc}
+ 876 004a 70BD     		pop	{r4, r5, r6, pc}
  877              	.L118:
- 878 004a 00BF     		.align	2
+ 878              		.align	2
  879              	.L117:
  880 004c 00100240 		.word	1073876992
  882              		.section	.text.HAL_RCC_EnableCSS,"ax",%progbits
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  919              		@ frame_needed = 0, uses_anonymous_args = 0
  920              		@ link register save eliminated.
  921 0000 4FF40023 		mov	r3, #524288
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 17
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 17
 
 
  922              		.syntax unified
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  978 003c CB03     		lsls	r3, r1, #15
  979 003e 4ABF     		itet	mi
  980 0040 064B     		ldrmi	r3, .L126+12
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 18
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 18
 
 
  981 0042 074B     		ldrpl	r3, .L126+16
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  1037 0032 2268     		ldr	r2, [r4]
  1038 0034 434D     		ldr	r5, .L165+4
  1039 0036 12F0040F 		tst	r2, #4
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 19
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 19
 
 
  1040 003a 7AD1     		bne	.L145
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  1094 00a6 4FF40033 		mov	r3, #131072
  1095              		.syntax unified
  1096              	@ 531 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 20
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 20
 
 
  1097 00aa 93FAA3F1 		rbit r1, r3
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  1151 0108 B3FA83F3 		clz	r3, r3
  1152 010c 03F01F03 		and	r3, r3, #31
  1153 0110 0121     		movs	r1, #1
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 21
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 21
 
 
  1154 0112 01FA03F3 		lsl	r3, r1, r3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  1212              		@ frame_needed = 0, uses_anonymous_args = 0
  1213              		@ link register save eliminated.
  1214 0000 084B     		ldr	r3, .L171
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 22
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 22
 
 
  1215 0002 4FF4E062 		mov	r2, #1792
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  1271              	.L174:
  1272 0024 00100240 		.word	1073876992
  1273 0028 00000000 		.word	APBPrescTable
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 23
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 23
 
 
  1274 002c 00000000 		.word	SystemCoreClock
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  1330 0056 5A68     		ldr	r2, [r3, #4]
  1331 0058 02F48032 		and	r2, r2, #65536
  1332 005c 0262     		str	r2, [r0, #32]
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 24
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 24
 
 
  1333 005e 5B68     		ldr	r3, [r3, #4]
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  1389              	.L188:
  1390 0034 00100240 		.word	1073876992
  1391 0038 00200240 		.word	1073881088
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 25
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 25
 
 
  1393              		.section	.text.HAL_RCC_CSSCallback,"ax",%progbits
@@ -1484,93 +1484,71 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 1
  1437              		.section	.rodata.aPLLMULFactorTable,"a"
  1438              		.set	.LANCHOR0,. + 0
  1441              	aPLLMULFactorTable:
- 1442 0000 02       		.byte	2
- 1443 0001 03       		.byte	3
- 1444 0002 04       		.byte	4
- 1445 0003 05       		.byte	5
- 1446 0004 06       		.byte	6
- 1447 0005 07       		.byte	7
- 1448 0006 08       		.byte	8
- 1449 0007 09       		.byte	9
- 1450 0008 0A       		.byte	10
- 1451 0009 0B       		.byte	11
- 1452 000a 0C       		.byte	12
- 1453 000b 0D       		.byte	13
- 1454 000c 0E       		.byte	14
- 1455 000d 0F       		.byte	15
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 26
+ 1442 0000 02030405 		.ascii	"\002\003\004\005\006\007\010\011\012\013\014\015\016"
+ 1442      06070809 
+ 1442      0A0B0C0D 
+ 1442      0E
+ 1443 000d 0F1010   		.ascii	"\017\020\020"
+ 1444              		.section	.rodata.aPredivFactorTable,"a"
+ 1445              		.set	.LANCHOR1,. + 0
+ 1448              	aPredivFactorTable:
+ 1449 0000 01020304 		.ascii	"\001\002\003\004\005\006\007\010\011\012\013\014\015"
+ 1449      05060708 
+ 1449      090A0B0C 
+ 1449      0D
+ 1450 000d 0E0F10   		.ascii	"\016\017\020"
+ 1451              		.ident	"GCC: (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)"
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 26
 
 
- 1456 000e 10       		.byte	16
- 1457 000f 10       		.byte	16
- 1458              		.section	.rodata.aPredivFactorTable,"a"
- 1459              		.set	.LANCHOR1,. + 0
- 1462              	aPredivFactorTable:
- 1463 0000 01       		.byte	1
- 1464 0001 02       		.byte	2
- 1465 0002 03       		.byte	3
- 1466 0003 04       		.byte	4
- 1467 0004 05       		.byte	5
- 1468 0005 06       		.byte	6
- 1469 0006 07       		.byte	7
- 1470 0007 08       		.byte	8
- 1471 0008 09       		.byte	9
- 1472 0009 0A       		.byte	10
- 1473 000a 0B       		.byte	11
- 1474 000b 0C       		.byte	12
- 1475 000c 0D       		.byte	13
- 1476 000d 0E       		.byte	14
- 1477 000e 0F       		.byte	15
- 1478 000f 10       		.byte	16
- 1479              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s 			page 27
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s 			page 27
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 stm32f3xx_hal_rcc.c
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:16     .text.HAL_RCC_DeInit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:24     .text.HAL_RCC_DeInit:0000000000000000 HAL_RCC_DeInit
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:122    .text.HAL_RCC_DeInit:00000000000000c4 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:129    .text.HAL_RCC_OscConfig:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:136    .text.HAL_RCC_OscConfig:0000000000000000 HAL_RCC_OscConfig
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:594    .text.HAL_RCC_OscConfig:0000000000000324 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:598    .text.HAL_RCC_OscConfig:0000000000000330 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:833    .text.HAL_RCC_OscConfig:00000000000004e8 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:836    .text.HAL_RCC_MCOConfig:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:843    .text.HAL_RCC_MCOConfig:0000000000000000 HAL_RCC_MCOConfig
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:880    .text.HAL_RCC_MCOConfig:000000000000004c $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:883    .text.HAL_RCC_EnableCSS:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:890    .text.HAL_RCC_EnableCSS:0000000000000000 HAL_RCC_EnableCSS
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:910    .text.HAL_RCC_DisableCSS:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:917    .text.HAL_RCC_DisableCSS:0000000000000000 HAL_RCC_DisableCSS
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:937    .text.HAL_RCC_GetSysClockFreq:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:944    .text.HAL_RCC_GetSysClockFreq:0000000000000000 HAL_RCC_GetSysClockFreq
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:992    .text.HAL_RCC_GetSysClockFreq:0000000000000050 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:999    .text.HAL_RCC_ClockConfig:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1006   .text.HAL_RCC_ClockConfig:0000000000000000 HAL_RCC_ClockConfig
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1177   .text.HAL_RCC_ClockConfig:0000000000000140 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1183   .text.HAL_RCC_GetHCLKFreq:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1190   .text.HAL_RCC_GetHCLKFreq:0000000000000000 HAL_RCC_GetHCLKFreq
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1200   .text.HAL_RCC_GetHCLKFreq:0000000000000008 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1203   .text.HAL_RCC_GetPCLK1Freq:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1210   .text.HAL_RCC_GetPCLK1Freq:0000000000000000 HAL_RCC_GetPCLK1Freq
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1235   .text.HAL_RCC_GetPCLK1Freq:0000000000000024 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1240   .text.HAL_RCC_GetPCLK2Freq:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1247   .text.HAL_RCC_GetPCLK2Freq:0000000000000000 HAL_RCC_GetPCLK2Freq
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1272   .text.HAL_RCC_GetPCLK2Freq:0000000000000024 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1277   .text.HAL_RCC_GetOscConfig:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1284   .text.HAL_RCC_GetOscConfig:0000000000000000 HAL_RCC_GetOscConfig
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1352   .text.HAL_RCC_GetOscConfig:0000000000000084 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1355   .text.HAL_RCC_GetClockConfig:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1362   .text.HAL_RCC_GetClockConfig:0000000000000000 HAL_RCC_GetClockConfig
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1390   .text.HAL_RCC_GetClockConfig:0000000000000034 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1394   .text.HAL_RCC_CSSCallback:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1401   .text.HAL_RCC_CSSCallback:0000000000000000 HAL_RCC_CSSCallback
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1408   .text.HAL_RCC_NMI_IRQHandler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1415   .text.HAL_RCC_NMI_IRQHandler:0000000000000000 HAL_RCC_NMI_IRQHandler
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1432   .text.HAL_RCC_NMI_IRQHandler:0000000000000018 $d
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1462   .rodata.aPredivFactorTable:0000000000000000 aPredivFactorTable
-C:\Users\gyoku\AppData\Local\Temp\ccek3ILC.s:1441   .rodata.aPLLMULFactorTable:0000000000000000 aPLLMULFactorTable
+                            *ABS*:00000000 stm32f3xx_hal_rcc.c
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:16     .text.HAL_RCC_DeInit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:24     .text.HAL_RCC_DeInit:00000000 HAL_RCC_DeInit
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:122    .text.HAL_RCC_DeInit:000000c4 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:129    .text.HAL_RCC_OscConfig:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:136    .text.HAL_RCC_OscConfig:00000000 HAL_RCC_OscConfig
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:594    .text.HAL_RCC_OscConfig:00000324 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:598    .text.HAL_RCC_OscConfig:00000330 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:833    .text.HAL_RCC_OscConfig:000004e8 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:836    .text.HAL_RCC_MCOConfig:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:843    .text.HAL_RCC_MCOConfig:00000000 HAL_RCC_MCOConfig
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:880    .text.HAL_RCC_MCOConfig:0000004c $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:883    .text.HAL_RCC_EnableCSS:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:890    .text.HAL_RCC_EnableCSS:00000000 HAL_RCC_EnableCSS
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:910    .text.HAL_RCC_DisableCSS:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:917    .text.HAL_RCC_DisableCSS:00000000 HAL_RCC_DisableCSS
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:937    .text.HAL_RCC_GetSysClockFreq:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:944    .text.HAL_RCC_GetSysClockFreq:00000000 HAL_RCC_GetSysClockFreq
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:992    .text.HAL_RCC_GetSysClockFreq:00000050 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:999    .text.HAL_RCC_ClockConfig:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1006   .text.HAL_RCC_ClockConfig:00000000 HAL_RCC_ClockConfig
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1177   .text.HAL_RCC_ClockConfig:00000140 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1183   .text.HAL_RCC_GetHCLKFreq:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1190   .text.HAL_RCC_GetHCLKFreq:00000000 HAL_RCC_GetHCLKFreq
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1200   .text.HAL_RCC_GetHCLKFreq:00000008 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1203   .text.HAL_RCC_GetPCLK1Freq:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1210   .text.HAL_RCC_GetPCLK1Freq:00000000 HAL_RCC_GetPCLK1Freq
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1235   .text.HAL_RCC_GetPCLK1Freq:00000024 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1240   .text.HAL_RCC_GetPCLK2Freq:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1247   .text.HAL_RCC_GetPCLK2Freq:00000000 HAL_RCC_GetPCLK2Freq
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1272   .text.HAL_RCC_GetPCLK2Freq:00000024 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1277   .text.HAL_RCC_GetOscConfig:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1284   .text.HAL_RCC_GetOscConfig:00000000 HAL_RCC_GetOscConfig
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1352   .text.HAL_RCC_GetOscConfig:00000084 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1355   .text.HAL_RCC_GetClockConfig:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1362   .text.HAL_RCC_GetClockConfig:00000000 HAL_RCC_GetClockConfig
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1390   .text.HAL_RCC_GetClockConfig:00000034 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1394   .text.HAL_RCC_CSSCallback:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1401   .text.HAL_RCC_CSSCallback:00000000 HAL_RCC_CSSCallback
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1408   .text.HAL_RCC_NMI_IRQHandler:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1415   .text.HAL_RCC_NMI_IRQHandler:00000000 HAL_RCC_NMI_IRQHandler
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1432   .text.HAL_RCC_NMI_IRQHandler:00000018 $d
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1448   .rodata.aPredivFactorTable:00000000 aPredivFactorTable
+C:\Users\q-bir\AppData\Local\Temp\cc83p7Hc.s:1441   .rodata.aPLLMULFactorTable:00000000 aPLLMULFactorTable
 
 UNDEFINED SYMBOLS
 HAL_GetTick

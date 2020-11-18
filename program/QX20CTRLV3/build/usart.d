@@ -1,4 +1,4 @@
-build/main.o: Src/main.c Inc/main.h \
+build/usart.o: Src/usart.c Inc/main.h \
  Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h \
  Inc/stm32f3xx_hal_conf.h \
  Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h \

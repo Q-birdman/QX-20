@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s 			page 1
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -26,223 +26,245 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s 			page 1
   24              	SystemClock_Config:
   25              		@ args = 0, pretend = 0, frame = 88
   26              		@ frame_needed = 0, uses_anonymous_args = 0
-  27 0000 30B5     		push	{r4, r5, lr}
-  28 0002 97B0     		sub	sp, sp, #92
-  29 0004 2022     		movs	r2, #32
-  30 0006 0021     		movs	r1, #0
-  31 0008 0DA8     		add	r0, sp, #52
-  32 000a FFF7FEFF 		bl	memset
-  33 000e 1422     		movs	r2, #20
-  34 0010 0021     		movs	r1, #0
-  35 0012 01A8     		add	r0, sp, #4
-  36 0014 FFF7FEFF 		bl	memset
-  37 0018 1822     		movs	r2, #24
-  38 001a 0DEB0200 		add	r0, sp, r2
-  39 001e 0021     		movs	r1, #0
-  40 0020 FFF7FEFF 		bl	memset
-  41 0024 0125     		movs	r5, #1
-  42 0026 1023     		movs	r3, #16
-  43 0028 0224     		movs	r4, #2
-  44 002a CDE91053 		strd	r5, r3, [sp, #64]
-  45 002e 0CA8     		add	r0, sp, #48
-  46 0030 4FF4E013 		mov	r3, #1835008
-  47 0034 0C94     		str	r4, [sp, #48]
-  48 0036 1394     		str	r4, [sp, #76]
-  49 0038 1593     		str	r3, [sp, #84]
-  50 003a FFF7FEFF 		bl	HAL_RCC_OscConfig
-  51 003e 0F23     		movs	r3, #15
-  52 0040 CDE90134 		strd	r3, r4, [sp, #4]
-  53 0044 2946     		mov	r1, r5
-  54 0046 0024     		movs	r4, #0
+  27 0000 70B5     		push	{r4, r5, r6, lr}
+  28 0002 1824     		movs	r4, #24
+  29 0004 96B0     		sub	sp, sp, #88
+  30 0006 2246     		mov	r2, r4
+  31 0008 0021     		movs	r1, #0
+  32 000a 0DA8     		add	r0, sp, #52
+  33 000c FFF7FEFF 		bl	memset
+  34 0010 1422     		movs	r2, #20
+  35 0012 0021     		movs	r1, #0
+  36 0014 01A8     		add	r0, sp, #4
+  37 0016 FFF7FEFF 		bl	memset
+  38 001a 2246     		mov	r2, r4
+  39 001c 0021     		movs	r1, #0
+  40 001e 0DEB0400 		add	r0, sp, r4
+  41 0022 FFF7FEFF 		bl	memset
+  42 0026 0125     		movs	r5, #1
+  43 0028 1023     		movs	r3, #16
+  44 002a 0024     		movs	r4, #0
+  45 002c 0226     		movs	r6, #2
+  46 002e CDE91053 		strd	r5, r3, [sp, #64]
+  47 0032 0CA8     		add	r0, sp, #48
+  48 0034 4FF4E013 		mov	r3, #1835008
+  49 0038 CDE91443 		strd	r4, r3, [sp, #80]
+  50 003c 0C96     		str	r6, [sp, #48]
+  51 003e 1396     		str	r6, [sp, #76]
+  52 0040 FFF7FEFF 		bl	HAL_RCC_OscConfig
+  53 0044 0F23     		movs	r3, #15
+  54 0046 2946     		mov	r1, r5
   55 0048 01A8     		add	r0, sp, #4
-  56 004a CDE90344 		strd	r4, r4, [sp, #12]
-  57 004e 0594     		str	r4, [sp, #20]
-  58 0050 FFF7FEFF 		bl	HAL_RCC_ClockConfig
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s 			page 2
+  56 004a CDE90136 		strd	r3, r6, [sp, #4]
+  57 004e CDE90344 		strd	r4, r4, [sp, #12]
+  58 0052 0594     		str	r4, [sp, #20]
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s 			page 2
 
 
-  59 0054 06A8     		add	r0, sp, #24
-  60 0056 0695     		str	r5, [sp, #24]
-  61 0058 0894     		str	r4, [sp, #32]
-  62 005a FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
-  63 005e 17B0     		add	sp, sp, #92
-  64              		@ sp needed
-  65 0060 30BD     		pop	{r4, r5, pc}
-  67              		.section	.text.startup.main,"ax",%progbits
-  68              		.align	1
-  69              		.global	main
-  70              		.syntax unified
-  71              		.thumb
-  72              		.thumb_func
-  73              		.fpu fpv4-sp-d16
-  75              	main:
-  76              		@ Volatile: function does not return.
-  77              		@ args = 0, pretend = 0, frame = 48
-  78              		@ frame_needed = 0, uses_anonymous_args = 0
-  79 0000 00B5     		push	{lr}
-  80 0002 8DB0     		sub	sp, sp, #52
-  81 0004 FFF7FEFF 		bl	HAL_Init
-  82 0008 FFF7FEFF 		bl	SystemClock_Config
-  83 000c 1422     		movs	r2, #20
-  84 000e 0021     		movs	r1, #0
-  85 0010 0DEB0200 		add	r0, sp, r2
-  86 0014 FFF7FEFF 		bl	memset
-  87 0018 4B4B     		ldr	r3, .L4
-  88 001a 4C4D     		ldr	r5, .L4+4
-  89 001c 5A69     		ldr	r2, [r3, #20]
-  90 001e 42F40032 		orr	r2, r2, #131072
-  91 0022 5A61     		str	r2, [r3, #20]
-  92 0024 5B69     		ldr	r3, [r3, #20]
-  93 0026 03F40033 		and	r3, r3, #131072
-  94 002a 0193     		str	r3, [sp, #4]
-  95 002c 0022     		movs	r2, #0
-  96 002e 4FF40041 		mov	r1, #32768
-  97 0032 4FF09040 		mov	r0, #1207959552
-  98 0036 019B     		ldr	r3, [sp, #4]
-  99 0038 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 100 003c 444B     		ldr	r3, .L4+8
- 101 003e 7822     		movs	r2, #120
- 102 0040 0124     		movs	r4, #1
- 103 0042 05A9     		add	r1, sp, #20
- 104 0044 4FF09040 		mov	r0, #1207959552
- 105 0048 CDE90523 		strd	r2, r3, [sp, #20]
- 106 004c 0794     		str	r4, [sp, #28]
- 107 004e FFF7FEFF 		bl	HAL_GPIO_Init
- 108 0052 4FF40043 		mov	r3, #32768
- 109 0056 CDE90534 		strd	r3, r4, [sp, #20]
- 110 005a 05A9     		add	r1, sp, #20
- 111 005c 0024     		movs	r4, #0
- 112 005e 4FF09040 		mov	r0, #1207959552
- 113 0062 CDE90744 		strd	r4, r4, [sp, #28]
- 114 0066 FFF7FEFF 		bl	HAL_GPIO_Init
- 115 006a 2246     		mov	r2, r4
- 116 006c 2146     		mov	r1, r4
- 117 006e 0920     		movs	r0, #9
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s 			page 3
+  59 0054 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+  60 0058 06A8     		add	r0, sp, #24
+  61 005a 0695     		str	r5, [sp, #24]
+  62 005c 0894     		str	r4, [sp, #32]
+  63 005e FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
+  64 0062 16B0     		add	sp, sp, #88
+  65              		@ sp needed
+  66 0064 70BD     		pop	{r4, r5, r6, pc}
+  68              		.section	.text.startup.main,"ax",%progbits
+  69              		.align	1
+  70              		.global	main
+  71              		.syntax unified
+  72              		.thumb
+  73              		.thumb_func
+  74              		.fpu fpv4-sp-d16
+  76              	main:
+  77              		@ Volatile: function does not return.
+  78              		@ args = 0, pretend = 0, frame = 48
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80 0000 00B5     		push	{lr}
+  81 0002 8DB0     		sub	sp, sp, #52
+  82 0004 5A4D     		ldr	r5, .L4
+  83 0006 5B4E     		ldr	r6, .L4+4
+  84 0008 FFF7FEFF 		bl	HAL_Init
+  85 000c FFF7FEFF 		bl	SystemClock_Config
+  86 0010 1422     		movs	r2, #20
+  87 0012 0021     		movs	r1, #0
+  88 0014 0DEB0200 		add	r0, sp, r2
+  89 0018 FFF7FEFF 		bl	memset
+  90 001c 6B69     		ldr	r3, [r5, #20]
+  91 001e 43F40033 		orr	r3, r3, #131072
+  92 0022 6B61     		str	r3, [r5, #20]
+  93 0024 6B69     		ldr	r3, [r5, #20]
+  94 0026 03F40033 		and	r3, r3, #131072
+  95 002a 0193     		str	r3, [sp, #4]
+  96 002c 0022     		movs	r2, #0
+  97 002e 4FF40041 		mov	r1, #32768
+  98 0032 4FF09040 		mov	r0, #1207959552
+  99 0036 019B     		ldr	r3, [sp, #4]
+ 100 0038 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 101 003c 4E4B     		ldr	r3, .L4+8
+ 102 003e 7822     		movs	r2, #120
+ 103 0040 0124     		movs	r4, #1
+ 104 0042 05A9     		add	r1, sp, #20
+ 105 0044 4FF09040 		mov	r0, #1207959552
+ 106 0048 CDE90523 		strd	r2, r3, [sp, #20]
+ 107 004c 0794     		str	r4, [sp, #28]
+ 108 004e FFF7FEFF 		bl	HAL_GPIO_Init
+ 109 0052 4FF40043 		mov	r3, #32768
+ 110 0056 CDE90534 		strd	r3, r4, [sp, #20]
+ 111 005a 05A9     		add	r1, sp, #20
+ 112 005c 0024     		movs	r4, #0
+ 113 005e 4FF09040 		mov	r0, #1207959552
+ 114 0062 CDE90744 		strd	r4, r4, [sp, #28]
+ 115 0066 FFF7FEFF 		bl	HAL_GPIO_Init
+ 116 006a 2246     		mov	r2, r4
+ 117 006c 2146     		mov	r1, r4
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s 			page 3
 
 
- 118 0070 FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 119 0074 0920     		movs	r0, #9
- 120 0076 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 121 007a 2246     		mov	r2, r4
- 122 007c 2146     		mov	r1, r4
- 123 007e 0A20     		movs	r0, #10
- 124 0080 FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 125 0084 0A20     		movs	r0, #10
- 126 0086 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 127 008a 2246     		mov	r2, r4
- 128 008c 2146     		mov	r1, r4
- 129 008e 1720     		movs	r0, #23
- 130 0090 FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 131 0094 1720     		movs	r0, #23
- 132 0096 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 133 009a 2E48     		ldr	r0, .L4+12
- 134 009c 2E49     		ldr	r1, .L4+16
- 135 009e 8461     		str	r4, [r0, #24]
- 136 00a0 1023     		movs	r3, #16
- 137 00a2 8483     		strh	r4, [r0, #28]	@ movhi
- 138 00a4 C0E90013 		strd	r1, r3, [r0]
- 139 00a8 C0E90244 		strd	r4, r4, [r0, #8]
- 140 00ac C0E90444 		strd	r4, r4, [r0, #16]
- 141 00b0 FFF7FEFF 		bl	HAL_CAN_Init
- 142 00b4 1C22     		movs	r2, #28
- 143 00b6 2146     		mov	r1, r4
- 144 00b8 05A8     		add	r0, sp, #20
- 145 00ba CDE90244 		strd	r4, r4, [sp, #8]
- 146 00be 0494     		str	r4, [sp, #16]
- 147 00c0 FFF7FEFF 		bl	memset
- 148 00c4 4FF08043 		mov	r3, #1073741824
- 149 00c8 C5E90034 		strd	r3, r4, [r5]
- 150 00cc 234B     		ldr	r3, .L4+20
- 151 00ce AC60     		str	r4, [r5, #8]
- 152 00d0 2846     		mov	r0, r5
- 153 00d2 C5E90334 		strd	r3, r4, [r5, #12]
- 154 00d6 AC61     		str	r4, [r5, #24]
- 155 00d8 FFF7FEFF 		bl	HAL_TIM_PWM_Init
- 156 00dc 02A9     		add	r1, sp, #8
- 157 00de 2846     		mov	r0, r5
- 158 00e0 0294     		str	r4, [sp, #8]
- 159 00e2 0494     		str	r4, [sp, #16]
- 160 00e4 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
- 161 00e8 4DF2F023 		movw	r3, #54000
- 162 00ec 6020     		movs	r0, #96
- 163 00ee CDE90503 		strd	r0, r3, [sp, #20]
- 164 00f2 0422     		movs	r2, #4
- 165 00f4 05A9     		add	r1, sp, #20
- 166 00f6 2846     		mov	r0, r5
- 167 00f8 0794     		str	r4, [sp, #28]
- 168 00fa 0994     		str	r4, [sp, #36]
- 169 00fc FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
- 170 0100 0822     		movs	r2, #8
- 171 0102 05A9     		add	r1, sp, #20
- 172 0104 2846     		mov	r0, r5
- 173 0106 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
- 174 010a 2846     		mov	r0, r5
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s 			page 4
+ 118 006e 0920     		movs	r0, #9
+ 119 0070 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 120 0074 0920     		movs	r0, #9
+ 121 0076 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 122 007a 2246     		mov	r2, r4
+ 123 007c 2146     		mov	r1, r4
+ 124 007e 0A20     		movs	r0, #10
+ 125 0080 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 126 0084 0A20     		movs	r0, #10
+ 127 0086 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 128 008a 2246     		mov	r2, r4
+ 129 008c 2146     		mov	r1, r4
+ 130 008e 1720     		movs	r0, #23
+ 131 0090 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 132 0094 1720     		movs	r0, #23
+ 133 0096 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 134 009a 6B69     		ldr	r3, [r5, #20]
+ 135 009c 43F00103 		orr	r3, r3, #1
+ 136 00a0 6B61     		str	r3, [r5, #20]
+ 137 00a2 6B69     		ldr	r3, [r5, #20]
+ 138 00a4 354D     		ldr	r5, .L4+12
+ 139 00a6 03F00103 		and	r3, r3, #1
+ 140 00aa 2246     		mov	r2, r4
+ 141 00ac 2146     		mov	r1, r4
+ 142 00ae 0093     		str	r3, [sp]
+ 143 00b0 0F20     		movs	r0, #15
+ 144 00b2 009B     		ldr	r3, [sp]
+ 145 00b4 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 146 00b8 0F20     		movs	r0, #15
+ 147 00ba FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 148 00be 3048     		ldr	r0, .L4+16
+ 149 00c0 3049     		ldr	r1, .L4+20
+ 150 00c2 8461     		str	r4, [r0, #24]
+ 151 00c4 1023     		movs	r3, #16
+ 152 00c6 8483     		strh	r4, [r0, #28]	@ movhi
+ 153 00c8 C0E90013 		strd	r1, r3, [r0]
+ 154 00cc C0E90244 		strd	r4, r4, [r0, #8]
+ 155 00d0 C0E90444 		strd	r4, r4, [r0, #16]
+ 156 00d4 FFF7FEFF 		bl	HAL_CAN_Init
+ 157 00d8 1C22     		movs	r2, #28
+ 158 00da 2146     		mov	r1, r4
+ 159 00dc 05A8     		add	r0, sp, #20
+ 160 00de CDE90244 		strd	r4, r4, [sp, #8]
+ 161 00e2 0494     		str	r4, [sp, #16]
+ 162 00e4 FFF7FEFF 		bl	memset
+ 163 00e8 4FF08043 		mov	r3, #1073741824
+ 164 00ec C5E90034 		strd	r3, r4, [r5]
+ 165 00f0 254B     		ldr	r3, .L4+24
+ 166 00f2 AC60     		str	r4, [r5, #8]
+ 167 00f4 2846     		mov	r0, r5
+ 168 00f6 C5E90334 		strd	r3, r4, [r5, #12]
+ 169 00fa AC61     		str	r4, [r5, #24]
+ 170 00fc FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 171 0100 02A9     		add	r1, sp, #8
+ 172 0102 2846     		mov	r0, r5
+ 173 0104 0294     		str	r4, [sp, #8]
+ 174 0106 0494     		str	r4, [sp, #16]
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s 			page 4
 
 
- 175 010c FFF7FEFF 		bl	HAL_TIM_MspPostInit
- 176 0110 1348     		ldr	r0, .L4+24
- 177 0112 DFF850C0 		ldr	ip, .L4+28
- 178 0116 0461     		str	r4, [r0, #16]
- 179 0118 4FF41643 		mov	r3, #38400
- 180 011c C0E900C3 		strd	ip, r3, [r0]
- 181 0120 0C23     		movs	r3, #12
- 182 0122 C0E90534 		strd	r3, r4, [r0, #20]
- 183 0126 C0E90244 		strd	r4, r4, [r0, #8]
- 184 012a C0E90744 		strd	r4, r4, [r0, #28]
- 185 012e 4462     		str	r4, [r0, #36]
- 186 0130 FFF7FEFF 		bl	HAL_UART_Init
- 187 0134 0421     		movs	r1, #4
- 188 0136 2846     		mov	r0, r5
- 189 0138 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 190 013c 0821     		movs	r1, #8
- 191 013e 2846     		mov	r0, r5
- 192 0140 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 193              	.L3:
- 194 0144 FEE7     		b	.L3
- 195              	.L5:
- 196 0146 00BF     		.align	2
- 197              	.L4:
- 198 0148 00100240 		.word	1073876992
- 199 014c 00000000 		.word	htim2
- 200 0150 00003110 		.word	271646720
- 201 0154 00000000 		.word	hcan
- 202 0158 00640040 		.word	1073767424
- 203 015c 80FC0A00 		.word	720000
- 204 0160 00000000 		.word	huart1
- 205 0164 00380140 		.word	1073821696
- 207              		.section	.text.Error_Handler,"ax",%progbits
- 208              		.align	1
- 209              		.global	Error_Handler
- 210              		.syntax unified
- 211              		.thumb
- 212              		.thumb_func
- 213              		.fpu fpv4-sp-d16
- 215              	Error_Handler:
- 216              		@ args = 0, pretend = 0, frame = 0
- 217              		@ frame_needed = 0, uses_anonymous_args = 0
- 218              		@ link register save eliminated.
- 219 0000 7047     		bx	lr
- 221              		.comm	huart1,112,4
- 222              		.comm	htim2,64,4
- 223              		.comm	hcan,40,4
- 224              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s 			page 5
+ 175 0108 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 176 010c 4DF2F023 		movw	r3, #54000
+ 177 0110 6020     		movs	r0, #96
+ 178 0112 CDE90503 		strd	r0, r3, [sp, #20]
+ 179 0116 0422     		movs	r2, #4
+ 180 0118 05A9     		add	r1, sp, #20
+ 181 011a 2846     		mov	r0, r5
+ 182 011c 0794     		str	r4, [sp, #28]
+ 183 011e 0994     		str	r4, [sp, #36]
+ 184 0120 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 185 0124 0822     		movs	r2, #8
+ 186 0126 05A9     		add	r1, sp, #20
+ 187 0128 2846     		mov	r0, r5
+ 188 012a FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 189 012e 2846     		mov	r0, r5
+ 190 0130 FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 191 0134 DFF854C0 		ldr	ip, .L4+28
+ 192 0138 3461     		str	r4, [r6, #16]
+ 193 013a 4FF41643 		mov	r3, #38400
+ 194 013e C6E900C3 		strd	ip, r3, [r6]
+ 195 0142 3046     		mov	r0, r6
+ 196 0144 0C23     		movs	r3, #12
+ 197 0146 C6E90534 		strd	r3, r4, [r6, #20]
+ 198 014a C6E90244 		strd	r4, r4, [r6, #8]
+ 199 014e C6E90744 		strd	r4, r4, [r6, #28]
+ 200 0152 7462     		str	r4, [r6, #36]
+ 201 0154 FFF7FEFF 		bl	HAL_UART_Init
+ 202 0158 0421     		movs	r1, #4
+ 203 015a 2846     		mov	r0, r5
+ 204 015c FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 205 0160 0821     		movs	r1, #8
+ 206 0162 2846     		mov	r0, r5
+ 207 0164 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 208 0168 3046     		mov	r0, r6
+ 209 016a FFF7FEFF 		bl	USART1_Init
+ 210              	.L3:
+ 211 016e FEE7     		b	.L3
+ 212              	.L5:
+ 213              		.align	2
+ 214              	.L4:
+ 215 0170 00100240 		.word	1073876992
+ 216 0174 00000000 		.word	huart1
+ 217 0178 00003110 		.word	271646720
+ 218 017c 00000000 		.word	htim2
+ 219 0180 00000000 		.word	hcan
+ 220 0184 00640040 		.word	1073767424
+ 221 0188 80FC0A00 		.word	720000
+ 222 018c 00380140 		.word	1073821696
+ 224              		.section	.text.Error_Handler,"ax",%progbits
+ 225              		.align	1
+ 226              		.global	Error_Handler
+ 227              		.syntax unified
+ 228              		.thumb
+ 229              		.thumb_func
+ 230              		.fpu fpv4-sp-d16
+ 232              	Error_Handler:
+ 233              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s 			page 5
+
+
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235              		@ link register save eliminated.
+ 236 0000 7047     		bx	lr
+ 238              		.comm	hdma_usart1_rx,68,4
+ 239              		.comm	huart1,112,4
+ 240              		.comm	htim2,64,4
+ 241              		.comm	hcan,40,4
+ 242              		.ident	"GCC: (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)"
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s 			page 6
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 main.c
-C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s:16     .text.SystemClock_Config:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s:24     .text.SystemClock_Config:0000000000000000 SystemClock_Config
-C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s:68     .text.startup.main:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s:75     .text.startup.main:0000000000000000 main
-C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s:198    .text.startup.main:0000000000000148 $d
-                            *COM*:0000000000000040 htim2
-                            *COM*:0000000000000028 hcan
-                            *COM*:0000000000000070 huart1
-C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s:208    .text.Error_Handler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccA30sYT.s:215    .text.Error_Handler:0000000000000000 Error_Handler
+                            *ABS*:00000000 main.c
+C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s:16     .text.SystemClock_Config:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s:24     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s:69     .text.startup.main:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s:76     .text.startup.main:00000000 main
+C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s:215    .text.startup.main:00000170 $d
+                            *COM*:00000070 huart1
+                            *COM*:00000040 htim2
+                            *COM*:00000028 hcan
+C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s:225    .text.Error_Handler:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\cc5RHiJU.s:232    .text.Error_Handler:00000000 Error_Handler
+                            *COM*:00000044 hdma_usart1_rx
 
 UNDEFINED SYMBOLS
 memset
@@ -261,3 +283,4 @@ HAL_TIM_PWM_ConfigChannel
 HAL_TIM_MspPostInit
 HAL_UART_Init
 HAL_TIM_PWM_Start
+USART1_Init

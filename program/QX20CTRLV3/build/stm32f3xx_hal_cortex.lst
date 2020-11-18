@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -27,17 +27,17 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
   25              		@ args = 0, pretend = 0, frame = 0
   26              		@ frame_needed = 0, uses_anonymous_args = 0
   27              		@ link register save eliminated.
-  28 0000 074A     		ldr	r2, .L2
-  29 0002 D368     		ldr	r3, [r2, #12]
-  30 0004 23F4E063 		bic	r3, r3, #1792
-  31 0008 0002     		lsls	r0, r0, #8
-  32 000a 1B04     		lsls	r3, r3, #16
-  33 000c 00F4E060 		and	r0, r0, #1792
-  34 0010 1B0C     		lsrs	r3, r3, #16
-  35 0012 1843     		orrs	r0, r0, r3
-  36 0014 40F0BF60 		orr	r0, r0, #100139008
-  37 0018 40F40030 		orr	r0, r0, #131072
-  38 001c D060     		str	r0, [r2, #12]
+  28 0000 0749     		ldr	r1, .L2
+  29 0002 CA68     		ldr	r2, [r1, #12]
+  30 0004 22F4E062 		bic	r2, r2, #1792
+  31 0008 0302     		lsls	r3, r0, #8
+  32 000a 1204     		lsls	r2, r2, #16
+  33 000c 03F4E063 		and	r3, r3, #1792
+  34 0010 120C     		lsrs	r2, r2, #16
+  35 0012 1343     		orrs	r3, r3, r2
+  36 0014 43F0BF63 		orr	r3, r3, #100139008
+  37 0018 43F40033 		orr	r3, r3, #131072
+  38 001c CB60     		str	r3, [r1, #12]
   39 001e 7047     		bx	lr
   40              	.L3:
   41              		.align	2
@@ -53,47 +53,47 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
   53              	HAL_NVIC_SetPriority:
   54              		@ args = 0, pretend = 0, frame = 0
   55              		@ frame_needed = 0, uses_anonymous_args = 0
-  56 0000 174B     		ldr	r3, .L9
-  57 0002 70B5     		push	{r4, r5, r6, lr}
+  56 0000 164B     		ldr	r3, .L9
+  57 0002 30B5     		push	{r4, r5, lr}
   58 0004 DC68     		ldr	r4, [r3, #12]
   59 0006 C4F30224 		ubfx	r4, r4, #8, #3
   60 000a C4F10705 		rsb	r5, r4, #7
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 2
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s 			page 2
 
 
-  61 000e 042D     		cmp	r5, #4
-  62 0010 04F10403 		add	r3, r4, #4
-  63 0014 28BF     		it	cs
-  64 0016 0425     		movcs	r5, #4
-  65 0018 4FF0FF36 		mov	r6, #-1
-  66 001c 062B     		cmp	r3, #6
-  67 001e 06FA05F5 		lsl	r5, r6, r5
-  68 0022 8CBF     		ite	hi
-  69 0024 033C     		subhi	r4, r4, #3
-  70 0026 0024     		movls	r4, #0
-  71 0028 21EA0501 		bic	r1, r1, r5
-  72 002c A140     		lsls	r1, r1, r4
-  73 002e 06FA04F4 		lsl	r4, r6, r4
-  74 0032 22EA0403 		bic	r3, r2, r4
-  75 0036 0028     		cmp	r0, #0
-  76 0038 43EA0103 		orr	r3, r3, r1
-  77 003c A8BF     		it	ge
-  78 003e 00F16040 		addge	r0, r0, #-536870912
-  79 0042 4FEA0313 		lsl	r3, r3, #4
-  80 0046 BCBF     		itt	lt
-  81 0048 00F00F00 		andlt	r0, r0, #15
-  82 004c 054A     		ldrlt	r2, .L9+4
-  83 004e DBB2     		uxtb	r3, r3
-  84 0050 AABF     		itet	ge
-  85 0052 00F56140 		addge	r0, r0, #57600
-  86 0056 1354     		strblt	r3, [r2, r0]
-  87 0058 80F80033 		strbge	r3, [r0, #768]
-  88 005c 70BD     		pop	{r4, r5, r6, pc}
+  61 000e 231D     		adds	r3, r4, #4
+  62 0010 042D     		cmp	r5, #4
+  63 0012 28BF     		it	cs
+  64 0014 0425     		movcs	r5, #4
+  65 0016 062B     		cmp	r3, #6
+  66 0018 4FF0FF33 		mov	r3, #-1
+  67 001c 8CBF     		ite	hi
+  68 001e 033C     		subhi	r4, r4, #3
+  69 0020 0024     		movls	r4, #0
+  70 0022 03FA05F5 		lsl	r5, r3, r5
+  71 0026 21EA0501 		bic	r1, r1, r5
+  72 002a A340     		lsls	r3, r3, r4
+  73 002c 22EA0302 		bic	r2, r2, r3
+  74 0030 A140     		lsls	r1, r1, r4
+  75 0032 0028     		cmp	r0, #0
+  76 0034 41EA0203 		orr	r3, r1, r2
+  77 0038 ACBF     		ite	ge
+  78 003a 00F16040 		addge	r0, r0, #-536870912
+  79 003e 084A     		ldrlt	r2, .L9+4
+  80 0040 4FEA0313 		lsl	r3, r3, #4
+  81 0044 B8BF     		it	lt
+  82 0046 00F00F00 		andlt	r0, r0, #15
+  83 004a DBB2     		uxtb	r3, r3
+  84 004c AABF     		itet	ge
+  85 004e 00F56140 		addge	r0, r0, #57600
+  86 0052 1354     		strblt	r3, [r2, r0]
+  87 0054 80F80033 		strbge	r3, [r0, #768]
+  88 0058 30BD     		pop	{r4, r5, pc}
   89              	.L10:
-  90 005e 00BF     		.align	2
+  90 005a 00BF     		.align	2
   91              	.L9:
-  92 0060 00ED00E0 		.word	-536810240
-  93 0064 14ED00E0 		.word	-536810220
+  92 005c 00ED00E0 		.word	-536810240
+  93 0060 14ED00E0 		.word	-536810220
   95              		.section	.text.HAL_NVIC_EnableIRQ,"ax",%progbits
   96              		.align	1
   97              		.global	HAL_NVIC_EnableIRQ
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
  117 0014 00E100E0 		.word	-536813312
  119              		.section	.text.HAL_NVIC_DisableIRQ,"ax",%progbits
  120              		.align	1
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 3
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s 			page 3
 
 
  121              		.global	HAL_NVIC_DisableIRQ
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
  178 0016 00BF     		nop
  179              	@ 0 "" 2
  180              		.thumb
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 4
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s 			page 4
 
 
  181              		.syntax unified
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
  239              	.L28:
  240 000a 00BF     		.align	2
  241              	.L27:
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 5
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s 			page 5
 
 
  242 000c 00ED00E0 		.word	-536810240
@@ -256,8 +256,8 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
  256 0002 0028     		cmp	r0, #0
  257 0004 AEBF     		itee	ge
  258 0006 00F16040 		addge	r0, r0, #-536870912
- 259 000a 00F00F00 		andlt	r0, r0, #15
- 260 000e 124C     		ldrlt	r4, .L35
+ 259 000a 134C     		ldrlt	r4, .L35
+ 260 000c 00F00F00 		andlt	r0, r0, #15
  261 0010 01F00701 		and	r1, r1, #7
  262 0014 AABF     		itet	ge
  263 0016 00F56140 		addge	r0, r0, #57600
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
  300              		@ frame_needed = 0, uses_anonymous_args = 0
  301              		@ link register save eliminated.
  302 0000 4309     		lsrs	r3, r0, #5
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 6
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s 			page 6
 
 
  303 0002 0122     		movs	r2, #1
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
  361 0016 00BF     		.align	2
  362              	.L44:
  363 0018 00E100E0 		.word	-536813312
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 7
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s 			page 7
 
 
  365              		.section	.text.HAL_NVIC_GetActive,"ax",%progbits
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
  424              		@ args = 0, pretend = 0, frame = 0
  425              		@ frame_needed = 0, uses_anonymous_args = 0
  426              		@ link register save eliminated.
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 8
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s 			page 8
 
 
  427 0000 7047     		bx	lr
@@ -435,54 +435,54 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 1
  440 0000 08B5     		push	{r3, lr}
  441 0002 FFF7FEFF 		bl	HAL_SYSTICK_Callback
  442 0006 08BD     		pop	{r3, pc}
- 444              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s 			page 9
+ 444              		.ident	"GCC: (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)"
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s 			page 9
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 stm32f3xx_hal_cortex.c
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:16     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:24     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 HAL_NVIC_SetPriorityGrouping
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:43     .text.HAL_NVIC_SetPriorityGrouping:0000000000000020 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:46     .text.HAL_NVIC_SetPriority:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:53     .text.HAL_NVIC_SetPriority:0000000000000000 HAL_NVIC_SetPriority
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:92     .text.HAL_NVIC_SetPriority:0000000000000060 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:96     .text.HAL_NVIC_EnableIRQ:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:103    .text.HAL_NVIC_EnableIRQ:0000000000000000 HAL_NVIC_EnableIRQ
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:117    .text.HAL_NVIC_EnableIRQ:0000000000000014 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:120    .text.HAL_NVIC_DisableIRQ:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:127    .text.HAL_NVIC_DisableIRQ:0000000000000000 HAL_NVIC_DisableIRQ
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:142    .text.HAL_NVIC_DisableIRQ:0000000000000018 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:145    .text.HAL_NVIC_SystemReset:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:152    .text.HAL_NVIC_SystemReset:0000000000000000 HAL_NVIC_SystemReset
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:186    .text.HAL_NVIC_SystemReset:000000000000001c $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:190    .text.HAL_SYSTICK_Config:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:197    .text.HAL_SYSTICK_Config:0000000000000000 HAL_SYSTICK_Config
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:220    .text.HAL_SYSTICK_Config:0000000000000024 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:224    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:231    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 HAL_NVIC_GetPriorityGrouping
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:242    .text.HAL_NVIC_GetPriorityGrouping:000000000000000c $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:245    .text.HAL_NVIC_GetPriority:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:252    .text.HAL_NVIC_GetPriority:0000000000000000 HAL_NVIC_GetPriority
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:288    .text.HAL_NVIC_GetPriority:0000000000000058 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:291    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:298    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 HAL_NVIC_SetPendingIRQ
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:313    .text.HAL_NVIC_SetPendingIRQ:0000000000000018 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:316    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:323    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 HAL_NVIC_GetPendingIRQ
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:338    .text.HAL_NVIC_GetPendingIRQ:0000000000000018 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:341    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:348    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 HAL_NVIC_ClearPendingIRQ
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:363    .text.HAL_NVIC_ClearPendingIRQ:0000000000000018 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:366    .text.HAL_NVIC_GetActive:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:373    .text.HAL_NVIC_GetActive:0000000000000000 HAL_NVIC_GetActive
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:388    .text.HAL_NVIC_GetActive:0000000000000018 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:391    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:398    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 HAL_SYSTICK_CLKSourceConfig
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:413    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000014 $d
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:416    .text.HAL_SYSTICK_Callback:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:423    .text.HAL_SYSTICK_Callback:0000000000000000 HAL_SYSTICK_Callback
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:430    .text.HAL_SYSTICK_IRQHandler:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccJjOuAd.s:437    .text.HAL_SYSTICK_IRQHandler:0000000000000000 HAL_SYSTICK_IRQHandler
+                            *ABS*:00000000 stm32f3xx_hal_cortex.c
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:16     .text.HAL_NVIC_SetPriorityGrouping:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:24     .text.HAL_NVIC_SetPriorityGrouping:00000000 HAL_NVIC_SetPriorityGrouping
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:43     .text.HAL_NVIC_SetPriorityGrouping:00000020 $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:46     .text.HAL_NVIC_SetPriority:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:53     .text.HAL_NVIC_SetPriority:00000000 HAL_NVIC_SetPriority
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:92     .text.HAL_NVIC_SetPriority:0000005c $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:96     .text.HAL_NVIC_EnableIRQ:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:103    .text.HAL_NVIC_EnableIRQ:00000000 HAL_NVIC_EnableIRQ
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:117    .text.HAL_NVIC_EnableIRQ:00000014 $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:120    .text.HAL_NVIC_DisableIRQ:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:127    .text.HAL_NVIC_DisableIRQ:00000000 HAL_NVIC_DisableIRQ
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:142    .text.HAL_NVIC_DisableIRQ:00000018 $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:145    .text.HAL_NVIC_SystemReset:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:152    .text.HAL_NVIC_SystemReset:00000000 HAL_NVIC_SystemReset
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:186    .text.HAL_NVIC_SystemReset:0000001c $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:190    .text.HAL_SYSTICK_Config:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:197    .text.HAL_SYSTICK_Config:00000000 HAL_SYSTICK_Config
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:220    .text.HAL_SYSTICK_Config:00000024 $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:224    .text.HAL_NVIC_GetPriorityGrouping:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:231    .text.HAL_NVIC_GetPriorityGrouping:00000000 HAL_NVIC_GetPriorityGrouping
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:242    .text.HAL_NVIC_GetPriorityGrouping:0000000c $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:245    .text.HAL_NVIC_GetPriority:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:252    .text.HAL_NVIC_GetPriority:00000000 HAL_NVIC_GetPriority
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:288    .text.HAL_NVIC_GetPriority:00000058 $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:291    .text.HAL_NVIC_SetPendingIRQ:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:298    .text.HAL_NVIC_SetPendingIRQ:00000000 HAL_NVIC_SetPendingIRQ
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:313    .text.HAL_NVIC_SetPendingIRQ:00000018 $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:316    .text.HAL_NVIC_GetPendingIRQ:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:323    .text.HAL_NVIC_GetPendingIRQ:00000000 HAL_NVIC_GetPendingIRQ
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:338    .text.HAL_NVIC_GetPendingIRQ:00000018 $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:341    .text.HAL_NVIC_ClearPendingIRQ:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:348    .text.HAL_NVIC_ClearPendingIRQ:00000000 HAL_NVIC_ClearPendingIRQ
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:363    .text.HAL_NVIC_ClearPendingIRQ:00000018 $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:366    .text.HAL_NVIC_GetActive:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:373    .text.HAL_NVIC_GetActive:00000000 HAL_NVIC_GetActive
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:388    .text.HAL_NVIC_GetActive:00000018 $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:391    .text.HAL_SYSTICK_CLKSourceConfig:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:398    .text.HAL_SYSTICK_CLKSourceConfig:00000000 HAL_SYSTICK_CLKSourceConfig
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:413    .text.HAL_SYSTICK_CLKSourceConfig:00000014 $d
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:416    .text.HAL_SYSTICK_Callback:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:423    .text.HAL_SYSTICK_Callback:00000000 HAL_SYSTICK_Callback
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:430    .text.HAL_SYSTICK_IRQHandler:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccaj6dEa.s:437    .text.HAL_SYSTICK_IRQHandler:00000000 HAL_SYSTICK_IRQHandler
 
 NO UNDEFINED SYMBOLS

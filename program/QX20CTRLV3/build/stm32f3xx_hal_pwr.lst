@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 1
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 1
   58              	.L6:
   59              		.align	2
   60              	.L5:
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 2
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s 			page 2
 
 
   61 000c 00700040 		.word	1073770496
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 1
  121 0004 23EA0000 		bic	r0, r3, r0
  122 0008 5060     		str	r0, [r2, #4]
  123 000a 7047     		bx	lr
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 3
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s 			page 3
 
 
  124              	.L15:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 1
  182              		@ args = 0, pretend = 0, frame = 0
  183              		@ frame_needed = 0, uses_anonymous_args = 0
  184              		@ link register save eliminated.
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 4
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s 			page 4
 
 
  185 0000 0B4A     		ldr	r2, .L24
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 1
  241 0004 43F00203 		orr	r3, r3, #2
  242 0008 1360     		str	r3, [r2]
  243 000a 044A     		ldr	r2, .L27+4
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 5
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s 			page 5
 
 
  244 000c 1369     		ldr	r3, [r2, #16]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 1
  302 000c 00ED00E0 		.word	-536810240
  304              		.section	.text.HAL_PWR_EnableSEVOnPend,"ax",%progbits
  305              		.align	1
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 6
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s 			page 6
 
 
  306              		.global	HAL_PWR_EnableSEVOnPend
@@ -339,47 +339,47 @@ ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 1
  344              		.align	2
  345              	.L39:
  346 000c 00ED00E0 		.word	-536810240
- 348              		.ident	"GCC: (GNU MCU Eclipse ARM Embedded GCC, 64-bit) 8.2.1 20181213 (release) [gcc-8-branch rev
-ARM GAS  C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s 			page 7
+ 348              		.ident	"GCC: (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)"
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s 			page 7
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 stm32f3xx_hal_pwr.c
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:16     .text.HAL_PWR_DeInit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:24     .text.HAL_PWR_DeInit:0000000000000000 HAL_PWR_DeInit
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:39     .text.HAL_PWR_DeInit:0000000000000014 $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:42     .text.HAL_PWR_EnableBkUpAccess:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:49     .text.HAL_PWR_EnableBkUpAccess:0000000000000000 HAL_PWR_EnableBkUpAccess
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:61     .text.HAL_PWR_EnableBkUpAccess:000000000000000c $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:64     .text.HAL_PWR_DisableBkUpAccess:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:71     .text.HAL_PWR_DisableBkUpAccess:0000000000000000 HAL_PWR_DisableBkUpAccess
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:83     .text.HAL_PWR_DisableBkUpAccess:000000000000000c $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:86     .text.HAL_PWR_EnableWakeUpPin:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:93     .text.HAL_PWR_EnableWakeUpPin:0000000000000000 HAL_PWR_EnableWakeUpPin
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:105    .text.HAL_PWR_EnableWakeUpPin:000000000000000c $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:108    .text.HAL_PWR_DisableWakeUpPin:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:115    .text.HAL_PWR_DisableWakeUpPin:0000000000000000 HAL_PWR_DisableWakeUpPin
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:127    .text.HAL_PWR_DisableWakeUpPin:000000000000000c $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:130    .text.HAL_PWR_EnterSLEEPMode:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:137    .text.HAL_PWR_EnterSLEEPMode:0000000000000000 HAL_PWR_EnterSLEEPMode
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:171    .text.HAL_PWR_EnterSLEEPMode:000000000000001c $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:174    .text.HAL_PWR_EnterSTOPMode:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:181    .text.HAL_PWR_EnterSTOPMode:0000000000000000 HAL_PWR_EnterSTOPMode
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:224    .text.HAL_PWR_EnterSTOPMode:0000000000000030 $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:228    .text.HAL_PWR_EnterSTANDBYMode:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:235    .text.HAL_PWR_EnterSTANDBYMode:0000000000000000 HAL_PWR_EnterSTANDBYMode
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:257    .text.HAL_PWR_EnterSTANDBYMode:0000000000000018 $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:261    .text.HAL_PWR_EnableSleepOnExit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:268    .text.HAL_PWR_EnableSleepOnExit:0000000000000000 HAL_PWR_EnableSleepOnExit
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:280    .text.HAL_PWR_EnableSleepOnExit:000000000000000c $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:283    .text.HAL_PWR_DisableSleepOnExit:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:290    .text.HAL_PWR_DisableSleepOnExit:0000000000000000 HAL_PWR_DisableSleepOnExit
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:302    .text.HAL_PWR_DisableSleepOnExit:000000000000000c $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:305    .text.HAL_PWR_EnableSEVOnPend:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:312    .text.HAL_PWR_EnableSEVOnPend:0000000000000000 HAL_PWR_EnableSEVOnPend
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:324    .text.HAL_PWR_EnableSEVOnPend:000000000000000c $d
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:327    .text.HAL_PWR_DisableSEVOnPend:0000000000000000 $t
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:334    .text.HAL_PWR_DisableSEVOnPend:0000000000000000 HAL_PWR_DisableSEVOnPend
-C:\Users\gyoku\AppData\Local\Temp\ccG7VuQq.s:346    .text.HAL_PWR_DisableSEVOnPend:000000000000000c $d
+                            *ABS*:00000000 stm32f3xx_hal_pwr.c
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:16     .text.HAL_PWR_DeInit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:24     .text.HAL_PWR_DeInit:00000000 HAL_PWR_DeInit
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:39     .text.HAL_PWR_DeInit:00000014 $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:42     .text.HAL_PWR_EnableBkUpAccess:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:49     .text.HAL_PWR_EnableBkUpAccess:00000000 HAL_PWR_EnableBkUpAccess
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:61     .text.HAL_PWR_EnableBkUpAccess:0000000c $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:64     .text.HAL_PWR_DisableBkUpAccess:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:71     .text.HAL_PWR_DisableBkUpAccess:00000000 HAL_PWR_DisableBkUpAccess
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:83     .text.HAL_PWR_DisableBkUpAccess:0000000c $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:86     .text.HAL_PWR_EnableWakeUpPin:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:93     .text.HAL_PWR_EnableWakeUpPin:00000000 HAL_PWR_EnableWakeUpPin
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:105    .text.HAL_PWR_EnableWakeUpPin:0000000c $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:108    .text.HAL_PWR_DisableWakeUpPin:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:115    .text.HAL_PWR_DisableWakeUpPin:00000000 HAL_PWR_DisableWakeUpPin
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:127    .text.HAL_PWR_DisableWakeUpPin:0000000c $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:130    .text.HAL_PWR_EnterSLEEPMode:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:137    .text.HAL_PWR_EnterSLEEPMode:00000000 HAL_PWR_EnterSLEEPMode
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:171    .text.HAL_PWR_EnterSLEEPMode:0000001c $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:174    .text.HAL_PWR_EnterSTOPMode:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:181    .text.HAL_PWR_EnterSTOPMode:00000000 HAL_PWR_EnterSTOPMode
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:224    .text.HAL_PWR_EnterSTOPMode:00000030 $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:228    .text.HAL_PWR_EnterSTANDBYMode:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:235    .text.HAL_PWR_EnterSTANDBYMode:00000000 HAL_PWR_EnterSTANDBYMode
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:257    .text.HAL_PWR_EnterSTANDBYMode:00000018 $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:261    .text.HAL_PWR_EnableSleepOnExit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:268    .text.HAL_PWR_EnableSleepOnExit:00000000 HAL_PWR_EnableSleepOnExit
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:280    .text.HAL_PWR_EnableSleepOnExit:0000000c $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:283    .text.HAL_PWR_DisableSleepOnExit:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:290    .text.HAL_PWR_DisableSleepOnExit:00000000 HAL_PWR_DisableSleepOnExit
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:302    .text.HAL_PWR_DisableSleepOnExit:0000000c $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:305    .text.HAL_PWR_EnableSEVOnPend:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:312    .text.HAL_PWR_EnableSEVOnPend:00000000 HAL_PWR_EnableSEVOnPend
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:324    .text.HAL_PWR_EnableSEVOnPend:0000000c $d
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:327    .text.HAL_PWR_DisableSEVOnPend:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:334    .text.HAL_PWR_DisableSEVOnPend:00000000 HAL_PWR_DisableSEVOnPend
+C:\Users\q-bir\AppData\Local\Temp\ccZEVFde.s:346    .text.HAL_PWR_DisableSEVOnPend:0000000c $d
 
 NO UNDEFINED SYMBOLS

@@ -1,0 +1,154 @@
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"usart.c"
+  14              		.text
+  15              		.section	.text.USART1_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	USART1_Init
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	USART1_Init:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27              		@ link register save eliminated.
+  28 0000 084A     		ldr	r2, .L2
+  29 0002 0368     		ldr	r3, [r0]
+  30 0004 1060     		str	r0, [r2]
+  31 0006 084A     		ldr	r2, .L2+4
+  32 0008 0021     		movs	r1, #0
+  33 000a 1160     		str	r1, [r2]
+  34 000c 1A68     		ldr	r2, [r3]
+  35 000e 0749     		ldr	r1, .L2+8
+  36 0010 22F48072 		bic	r2, r2, #256
+  37 0014 1A60     		str	r2, [r3]
+  38 0016 9A68     		ldr	r2, [r3, #8]
+  39 0018 22F00102 		bic	r2, r2, #1
+  40 001c 9A60     		str	r2, [r3, #8]
+  41 001e 8022     		movs	r2, #128
+  42 0020 FFF7FEBF 		b	HAL_UART_Receive_DMA
+  43              	.L3:
+  44              		.align	2
+  45              	.L2:
+  46 0024 00000000 		.word	pHuart
+  47 0028 00000000 		.word	rd_ptr
+  48 002c 00000000 		.word	.LANCHOR0
+  50              		.section	.text.USART1_RX_IsEmpty,"ax",%progbits
+  51              		.align	1
+  52              		.global	USART1_RX_IsEmpty
+  53              		.syntax unified
+  54              		.thumb
+  55              		.thumb_func
+  56              		.fpu fpv4-sp-d16
+  58              	USART1_RX_IsEmpty:
+  59              		@ args = 0, pretend = 0, frame = 0
+  60              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s 			page 2
+
+
+  61              		@ link register save eliminated.
+  62 0000 064B     		ldr	r3, .L5
+  63 0002 074A     		ldr	r2, .L5+4
+  64 0004 1B68     		ldr	r3, [r3]
+  65 0006 1068     		ldr	r0, [r2]
+  66 0008 5B6E     		ldr	r3, [r3, #100]
+  67 000a 1B68     		ldr	r3, [r3]
+  68 000c 5B68     		ldr	r3, [r3, #4]
+  69 000e 5B42     		rsbs	r3, r3, #0
+  70 0010 03F07F03 		and	r3, r3, #127
+  71 0014 1B1A     		subs	r3, r3, r0
+  72 0016 5842     		rsbs	r0, r3, #0
+  73 0018 5841     		adcs	r0, r0, r3
+  74 001a 7047     		bx	lr
+  75              	.L6:
+  76              		.align	2
+  77              	.L5:
+  78 001c 00000000 		.word	pHuart
+  79 0020 00000000 		.word	rd_ptr
+  81              		.section	.text.USART1_RX_Read,"ax",%progbits
+  82              		.align	1
+  83              		.global	USART1_RX_Read
+  84              		.syntax unified
+  85              		.thumb
+  86              		.thumb_func
+  87              		.fpu fpv4-sp-d16
+  89              	USART1_RX_Read:
+  90              		@ args = 0, pretend = 0, frame = 0
+  91              		@ frame_needed = 0, uses_anonymous_args = 0
+  92              		@ link register save eliminated.
+  93 0000 0A4B     		ldr	r3, .L10
+  94 0002 0B49     		ldr	r1, .L10+4
+  95 0004 1B68     		ldr	r3, [r3]
+  96 0006 5B6E     		ldr	r3, [r3, #100]
+  97 0008 1B68     		ldr	r3, [r3]
+  98 000a 5A68     		ldr	r2, [r3, #4]
+  99 000c 0B68     		ldr	r3, [r1]
+ 100 000e 5242     		rsbs	r2, r2, #0
+ 101 0010 02F07F02 		and	r2, r2, #127
+ 102 0014 9342     		cmp	r3, r2
+ 103 0016 1FBF     		itttt	ne
+ 104 0018 064A     		ldrne	r2, .L10+8
+ 105 001a D05C     		ldrbne	r0, [r2, r3]	@ zero_extendqisi2
+ 106 001c 0133     		addne	r3, r3, #1
+ 107 001e 03F07F03 		andne	r3, r3, #127
+ 108 0022 14BF     		ite	ne
+ 109 0024 0B60     		strne	r3, [r1]
+ 110 0026 0020     		moveq	r0, #0
+ 111 0028 7047     		bx	lr
+ 112              	.L11:
+ 113 002a 00BF     		.align	2
+ 114              	.L10:
+ 115 002c 00000000 		.word	pHuart
+ 116 0030 00000000 		.word	rd_ptr
+ 117 0034 00000000 		.word	.LANCHOR0
+ 119              		.comm	rd_ptr,4,4
+ 120              		.global	RxBuff
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s 			page 3
+
+
+ 121              		.comm	pHuart,4,4
+ 122              		.section	.bss.RxBuff,"aw",%nobits
+ 123              		.set	.LANCHOR0,. + 0
+ 126              	RxBuff:
+ 127 0000 00000000 		.space	128
+ 127      00000000 
+ 127      00000000 
+ 127      00000000 
+ 127      00000000 
+ 128              		.ident	"GCC: (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)"
+ARM GAS  C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 usart.c
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:16     .text.USART1_Init:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:24     .text.USART1_Init:00000000 USART1_Init
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:46     .text.USART1_Init:00000024 $d
+                            *COM*:00000004 pHuart
+                            *COM*:00000004 rd_ptr
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:51     .text.USART1_RX_IsEmpty:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:58     .text.USART1_RX_IsEmpty:00000000 USART1_RX_IsEmpty
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:78     .text.USART1_RX_IsEmpty:0000001c $d
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:82     .text.USART1_RX_Read:00000000 $t
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:89     .text.USART1_RX_Read:00000000 USART1_RX_Read
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:115    .text.USART1_RX_Read:0000002c $d
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:126    .bss.RxBuff:00000000 RxBuff
+C:\Users\q-bir\AppData\Local\Temp\ccmz2fRu.s:127    .bss.RxBuff:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_UART_Receive_DMA

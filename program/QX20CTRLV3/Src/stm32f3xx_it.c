@@ -24,7 +24,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "qx20.h"
-#include "servo.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -34,7 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
- 
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -58,13 +57,14 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-
+extern DMA_HandleTypeDef hdma_usart1_rx;
+extern DMA_HandleTypeDef hdma_usart1_tx;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M4 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M4 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -184,12 +184,23 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-  if(HAL_GetTick() % 1000 == 0){
+  if (HAL_GetTick() % 20 == 0)
+  {
     rotateSrv1();
-    rotateSrv2();
+    //rotateSrv2();
+    while(USART1_RX_IsEmpty() == 0)
+    {
+      c = USART1_RX_Read();
+      if(c < '0'){
+        srv1.deg = deg;
+      }
+      deg = deg * 10 + (c - '0');
+    }
   }
-  if(HAL_GetTick() % 500 == 0){
+  if (HAL_GetTick() % 500 == 0)
+  {
     HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_15);
+    
   }
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
@@ -211,8 +222,10 @@ void SysTick_Handler(void)
 void EXTI3_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI3_IRQn 0 */
-  srv1.mul = SRV_MUL_UP * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3));
-  rotateSrv1();
+  //srv1.mul = SRV_MUL_UP * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3));
+  //srv1.mul = 1;
+  //srv2.mul = 1;
+  //rotateSrv1();
   /* USER CODE END EXTI3_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
   /* USER CODE BEGIN EXTI3_IRQn 1 */
@@ -226,8 +239,10 @@ void EXTI3_IRQHandler(void)
 void EXTI4_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI4_IRQn 0 */
-  srv1.mul = SRV_MUL_DOWN * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_4));
-  rotateSrv1();
+  //srv1.mul = SRV_MUL_DOWN * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_4));
+  //srv1.mul = 0;
+  //srv2.mul=0;
+  //rotateSrv1();
   /* USER CODE END EXTI4_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
   /* USER CODE BEGIN EXTI4_IRQn 1 */
@@ -236,13 +251,41 @@ void EXTI4_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles DMA1 channel4 global interrupt.
+  */
+void DMA1_Channel4_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Channel4_IRQn 0 */
+
+  /* USER CODE END DMA1_Channel4_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_usart1_tx);
+  /* USER CODE BEGIN DMA1_Channel4_IRQn 1 */
+
+  /* USER CODE END DMA1_Channel4_IRQn 1 */
+}
+
+/**
+  * @brief This function handles DMA1 channel5 global interrupt.
+  */
+void DMA1_Channel5_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Channel5_IRQn 0 */
+
+  /* USER CODE END DMA1_Channel5_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_usart1_rx);
+  /* USER CODE BEGIN DMA1_Channel5_IRQn 1 */
+
+  /* USER CODE END DMA1_Channel5_IRQn 1 */
+}
+
+/**
   * @brief This function handles EXTI line[9:5] interrupts.
   */
 void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
-  srv2.mul = SRV_MUL_UP * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5));
-  srv2.mul = SRV_MUL_DOWN * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6));
+  //srv2.mul = SRV_MUL_UP * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5));
+  //srv2.mul = SRV_MUL_DOWN * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6));
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
