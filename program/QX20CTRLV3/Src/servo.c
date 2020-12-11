@@ -23,12 +23,15 @@ inline void rotateSrv1(){
   }
   TIM2->CCR2 = srv1.deg;
 }
-/*
+
 inline void rotateSrv2(){
   
-  srv2.deg += SRV_STEP_HZ * srv2.mul;
+  if(state&GPIO_PIN_3){
+    srv2.deg = SRV_LEG_L_DOWN;
+  }
+  if(state&GPIO_PIN_4){
+    srv2.deg = SRV_LEG_L_UP;
+  }
   TIM2->CCR3 = srv2.deg;
-  TIM2->CCR3 = SRV_INIT_HZ + srv2.deg * srv2.mul;
   
 }
-*/

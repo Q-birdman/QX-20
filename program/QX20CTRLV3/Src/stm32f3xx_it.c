@@ -186,8 +186,6 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 0 */
   if (HAL_GetTick() % 20 == 0)
   {
-    rotateSrv1();
-    //rotateSrv2();
     while(USART1_RX_IsEmpty() == 0)
     {
       c = USART1_RX_Read();
@@ -225,7 +223,8 @@ void EXTI3_IRQHandler(void)
   //srv1.mul = SRV_MUL_UP * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3));
   //srv1.mul = 1;
   //srv2.mul = 1;
-  //rotateSrv1();
+  srv1.deg = SRV_LEG_L_DOWN;
+  rotateSrv1();
   /* USER CODE END EXTI3_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
   /* USER CODE BEGIN EXTI3_IRQn 1 */
@@ -242,7 +241,8 @@ void EXTI4_IRQHandler(void)
   //srv1.mul = SRV_MUL_DOWN * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_4));
   //srv1.mul = 0;
   //srv2.mul=0;
-  //rotateSrv1();
+  srv1.deg = SRV_LEG_L_UP;
+  rotateSrv1();
   /* USER CODE END EXTI4_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
   /* USER CODE BEGIN EXTI4_IRQn 1 */
@@ -284,8 +284,10 @@ void DMA1_Channel5_IRQHandler(void)
 void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
-  //srv2.mul = SRV_MUL_UP * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5));
+  srv2.mul = SRV_MUL_UP * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5));
   //srv2.mul = SRV_MUL_DOWN * (1 - HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6));
+  srv1.deg = SRV_LEG_L_DOWN;
+  rotateSrv2();
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
